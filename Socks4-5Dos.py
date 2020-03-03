@@ -536,7 +536,7 @@ def main():
 				ms = float(ms)
 		check_socks(ms)
 	if mode == "slow":
-		input("root@bossy:~# Press Enter To Continue")
+		input("root@bossy:~# Press Enter To Continue.")
 		th = threading.Thread(target=slow,args=(thread_num,socks_type,))
 		th.setDaemon(True)
 		th.start()
@@ -546,7 +546,7 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		input("root@bossy:~# Press Enter to Continue")
+		input("root@bossy:~# Press Enter to Continue.")
 		if mode == "post":
 			for _ in range(thread_num):
 				th = threading.Thread(target = post,args=(socks_type,))
