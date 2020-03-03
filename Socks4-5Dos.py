@@ -526,7 +526,7 @@ def main():
 	if ans == "":
 		ans = "Y"
 	if ans == "Y":
-		ms = str(input("root@bossy:~# Delay Of Socks (Seconds Default = 1 ) : "))
+		ms = str(input("root@bossy:~# Delay Of Socks ( Seconds Default = 1 ) : "))
 		if ms == "":
 			ms = int(1)
 		else :
