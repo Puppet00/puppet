@@ -522,7 +522,7 @@ def main():
 		proxies = open(out_file).readlines()
 	print ("root@bossy:~# Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( Y / n Defualt= Y ) : "))
+	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( Y / n Defualt = Y ) : "))
 	if ans == "":
 		ans = "Y"
 	if ans == "Y":
