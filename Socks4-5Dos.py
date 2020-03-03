@@ -307,7 +307,7 @@ def check_socks(ms):#root@bossy:~#
 		th.join()
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\n root@bossy:~# Checked All Proxies Total Worked : "+str(len(proxies)))
+	print("\r\nroot@bossy:~# Checked All Proxies Total Worked : "+str(len(proxies)))
 	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( Y / n Default = Y ) ")
 	if ans == "Y" or ans == "":
 		if choice == "4":
