@@ -553,9 +553,9 @@ def main():
 				th.setDaemon(True)
 				th.start()
 				#print("Threads "+str(i+1)+" created")
-		elif mode == "cc":
+		elif mode == "CC":
 			for _ in range(thread_num):
-				th = threading.Thread(target = cc,args=(socks_type,))
+				th = threading.Thread(target = CC,args=(socks_type,))
 				th.setDaemon(True)
 				th.start()
 					#print("Threads "+str(i+1)+" created")
