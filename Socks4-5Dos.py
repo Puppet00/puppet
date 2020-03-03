@@ -307,8 +307,8 @@ def check_socks(ms):#root@bossy:~#
 		th.join()
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\n> Checked All Proxies Total Worked :"+str(len(proxies)))
-	ans = input("root@bossy:~# Do U Want To Save Them In A File? ( Y/n, Default = Y )")
+	print("\r\n> root@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( Y/n, Default = Y )")
 	if ans == "Y" or ans == "":
 		if choice == "4":
 			with open("Socks4.txt", 'wb') as fp:
@@ -450,7 +450,7 @@ def main():
 		else:
 			socks_type = 5
 	if mode == "check":
-		N = str(input("root@bossy:~# Do You Need To Get Socks List? ( Y / n Default = Y ) : "))
+		N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( Y / n Default = Y ) : "))
 		if N == 'Y' or N == "" :
 			downloadsocks(choice)
 		else:
@@ -464,7 +464,7 @@ def main():
 			check_list(out_file)
 			proxies = open(out_file).readlines()
 		elif choice == "5":
-			out_file = str(input("> Socks5 Proxy File Path ( Socks5.txt ) : "))
+			out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( Socks5.txt ) : "))
 			if out_file == '':
 				out_file = str("Socks5.txt")
 			else:
@@ -498,7 +498,7 @@ def main():
 		try:
 			thread_num = int(thread_num)
 		except:
-			sys.exit("Error Thread Number")
+			sys.exit("root@bossy:~# Error Thread Number")
 	N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( Y / n Default =  Y ) : "))
 	if N == 'Y' or N == "" :
 		downloadsocks(choice)
@@ -522,7 +522,7 @@ def main():
 		proxies = open(out_file).readlines()
 	print ("root@bossy:~# Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("> Do U Need To Check The Socks List ? ( Y / n Defualt= Y ) : "))
+	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( Y / n Defualt= Y ) : "))
 	if ans == "":
 		ans = "Y"
 	if ans == "Y":
@@ -546,7 +546,7 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		input("root@bossy:~# Press Enter to continue.")
+		input("root@bossy:~# Press Enter to Continue.")
 		if mode == "post":
 			for _ in range(thread_num):
 				th = threading.Thread(target = post,args=(socks_type,))
