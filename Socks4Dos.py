@@ -38,14 +38,14 @@ def main():
 	cho = str(input(Fore.BLUE + "root@bossy:~# Get Some Fresh Socks ? ( y / n ) : " + Fore.WHITE))
 	if cho =='y':
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all') #Code By GogoZin
-		with open('socks.txt','wb') as fp:
+		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "root@bossy:~# Sucess Get Fresh Socks List !")
 	else:
 		pass
-	list = str(input(Fore.BLUE + "root@bossy:~# Socks List ( socks.txt ) : " + Fore.WHITE))
+	list = str(input(Fore.BLUE + "root@bossy:~# Socks List ( socks4.txt ) : " + Fore.WHITE))
 	if list =="":
-		list = 'socks.txt'
+		list = 'socks4.txt'
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
