@@ -85,7 +85,7 @@ class MainLoop():
         except:
             file_proxy = str(input('root@bossy:~# Proxy [ proxy.txt ] : '))
             in_file = open(file_proxy,"r")
-        num_threads = str(input('root@bossy:~# Thread [ 800 ] : '))
+        num_threads = str(input('root@bossy:~# Thread [ 2000 ] : '))
         if num_threads == "":
             num_threads = int(2000)
             print("[!] Thread = 2000")
