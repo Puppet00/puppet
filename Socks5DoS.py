@@ -45,7 +45,7 @@ def main():
 	if url =='':
 		input("[!] Error , Try Again")
 		return main()
-	port = str(input('[+] Port (Default Is 80) : '))
+	port = str(input('[+] Port ( Default 80 ) : '))
 	if port =='':
 		port = int(80)
 	thr = str(input("[+] Threads ( Default 300 ) : "))
