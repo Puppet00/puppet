@@ -7,12 +7,12 @@ from colorama import Fore
 
 os.system('clear')
 
-print(Fore.RED + "  __________  ____        ____  ____  _____ ")
-print(Fore.RED + " /_  __/ __ \/ __ \      / __ \/ __ \/ ___/ ")
-print(Fore.RED + "  / / / / / / /_/ /_____/ / / / / / /\__ \ ")
-print(Fore.RED + " / / / /_/ / _, _/_____/ /_/ / /_/ /___/ / ")
-print(Fore.RED + "/_/  \____/_/ |_|     /_____/\____//____/  ")
-print(Fore.RED + "                                       HTTP ")
+print(Fore.PURPLE + "  __________  ____        ____  ____  _____ ")
+print(Fore.CYAN + " /_  __/ __ \/ __ \      / __ \/ __ \/ ___/ ")
+print(Fore.BOLD + "  / / / / / / /_/ /_____/ / / / / / /\__ \ ")
+print(Fore.BLUE + " / / / /_/ / _, _/_____/ /_/ / /_/ /___/ / ")
+print(Fore.GREEN + "/_/  \____/_/ |_|     /_____/\____//____/  ")
+print(Fore.YELLOW + "                                       HTTP ")
 s = requests.session()
 s.proxies = {}
 s.proxies['http'] = 'socks5h://localhost:9050'
