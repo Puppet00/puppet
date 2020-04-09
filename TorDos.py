@@ -97,7 +97,7 @@ def main():
 	global s
 	url = str(input(Fore.GREEN + "[+] Target : " + Fore.WHITE))
 	thr = int(input(Fore.GREEN + "[+] Threads : " + Fore.WHITE))
-	type = str(input(Fore.GREEN + "[+] Slow Mod Or Not ( fast / slow) : " + Fore.WHITE))
+	type = str(input(Fore.GREEN + "[+] Slow Mod Or Not ( fast / slow ) : " + Fore.WHITE))
 	if type =='fast':
 		me = str(input(Fore.GREEN + "[+] Method ( post / get ) : " + Fore.WHITE))
 		if me =='post':
