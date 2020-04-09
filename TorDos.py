@@ -6,6 +6,7 @@ from threading import Thread
 from colorama import Fore
 
 os.system('clear')
+
 print(" ")
 print("\033[91m  __________  ____        ____  ____  _____ \033[0m")
 print("\033[92m /_  __/ __ \/ __ \      / __ \/ __ \/ ___/ \033[0m")
@@ -19,9 +20,6 @@ s.proxies = {}
 s.proxies['http'] = 'socks5h://localhost:9050'
 s.proxies['https'] = 'socks5h://localhost:9050'
 s.proxies['socks5'] = 'socks5h://localhost:9050'
-s.proxies['http'] = 'socks4h://localhost:9050'
-s.proxies['https'] = 'socks4h://localhost:9050'
-s.proxies['socks4'] = 'socks4h://localhost:9050'
 
 def fastpost():
 	while True:
