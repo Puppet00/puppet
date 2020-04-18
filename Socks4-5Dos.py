@@ -46,7 +46,23 @@ referers = [
 	"https://www.youtube.com/",
 	"https://www.fbi.com/",
 	"https://www.bing.com/search?q=",
-	"https://r.search.yahoo.com/",
+	"https://r.search.yahoo.com/"
+	"https://check-host.net/",
+	"https://www.cia.gov/index.html",
+	"https://www.police.gov.hk/",
+	"https://www.mjib.gov.tw/",
+	"https://www.president.gov.tw/",
+	"https://www.gov.hk",
+	"https://vk.com/profile.php?redirect=",
+	"https://www.usatoday.com/search/results?q=",
+	"https://help.baidu.com/searchResult?keywords=",
+	"https://steamcommunity.com/market/search?q=",
+	"https://www.ted.com/search?q=",
+	"https://play.google.com/store/search?q=",
+	"https://validator.w3.org/nu/?doc=",
+	"http://www.babalweb.net/ar/open.php?url=",
+	"http://translate.google.com/translate?u=",
+	"http://check-host.net/check-http?host=",
 ]
 data = ""
 cookies = ""
