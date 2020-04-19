@@ -63,6 +63,20 @@ referers = [
 	"http://www.babalweb.net/ar/open.php?url=",
 	"http://translate.google.com/translate?u=",
 	"http://check-host.net/check-http?host=",
+        "https://duckduckgo.com/?q=",
+        "http://www.ask.com/web?q=",
+        "https://www.yandex.com/yandsearch?text=",
+        "http://search.aol.com/aol/search?q=",
+        "https://www.om.nl/vaste-onderdelen/zoeken/?zoeken_term=",
+        "http://eu.battle.net/wow/en/search?q=",
+        "https://drive.google.com/viewerng/viewer?url=",
+        "http://www.topsiteminecraft.com/site/pinterest.com/search?q=",
+        "http://jigsaw.w3.org/css-validator/validator?uri=",
+        "http://engadget.search.aol.com/search?q=",
+        "https://add.my.yahoo.com/rss?url=",
+        "http://filehippo.com/search?q=",
+        "http://host-tracker.com/check_page/?furl=",
+
 ]
 data = ""
 cookies = ""
