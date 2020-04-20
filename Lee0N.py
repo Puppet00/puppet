@@ -503,24 +503,24 @@ def check_socks(ms):
 		th.join()
 		sys.stdout.write("[+] Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
-	print("\r\n> Checked all proxies, Total Worked:"+str(len(proxies)))
-	ans = input("> Do u want to save them in a file? (y/n, default=y)")
+	print("\r\n[+] Checked All Proxies Total Worked : "+str(len(proxies)))
+	ans = input("[+] Do U Want To Save Them İn A File ? ( y / n Default = y ) ")
 	if ans == "y" or ans == "":
 		if choice == "4":
 			with open("socks4.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("> They are saved in socks4.txt.")
+			print("[+] They Are Saved İn Socks4.txt.")
 		elif choice == "5":
 			with open("socks5.txt", 'wb') as fp:
 				for lines in list(proxies):
 					fp.write(bytes(lines,encoding='utf8'))
 			fp.close()
-			print("> They are saved in socks5.txt.")
+			print("[+] They Are Saved İn Socks5.txt.")
 			
 def check_list(socks_file):
-	print("> Checking list")
+	print("[+] Checking List")
 	temp = open(socks_file).readlines()
 	temp_list = []
 	for i in temp:
@@ -567,7 +567,7 @@ def downloadsocks(choice):
 				out_file.close()
 		except:
 			pass
-		print("> Have already downloaded socks4 list as socks4.txt")
+		print("[+] Have Already Downloaded Socks4 List As Socks4.txt")
 	if choice == "5":
 		f = open("socks5.txt",'wb')
 		try:
@@ -581,7 +581,7 @@ def downloadsocks(choice):
 			f.close()
 		except:
 			f.close()
-		print("> Have already downloaded socks5 list as socks5.txt")
+		print("[+] Have Already Downloaded Socks5 List As Socks5.txt")
 
 def main():
 	global ip
@@ -597,28 +597,28 @@ def main():
 	ip = ""
 	port = ""
 	mode = ""
-	print("> Mode: [cc/post/head/slow/check]")
+	print("[+] Mode : [cc/post/head/slow/check]")
 	while mode == "" :
-		mode = str(input("> Choose Your Mode (default=cc) :")).strip()
+		mode = str(input("[+] Choose Your Mode ( Default=cc ) : ")).strip()
 		if mode == "":
 			mode = "cc"
 		elif(mode != "cc") and (mode != "post")and (mode != "head")and(mode != "slow" )and(mode !="check"):
-			print("> Plese enter correct mode")
+			print("[+] Plese Enter Correct Mode")
 			mode = ""
 			continue
-	ip = str(input("> Host/Ip:"))
+	ip = str(input("[+] HOST / IP : "))
 	if ip == "":
-		print("> Plese enter correct host or ip")
+		print("[+] Plese Enter Correct Host Or IP")
 		sys.exit(1)
 	if mode == "slow" or mode == "check":
 		pass
 	else:
-		url = str(input("> Page you want to attack(default=/):"))
+		url = str(input("[+] Page You Want To Attack ( Default=/ ) : "))
 		if url == "":
 			url2 = "/"
 		else:
 			url2 = url
-	port = str(input("> Port(Https is 443):"))
+	port = str(input("[+] Port ( HTTPS is 443 ) : "))
 	if port == '':
 		port = int(80)
 		print("> Default choose port 80\r\n> Port 80 was chosen")
@@ -744,7 +744,7 @@ def main():
 			multiple = int(100)
 		else:
 			multiple = int(multiple)
-		brute = str(input("> Enable boost mode[beta](y/n, default=n):"))
+		brute = str(input("[+] Enable Boost Mode ( y / n Default=n ) : "))
 		if brute == "":
 			brute = False
 		elif brute == "y":
