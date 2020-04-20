@@ -9,7 +9,6 @@ import threading
 import sys
 import ssl
 import datetime
-import os
 
 print ('''
 
