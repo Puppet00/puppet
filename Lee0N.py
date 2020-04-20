@@ -11,15 +11,28 @@ import ssl
 import datetime
 import os
 
-os.system("pip install requests")
-os.system("pip2 install requests")
-os.system("pip install PySocks")
-os.system("pip2 install PySocks")
-os.system("pkg install figlet")
-os.system("clear")
-os.system("Lee0N")
+print ("
 
-print (" ")
+   ***
+  ** **
+ **   **
+ **   **         ****
+ **   **       **   ****
+ **  **       *   **   **
+  **  *      *  **  ***  **
+   **  *    *  **     **  *
+    ** **  ** **        **
+    **   **  **
+   *           *
+  *             *
+ *    0     0    *
+ *   /   @   \   *
+ *   \__/ \__/   *
+   *     W     *
+     **     **
+       ***** Lee0N
+
+------------------------------- ")
 
 useragents = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
