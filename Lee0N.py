@@ -541,11 +541,6 @@ def downloadsocks(choice):
 		except:
 			pass
 		try:
-			r = requests.get("https://www.proxydocker.com/en/proxylist/search?port=All&type=sock4&anonymity=All&country=All&city=All&state=All&need=All")
-			f.write(r.content)
-		except:
-			pass
-		try:
 			r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks4")
 			f.write(r.content)
 			f.close()
