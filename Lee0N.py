@@ -536,7 +536,7 @@ def downloadsocks(choice):
 	if choice == "4":
 		f = open("socks4.txt",'wb')
 		try:
-			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=")
+			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&timeout=1000")
 			f.write(r.content)
 		except:
 			pass
@@ -546,7 +546,7 @@ def downloadsocks(choice):
 			f.close()
 		except:
 			f.close()
-		try:#credit to All3xJ
+		try:
 			import urllib.request
 			req = urllib.request.Request("https://www.socks-proxy.net/")
 			req.add_header("User-Agent", getuseragent)
