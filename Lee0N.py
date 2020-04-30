@@ -31,7 +31,7 @@ print ('''
      **     **
        ***** Lee0N
 
-------------------------------------- ''')
+----------------------------------- ''')
 
 useragents = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
@@ -536,12 +536,12 @@ def downloadsocks(choice):
 	if choice == "4":
 		f = open("socks4.txt",'wb')
 		try:
-			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=300")
+			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
 			f.write(r.content)
 		except:
 			pass
 		try:
-			r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks4")
+			r = requests.get("https://www.proxy-list.download/api/v1/get?type=")
 			f.write(r.content)
 			f.close()
 		except:
