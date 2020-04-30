@@ -536,7 +536,7 @@ def downloadsocks(choice):
 	if choice == "4":
 		f = open("socks4.txt",'wb')
 		try:
-			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
+			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=2500")
 			f.write(r.content)
 		except:
 			pass
@@ -571,7 +571,7 @@ def downloadsocks(choice):
 	if choice == "5":
 		f = open("socks5.txt",'wb')
 		try:
-			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
+			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&timeout=2500")
 			f.write(r.content)
 		except:
 			pass
