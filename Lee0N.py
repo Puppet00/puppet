@@ -546,7 +546,7 @@ def downloadsocks(choice):
 			f.close()
 		except:
 			f.close()
-		try:
+		try:#
 			import urllib.request
 			req = urllib.request.Request("https://www.socks-proxy.net/")
 			req.add_header("User-Agent", getuseragent)
