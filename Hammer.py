@@ -30,7 +30,7 @@ def usage():
  -h : help
  -s : target server ip
  -p : target port (default 80)
- -t : turbo (default 150) 
+ -t : turbo (default 400) 
  -B : use only bots (default false)
  -T : use only threads (default false)
 
