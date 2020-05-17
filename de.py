@@ -1,6 +1,6 @@
 import urllib.request
-req = urllib.request.Request("http://free-proxy-list.net/",
-"https://www.socks-proxy.net/",)
+req = urllib.request.Request("http://free-proxy-list.net/")
+req = urllib.request.Request("https://www.socks-proxy.net/")
 req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1")
 sourcecode = urllib.request.urlopen(req)
 part = str(sourcecode.read())
