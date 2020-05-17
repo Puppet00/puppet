@@ -33,7 +33,8 @@ def file_writer(data):
     
     opnr.close()
     
-def parsetd(url="https://us-proxy.org/", "https://www.socks-proxy.net/):
+def parsetd(url="https://us-proxy.org/",
+                "https://www.socks-proxy.net/"):
     req = urllib.request.Request(url, headers={"User-Agent": user_agent()})
     data = urllib.request.urlopen(req).read().decode()
     soup = BeautifulSoup(data, features="html.parser")
