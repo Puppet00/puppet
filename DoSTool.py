@@ -6,6 +6,8 @@ import threading
 import colorama
 from colorama import Fore
 
+os.system("pip install colorama")
+os.system("pip install cfscrape")
 os.system("cls || clear")
 
 
