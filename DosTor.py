@@ -1,7 +1,4 @@
 
-
-# Requirements: Python3.6, PySocks
-
 # IMPORT ALL MODULE NEEDED
 import socket
 import random
