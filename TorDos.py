@@ -89,7 +89,7 @@ def slowget():
 			s.get(url)
 			time.sleep(int(ts))
 		except:
-			print(Fore.RED + "[!]Can't Connect To " + Fore.WHITE + str(url) + Fore.WHITE + " ")
+			print(Fore.RED + "[!] Can't Connect To " + Fore.WHITE + str(url) + Fore.WHITE + " ")
 			print(Fore.RED + "[!] Get Host Failed " + Fore.WHITE + "Socks Or Website Is Down")
 			s.close()
 def main():
