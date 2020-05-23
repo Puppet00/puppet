@@ -186,6 +186,7 @@ def runTor(url,port,thread,toraddr,torport,tunda,metode):
 		
 args = sys.argv
 
+print(" ")
 print ('''
 
 
@@ -206,11 +207,12 @@ print ('''
  *   \__/ \__/   *
    *     W     *
      **     **
-       ***** 
+       ***** StiFFDoS
 
 ------------------------+
 I Suggest Strength 2000 |
 ------------------------+ ''')
+print(" ")
 
 
 # MANAGE ARGUMENTS
