@@ -189,7 +189,6 @@ args = sys.argv
 print(" ")
 print ('''
 
-
    ***
   ** **
  **   **
@@ -217,7 +216,7 @@ print(" ")
 
 # MANAGE ARGUMENTS
 parser = argparse.ArgumentParser(description="Ddos with Python3, Tor Network Supported")
-parser.add_argument ("-d","--destination", help= "Target IP Address", type=str, dest='target', required=True )
+parser.add_argument ("-s","--target", help= "Target IP Address", type=str, dest='target', required=True )
 parser.add_argument ("-p","--port", help= "Port Of Target", type=str, dest='port', required=False,default=80)
 parser.add_argument ("-m","--method", help= "HTTP Method", type=str, dest='method', required=False ,default="POST")
 parser.add_argument ("-t","--thread", help= "Threading", type=int, dest='thread', required=False ,default=50)
