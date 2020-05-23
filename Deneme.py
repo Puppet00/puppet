@@ -94,9 +94,9 @@ def dosBot(url,port,i,tunda,metode):
 		bps = humansize(sys.getsizeof(resdata*4))
 		sizeData = sys.getsizeof(resdata)
 		if bps == 0:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{bps} B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE} : {len(working)} | ✓ {humansize(size)} tx:{bps} B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		else:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{bps} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.WHITE}{url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE} : {len(working)} | ✓ {humansize(size)} tx:{bps} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		time.sleep(0.1)
 		sys.stdout.flush()
 		
@@ -137,9 +137,9 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 		bps = sys.getsizeof(resdata*4)
 		sizeData = sys.getsizeof(createData(url,metode))
 		if bps == 0:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{humansize(bps)}   B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE} : {len(working)} | ✓ {humansize(size)} tx:{humansize(bps)}   B | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		else:
-			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE}:{len(working)} | ✓ {humansize(size)} tx:{humansize(bps)} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
+			print(f"{color.WHITE}[{color.GREEN}{anime}{color.WHITE}] {color.LIGHTGREEN}Sending --> {color.PURPLE}Tor{color.GREEN} -->{color.WHITE} {url}:{port} | {color.RED}Failed{color.WHITE} : {len(failed)} | {color.GREEN}Success{color.WHITE} : {len(working)} | ✓ {humansize(size)} tx:{humansize(bps)} | {str(timedelta(seconds=int(time.time() - start)))}",end="\r")
 		sys.stdout.flush()
 		time.sleep(0.1)
 		#sizeData = sys.getsizeof(createData(url,metode))
@@ -188,6 +188,32 @@ def runTor(url,port,thread,toraddr,torport,tunda,metode):
 		moduleLoaded = True
 		
 args = sys.argv
+
+print ('''
+
+
+   ***
+  ** **
+ **   **
+ **   **         ****
+ **   **       **   ****
+ **  **       *   **   **
+  **  *      *  **  ***  **
+   **  *    *  **     **  *
+    ** **  ** **        **
+    **   **  **
+   *           *
+  *             *
+ *    0     0    *
+ *   /   @   \   *
+ *   \__/ \__/   *
+   *     W     *
+     **     **
+       ***** 
+
+------------------------+
+I Suggest Strength 2000 |
+------------------------+ ''')
 
 
 # MANAGE ARGUMENTS
