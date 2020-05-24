@@ -17,7 +17,7 @@ def opth():
                 x.start()
                 print("Threads " + str(a+1) + " Created ")
         print("The Attack Thread İs Loading.")
-        time.sleep(100)
+        time.sleep(0.9)
         input("Press Enter To Start The Attack")
         global oo
         oo = True
@@ -40,9 +40,9 @@ def main():
                                 print("[✓] HTTPS Proxy List!")
 
 
-        list = str(input("Proxy Filename [proxy.txt]: " ))
+        list = str(input("[+] Proxy Filename [proxy.txt]: " ))
         pprr = open(list).readlines()
-        print("Get An Agent : "  + "%d" %len(pprr))
+        print("[+] Total Proxy : "  + "%d" %len(pprr))
         thr = int(input("[+] Threads [100-1000 default 500] : " ))
         per = int(input("[+] Power [1-100 default 70] : " ))
         opth()
