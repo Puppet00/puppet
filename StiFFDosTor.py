@@ -301,10 +301,10 @@ if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 	toraddr, torport = "127.0.0.1", 9050
 	toraddr, torport= tornet.split(":")
 	print("[+] Target : "+str(target))
-	print("[+] Port : "+str(port))
+	print("[+] Port   : "+str(port))
 	print("[+] Method : "+str(method))
 	print("[+] Thread : "+str(thread))
-	print(f"[+] Tor : {toraddr}:{torport} ( Socks5 )")
+	print(f"[+] Tor   : {toraddr}:{torport} ( Socks5 )")
 	tidur = time.sleep
 	print("")
 	for i in range(5):
@@ -326,10 +326,10 @@ if tornet or "--onion" in sys.argv or "-o" in sys.argv:
 
 if tornet == None:
 	print("[+] Target : "+str(target))
-	print("[+] Port : "+str(port))
+	print("[+] Port   : "+str(port))
 	print("[+] Thread : "+str(thread))
 	print("[+] Method : "+str(method))
-	print(f"[+] Tor : Not Actived")
+	print(f"[+] Tor   : Not Actived")
 	print("")
 	tidur = time.sleep
 	for i in range(5):
