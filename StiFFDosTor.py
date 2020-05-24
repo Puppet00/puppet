@@ -17,9 +17,6 @@ try:
 except ModuleNotFoundError:
 	print("[!] PySocks Not Installed, Tor Option Not Available")
 	havetor = False
-
-
-
  
 def humansize(num, suffix='B'):
     for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
@@ -45,8 +42,6 @@ class color:
 	LIGHTPURPLE='\033[1;35m'
 	LIGHTCYAN='\033[1;36m'
 	WHITE='\033[1;37m'
-
-
 
 sig = b64decode
 def uagent():
@@ -185,7 +180,6 @@ def dosBot(url,port,i,tunda,metode):
 			failed.append(i)
 			size = size + sizeData*4
 		
-
 
 def torBot(url,port,i,torrip,torport,tunda,metode):
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(torrip), int(torport), True)
