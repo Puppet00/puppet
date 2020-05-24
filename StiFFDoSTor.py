@@ -3,6 +3,7 @@ import random
 import time
 import threading
 import sys
+import cfscrape
 import itertools
 import argparse
 import os
