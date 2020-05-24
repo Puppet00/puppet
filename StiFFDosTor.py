@@ -68,6 +68,9 @@ def uagent():
 	add("Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3 (.NET CLR 3.5.30729)")
 	add("Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.1) Gecko/20090718 Firefox/3.5.1")	
 	return random.choice(userAgent)
+
+strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
+
 import signal
 
 def keyboardInterruptHandler(signal, frame):
@@ -280,6 +283,7 @@ method = args.method.upper()
 
 if method not in ["GET","HEAD","POST","PUT","DELETE","CONNECT","OPTIONS","TRACE","PATH"]:
 	print(f"{color.WHITE}[{color.RED}!{color.WHITE}] "+method+" Is Not HTTP Method")
+        rand_url = random.choice(strings)
 	sys.exit(1)
 if havetor == True:
 	tornet = args.tor
