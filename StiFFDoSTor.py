@@ -223,6 +223,7 @@ if havetor == True:
 	parser.add_argument ("-o","--onion", help= "Attack Over Tor Network (Socks5), 127.0.0.1:9050", metavar="<host[:port]>",type=str, dest='tor', required=False)
 args = parser.parse_args()
 target = args.target.replace("https://","").replace("http://","")
+s = cfscrape.create_scraper()
 thread = args.thread
 port = args.port
 sleep = 0.1
