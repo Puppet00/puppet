@@ -263,17 +263,19 @@ print ('''
      **     **
        ***** StiFFDoS
 
-+-------------------------+
-| I Suggest Strength 2000 |
-+-------------------------+ ''')
-
-
++--------------------------+
+| I Suggest Strength 2000  |
++------------------------- +
+| [+] Port Default [80]    |
+| [+] Method Default [GET] |
+| [+] Thread Default [400] |
++--------------------------+ ''')
 
 parser = argparse.ArgumentParser(description="Python Tor Network Supported Ddos")
 parser.add_argument ("-s","--target", help= "Target IP Address", type=str, dest='target', required=True )
 parser.add_argument ("-p","--port", help= "Port Of Target", type=str, dest='port', required=False,default=80)
-parser.add_argument ("-m","--method", help= "HTTP Method", type=str, dest='method', required=False ,default="POST")
-parser.add_argument ("-t","--thread", help= "Threading", type=int, dest='thread', required=False ,default=50)
+parser.add_argument ("-m","--method", help= "HTTP Method", type=str, dest='method', required=False ,default="GET")
+parser.add_argument ("-t","--thread", help= "Threading", type=int, dest='thread', required=False ,default=400)
 print(" ")
 
 if havetor == True:
