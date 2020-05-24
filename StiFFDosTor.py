@@ -297,8 +297,8 @@ sleep = 0.1
 method = args.method.upper()
 
 if method not in ["GET","HEAD","POST","PUT","DELETE","CONNECT","OPTIONS","TRACE","PATH"]:
-	print(f"{color.WHITE}[{color.RED}!{color.WHITE}] "+method+" Is Not HTTP Method")
         accept = random.choice(acceptall)
+	print(f"{color.WHITE}[{color.RED}!{color.WHITE}] "+method+" Is Not HTTP Method")
 	sys.exit(1)
 if havetor == True:
 	tornet = args.tor
