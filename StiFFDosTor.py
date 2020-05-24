@@ -81,6 +81,27 @@ acceptall = [
         "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
         "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",]
 
+referers = ['http://help.baidu.com/searchResult?keywords=',
+'http://www.bing.com/search?q=',
+'https://www.yandex.com/yandsearch?text=',
+'https://duckduckgo.com/?q=',
+'http://www.ask.com/web?q=',
+'http://search.aol.com/aol/search?q=',
+'https://www.om.nl/vaste-onderdelen/zoeken/?zoeken_term=',
+'https://drive.google.com/viewerng/viewer?url=',
+'http://validator.w3.org/feed/check.cgi?url=',
+'http://host-tracker.com/check_page/?furl=',
+'http://www.online-translator.com/url/translation.aspx?direction=er&sourceURL=',
+'http://jigsaw.w3.org/css-validator/validator?uri=',
+'https://add.my.yahoo.com/rss?url=',
+'http://www.google.com/?q=',
+'http://www.usatoday.com/search/results?q=',
+'http://engadget.search.aol.com/search?q=',
+'https://steamcommunity.com/market/search?q=',
+'http://filehippo.com/search?q=',
+'http://www.topsiteminecraft.com/site/pinterest.com/search?q=',
+'http://eu.battle.net/wow/en/search?q=']
+
 import signal
 
 def keyboardInterruptHandler(signal, frame):
