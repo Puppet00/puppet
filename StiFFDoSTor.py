@@ -159,7 +159,7 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 			print(f"{color.WHITE}[{color.RED}-{color.WHITE}] {color.RED}Keyboard Interrupt!{color.WHITE} Canceling\n"+" "*17)
 			sys.exit(1)
 		except socket.error:
-			print(f"{color.WHITE}[{color.RED}-{color.WHITE}] {color.RED}Cannot Be Reached! cause: Maybe Target Down, Can't Connect To Tor, No Connection, {color.WHITE}"+"       "*4)
+			print(f"{color.WHITE}[{color.RED}-{color.WHITE}] {color.RED}No Connection ! Server May Be Down {color.WHITE}"+"       "*4)
 			failed.append(i)
 			size = size + sizeData*4
 			
