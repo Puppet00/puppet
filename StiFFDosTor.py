@@ -232,20 +232,16 @@ def torBot(url,port,i,torrip,torport,tunda,metode):
 			
 	
 
-
-
-
-
 def run(url,port,thread,tunda,metode):
 	for i in range(thread):
-		print(f"[Info] Starting All Thread                                    ")
+		print(f"[Info] Starting All Thread")
 		t = threading.Thread(target=dosBot,args=(url,port,i,tunda,metode))
 		t.start()
 
 
 def runTor(url,port,thread,toraddr,torport,tunda,metode):
 	for i in range(thread):
-		print(f"[Info] Starting All Thread                                    ")
+		print(f"[Info] Starting All Thread")
 		t = threading.Thread(target=torBot,args=(url,port,i,toraddr,torport,tunda,metode))
 		t.start()
 		moduleLoaded = True
@@ -295,9 +291,8 @@ thread = args.thread
 port = args.port
 sleep = 0.1
 method = args.method.upper()
-
+accept = random.choice(acceptall)
 if method not in ["GET","HEAD","POST","PUT","DELETE","CONNECT","OPTIONS","TRACE","PATH"]:
-        accept = random.choice(acceptall)
 	print(f"{color.WHITE}[{color.RED}!{color.WHITE}] "+method+" Is Not HTTP Method")
 	sys.exit(1)
 if havetor == True:
