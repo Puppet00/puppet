@@ -171,6 +171,10 @@ def dosBot(url,port,i,tunda,metode):
 
 def torBot(url,port,i,torrip,torport,tunda,metode):
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(torrip), int(torport), True)
+        s.proxies = {}
+        s.proxies['http'] = 'socks5h://localhost:9050'
+        s.proxies['https'] = 'socks5h://localhost:9050'
+        s.proxies['socks5'] = 'socks5h://localhost:9050'
 
 	global ts 
 	ts = 0
