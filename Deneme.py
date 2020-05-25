@@ -3,10 +3,15 @@ import time
 import requests
 import datetime
 import sys
+
 from lib.color import color
+
 from lib.tor import Tor
+
 from random import choice
+
 from subprocess import Popen, PIPE
+
 from color import color
 
 class color:
