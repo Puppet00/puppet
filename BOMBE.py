@@ -12,6 +12,30 @@ os.system('pip install colorama') #
 
 colors=['\033[1;31m','\033[1;32m','\033[1;33m','\033[1;34m','\033[1;35m','\033[1;36m']
 
+print('''
+ ........................................                              
+.dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+/MM`      .+sys- -ss:  :ss- `+sys/      `MM/                            
+/MM`     `NM/-:` oMNN``NmMo hMs-:-      `MM/                            
+/MM`      +dNds. yM+MosN+My :dNmy:      `MM/                            
+/MM`      ` `+Mm dM`hNM+-Mh `  :MM`     `MM/                            
+/MM`     `dmmmh- dd .dy .mh ymmmh/      `MM/                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+/MM`                                    `MM/                            
+:MMo+++++++++-     -++++++++++++++++++++oMM:                            
+ /yhhhhhhhhmMm   /dMNhhhhhhhhhhhhhhhhhhhhy/                             
+          sMm`oNMd/                                                    
+          sMMMMh-                                                      
+          oMNs.                                                        
+           .` ''')
+
+
 _phone = input('[+] Enter Phone Number (+) : ')
 countT = input('[+] Enter Threading : ')
 _name = ''
