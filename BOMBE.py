@@ -243,7 +243,7 @@ def infinity():
 
 		try:
 			requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={"phone": "+" + _phone, "api": 2, "email": "email","x-email": "x-email"})
-			print('[✔] Successful'')
+			print('[✔] Successful')
 		except:
 			print('[✖] Failed !')
 
