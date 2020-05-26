@@ -28,6 +28,7 @@ numplus = '+' + num
 print(random.choice(colors))
 
 def infinity():
+
 while True:
 #1
     try:
