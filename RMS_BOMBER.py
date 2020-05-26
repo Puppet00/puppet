@@ -31,9 +31,7 @@ def infinity():
 		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] 
 		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]
 		_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-
-#1
-    try:
+                try:
         print(requests.post('https://youla.ru/web-api/auth/request_code', json = {"phone":numplus}))
     except:
         print("Failed.")
