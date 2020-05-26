@@ -26,9 +26,6 @@ _phone9 = _phone[1:]
 num = _phone
 numplus = '+' + num
 print(random.choice(colors))
-
-def infinity():
-
 while True:
 #1
     try:
