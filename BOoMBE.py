@@ -530,7 +530,6 @@ def infinity():
 		except:
 			print('[✖] Failed !')
 
-		try:
 			
                 try:
                         requests.post('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru', data={'phone': _phone}))
