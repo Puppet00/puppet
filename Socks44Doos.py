@@ -7,7 +7,7 @@ import threading
 from colorama import Fore
 
 print(Fore.RED)
-print ("
+print ('''
    ***
   ** **
  **   **
@@ -26,7 +26,7 @@ print ("
    *     W     *
      **     **
        ***** Lee0N
------------------------------------- ")
+------------------------------------ ''')
 print (" ")
 print(Style.RESET_ALL)
 
