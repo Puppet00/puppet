@@ -6,7 +6,7 @@ import sys
 import threading
 from colorama import Fore
 
-print ('''\033[1;38m
+print (''' \033[1;38m
    ***
   ** **
  **   **
