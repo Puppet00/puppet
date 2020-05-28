@@ -167,19 +167,15 @@ def main():
 	global on
 	url = str(input(Fore.BLUE + "[+] URL (http://expample.com) : " + Fore.WHITE))
 	thr = int(input(Fore.BLUE + "[+] Threads : " + Fore.WHITE))
-	if thr =='':
-		thr = int(300)
-	else:
-		thr = int(thr)
 	cho = str(input(Fore.BLUE + "[+] Do You Want To Download Socks4 ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=2000&country=all') #Code By GogoZin
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=950&country=all')
 		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.GREEN + "[+] Sucess Get Fresh Socks4 List !")
 	else:
 		pass
-	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt): " + Fore.WHITE))
+	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt) : " + Fore.WHITE))
 	if list =="":
 		list = 'socks4.txt'
 	else:
