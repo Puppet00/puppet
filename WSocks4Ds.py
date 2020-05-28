@@ -187,7 +187,7 @@ def main():
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
-	print("[+] Socks Count : %d  %len(pprr))
+	print("[+] Socks Count : " + "%d " %len(pprr))
 	pwr = int(input("[+] CC.Power (1-100) : "))
 	opth()
 
