@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import requests
 import socket
 import socks
@@ -9,7 +10,10 @@ import threading
 import sys
 import ssl
 import datetime
-
+###################################
+os.system('pip install requests') #
+os.system('pip install PySocks')  #
+###################################
 print ('''
 
    ***
