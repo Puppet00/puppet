@@ -172,7 +172,7 @@ def main():
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=950&country=all')
 		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
-			print(Fore.GREEN + "[+] Sucess Get Fresh Socks4 List !")
+			print(Fore.BLUE + "[+] Sucess Get Fresh Socks4 List !")
 	else:
 		pass
 	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt) : " + Fore.WHITE))
