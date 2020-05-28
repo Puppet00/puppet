@@ -149,7 +149,7 @@ def opth():
 	for i in range(thr):
 		x = threading.Thread(target=atk)
 		x.start()
-		print("Threads " + str(i+1) + " Created")
+		print("[✓] Threads " + str(i+1) + " Created")
 	print("[+] Wait A Few Seconds For Threads Ready To Attack")
 	time.sleep(3)
 	input("[+] Press Enter To Launch Attack !")
