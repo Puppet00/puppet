@@ -10,10 +10,11 @@ import threading
 import sys
 import ssl
 import datetime
-###################################
-os.system('pip install requests') #
-os.system('pip install PySocks')  #
-###################################
+######################################
+os.system('pip install requests -y') #
+os.system('pip install PySocks -y')  #
+os.system('clear')                   #
+######################################
 print ('''
 
    ***
