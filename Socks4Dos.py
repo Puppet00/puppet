@@ -21,7 +21,7 @@ print ('''
            ASPARTIM
 ------------------------------- ''')
 
-strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
+string = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
 
 userag = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
@@ -191,7 +191,7 @@ def main():
 def atk():
 	pprr = open(list).readlines()
 	proxy = random.choice(pprr).strip().split(":")
-        rand_url = random.choice(strings)
+        rand_url = random.choice(string)
 	useragent = "User-Agent: " + random.choice(userag) + "\r\n"                                               
 	accept = random.choice(acpt)
 	rqs = useragent + accept + "\r\n"
