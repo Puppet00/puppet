@@ -5,7 +5,7 @@ import socket
 import sys
 import threading
 
-print ('''
+print (''' \033[91m
       .---.        .-----------
      /     \  __  /    ------
     / /     \(..)/    -----
@@ -17,7 +17,7 @@ print ('''
            '//||\\`
              ''``
            ASPARTIM
-------------------------------- ''')
+------------------------------- \033[0m ''')
 print("Socks4 Dos Attack")
 print(" ")
 
