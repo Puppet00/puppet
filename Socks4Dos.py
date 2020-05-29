@@ -169,7 +169,7 @@ def main():
 	thr = int(input(Fore.BLUE + "[+] Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "[+] Do You Want To Download Socks4 ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=950&country=all')
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=500&country=all')
 		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.BLUE + "[+] Sucess Get Fresh Socks4 List !")
