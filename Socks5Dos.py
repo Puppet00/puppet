@@ -200,7 +200,7 @@ def main():
 		lst = 'socks5.txt'
 	lsts = open(lst).readlines()
 	print('[+] Total Socks5 : %d'%len(lsts))
-	time.sleep(0.9)
+	time.sleep(3)
 	opth()
 	
 
@@ -210,7 +210,7 @@ def atk():
 	proxy = random.choice(lsts).strip().split(":")
 	accept = random.choice(acpt)
 	socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]))
-	time.sleep(0.9)
+	time.sleep(3)
 	while True:
 		try:
 			s = socks.socksocket()
