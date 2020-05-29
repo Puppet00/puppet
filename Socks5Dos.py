@@ -8,7 +8,7 @@ import time
 
 
 
-print("""
+print (''' \033[91m
       .---.        .-----------
      /     \  __  /    ------
     / /     \(..)/    -----
@@ -20,8 +20,8 @@ print("""
            '//||\\`
              ''``
            ASPARTIM
-------------------------------- """)
-print("Socks5 Dos Attack")
+------------------------------- \033[0m ''')
+print("\033[94mSocks5 Dos Attack\033[0m")
 print(" ")
 
 useragent = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
