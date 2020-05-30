@@ -189,7 +189,7 @@ def proxymode():
 def choiceproxysocks():
 	global choice3
 	choice3 = input("Type To Enable Proxy Mode [0] : ")
-	if choice3 == "0":
+	if choice3 == "y":
 		choicedownproxy()
 	elif choice3 == "1":
 		choicedownsocks()
@@ -304,7 +304,7 @@ def loop():
 	x = 0
 	go = threading.Event()
 	if choice2 == "y": 
-		if choice3 == "0":
+		if choice3 == "y":
 			for x in range(threads):
 				RequestProxyHTTP(x+1).start() 
 				print ("Thread " + str(x) + " Ready")
