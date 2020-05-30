@@ -142,7 +142,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 	choice1 = input("\nDo You Want To Attack Http Proxy ? : ")
 
 	if choice1 == "1":
-		ip_file = input("Insert txt file of ips > ")
+		ip_file = input(" ")
 		ips = open(ip_file).readlines()
 
 
@@ -180,7 +180,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 def proxymode():
 	global choice2
-	choice2 = input("Do you want proxy/socks mode? Answer 'y' to enable it: ")
+	choice2 = input("Do You Want Proxy [y] : ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
@@ -188,17 +188,17 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("Type '0' to enable proxymode or type '1' to enable socksmode: ")
+	choice3 = input("Type To Enable Proxy Mode [0] : ")
 	if choice3 == "0":
 		choicedownproxy()
 	elif choice3 == "1":
 		choicedownsocks()
 	else:
-		print ("You mistyped, try again.")
+		print ("Try again.")
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Do you want to download a new list of proxy? Answer 'y' to do it: ")
+	choice4 = input("Answer To Do It [y] : ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -206,7 +206,7 @@ def choicedownproxy():
 		proxylist()
 
 def choicedownsocks():
-	choice4 = input("Do you want to download a new list of socks? Answer 'y' to do it: ")
+	choice4 = input(" ")
 	if choice4 == "y":
 		urlproxy = "https://www.socks-proxy.net/"
 		proxyget(urlproxy)
@@ -233,14 +233,14 @@ def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 		out_file.write("")
 		out_file.write(proxies)
 		out_file.close()
-		print ("Proxies downloaded successfully.")
+		print ("Proxy Downloaded Successfully")
 	except: # se succede qualche casino
-		print ("\nERROR!\n")
+		print ("\nProxy Download Failed !\n")
 	proxylist() # se va tutto liscio allora prosegue eseguendo la funzione proxylist()
 
 def proxylist():
 	global proxies
-	out_file = str(input("Enter the proxylist filename/path (proxy.txt): "))
+	out_file = str(input("Do You Want To Download Proxy (Default=proxy.txt) : "))
 	if out_file == "":
 		out_file = "proxy.txt"
 	proxies = open(out_file).readlines()
@@ -249,23 +249,23 @@ def proxylist():
 def numthreads():
 	global threads
 	try:
-		threads = int(input("Insert number of threads (800): "))
+		threads = int(input("Threads (Default=300) : "))
 	except ValueError:
-		threads = 800
-		print ("800 threads selected.\n")
+		threads = 300
+		print ("300 Threads Selected\n")
 	multiplication()
 
 def multiplication():
 	global multiple
 	try:
-		multiple = int(input("Insert a number of multiplication for the attack [(1-5=normal)(50=powerful)(100 or more=bomb)]: "))
+		multiple = int(input("Power (1-100) : "))
 	except ValueError:
-		print("You mistyped, try again.\n")
+		print("Try Again\n")
 		multiplication()
 	begin()
 
 def begin():
-	choice6 = input("Press 'Enter' to start attack: ")
+	choice6 = input("Press 'Enter' To Launch Attack ! : ")
 	if choice6 == "":
 		loop()
 	elif choice6 == "Enter": #lool
