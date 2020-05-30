@@ -196,7 +196,7 @@ def choiceproxysocks():
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Answer To Do İt [y] : ")
+	choice4 = input("Answer To Do It [y] : ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -264,7 +264,7 @@ def multiplication():
 	begin()
 
 def begin():
-	choice6 = input("Press Enter To Launch Attack !")
+	choice6 = input("Press 'Enter' To Launch Attack !")
 	if choice6 == "":
 		loop()
 	elif choice6 == "Enter": #lool
