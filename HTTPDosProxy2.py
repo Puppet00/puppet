@@ -259,11 +259,7 @@ def numthreads():
 def multiplication():
 	global multiple
 	try:
-		multiple = int(input("Power (1-100 Default=70) : "))
-	if multiple =='':
-		multiple = int(70)
-	else:
-		multiple = int(multiple)
+		multiple = int(input("Power (1-100) : "))
 	except ValueError:
 		print("Try Again\n")
 		multiplication()
