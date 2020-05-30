@@ -139,7 +139,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 	global choice1
 	global ips
 
-	choice1 = input("\nDo you want one target [0] or more[1] > ")
+	choice1 = input("\nDo You Want To Attack Http Proxy ? : ")
 
 	if choice1 == "1":
 		ip_file = input("Insert txt file of ips > ")
@@ -148,10 +148,10 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 
 	else:
-		url = input("\nInsert URL/IP: ").strip()
+		url = input("\nTarget / IP (Ex. http://example.com) : ").strip()
 
 		if url == "":
-			print ("Please enter the url.")
+			print ("Please Enter The Url")
 			starturl()
 
 		try:
@@ -162,7 +162,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 			else:
 				url = "http://" + url
 		except:
-			print("You mistyped, try again.")
+			print("Try Again")
 			starturl()
 
 		try:
@@ -180,7 +180,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 def proxymode():
 	global choice2
-	choice2 = input("Do you want proxy/socks mode? Answer 'y' to enable it: ")
+	choice2 = input("Do You Want Proxy [y] : ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
@@ -188,15 +188,15 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("Type '0' to enable proxymode or type '1' to enable socksmode: ")
-	if choice3 == "0":
+	choice3 = input("To Enable Proxy Mode [y] : ")
+	if choice3 == "y":
 		choicedownproxy()
 	else:
-		print ("You mistyped, try again.")
+		print ("Try again.")
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Do you want to download a new list of proxy? Answer 'y' to do it: ")
+	choice4 = input("Answer [y] To Do İt : ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -204,19 +204,19 @@ def choicedownproxy():
 		proxylist()
 
 def choicedownsocks():
-	choice4 = input("Do you want to download a new list of socks? Answer 'y' to do it: ")
-	if choice4 == "y":
-		urlproxy = "https://www.socks-proxy.net/"
+	choice4 = input(" ")
+	if choice4 == ".":
+		urlproxy = " "
 		proxyget(urlproxy)
 	else:
 		proxylist()
 
 def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 	try:
-		req = urllib.request.Request(("%s") % (urlproxy))       # qua impostiamo il sito da dove scaricare.
+		req = urllib.request.Request(("%s") % (urlproxy))       # .
 		req.add_header("User-Agent", random.choice(useragents)) # siccome il format del sito e' identico sia
-		sourcecode = urllib.request.urlopen(req)                # per free-proxy-list.net che per socks-proxy.net,
-		part = str(sourcecode.read())                           # imposto la variabile urlproxy in base a cosa si sceglie.
+		sourcecode = urllib.request.urlopen(req)                
+		part = str(sourcecode.read())                           
 		part = part.split("<tbody>")
 		part = part[1].split("</tbody>")
 		part = part[0].split("<tr><td>")
@@ -238,7 +238,7 @@ def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 
 def proxylist():
 	global proxies
-	out_file = str(input("Enter the proxylist filename/path (proxy.txt): "))
+	out_file = str(input("Do You Want To Download Proxy (proxy.txt) : "))
 	if out_file == "":
 		out_file = "proxy.txt"
 	proxies = open(out_file).readlines()
@@ -247,23 +247,23 @@ def proxylist():
 def numthreads():
 	global threads
 	try:
-		threads = int(input("Insert number of threads (800): "))
+		threads = int(input("Threads (Default=400) : "))
 	except ValueError:
-		threads = 800
-		print ("800 threads selected.\n")
+		threads = 400
+		print ("400 Threads Selected\n")
 	multiplication()
 
 def multiplication():
 	global multiple
 	try:
-		multiple = int(input("Insert a number of multiplication for the attack [(1-5=normal)(50=powerful)(100 or more=bomb)]: "))
+		multiple = int(input("Power (1-100) : "))
 	except ValueError:
-		print("You mistyped, try again.\n")
+		print("Try Again\n")
 		multiplication()
 	begin()
 
 def begin():
-	choice6 = input("Press 'Enter' to start attack: ")
+	choice6 = input("Press Enter To Launch Attack !")
 	if choice6 == "":
 		loop()
 	elif choice6 == "Enter": #lool
