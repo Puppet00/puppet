@@ -191,7 +191,7 @@ def choiceproxysocks():
 	choice3 = input("Type To Enable Proxy Mode [y] : ")
 	if choice3 == "y":
 		choicedownproxy()
-	elif choice3 == "1":
+	elif choice3 == "y":
 		choicedownsocks()
 	else:
 		print ("Try again.")
