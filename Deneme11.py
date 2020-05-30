@@ -188,10 +188,10 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("Type To Enable Proxy Mode [y] : ")
-	if choice3 == "y":
+	choice3 = input("Type To Enable Proxy Mode [0] : ")
+	if choice3 == "0":
 		choicedownproxy()
-	elif choice3 == "y":
+	elif choice3 == "1":
 		choicedownsocks()
 	else:
 		print ("Try again.")
@@ -252,6 +252,7 @@ def numthreads():
 		threads = int(input("Threads (Default=300) : "))
 	except ValueError:
 		threads = 300
+		print (" ")
 		print ("300 Threads Selected\n")
 	multiplication()
 
@@ -265,7 +266,7 @@ def multiplication():
 	begin()
 
 def begin():
-	choice6 = input("Press 'Enter' To Launch Attack ! : ")
+	choice6 = input("Press Enter To Launch Attack ! ")
 	if choice6 == "":
 		loop()
 	elif choice6 == "Enter": #lool
