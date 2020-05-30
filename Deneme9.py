@@ -188,8 +188,8 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("Type To Enable Proxy Mode [0] : ")
-	if choice3 == "0":
+	choice3 = input("Type To Enable Proxy Mode [y] : ")
+	if choice3 == "y":
 		choicedownproxy()
 	elif choice3 == "1":
 		choicedownsocks()
