@@ -140,7 +140,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 	global choice1
 	global ips
 
-	choice1 = input("\nDo You Want To Attack Http Proxy ? : ")
+	choice1 = input("\nPress Enter To Continue : ")
 
 	if choice1 == "1":
 		ip_file = input(" ")
