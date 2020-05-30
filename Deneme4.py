@@ -204,9 +204,9 @@ def choicedownproxy():
 		proxylist()
 
 def choicedownsocks():
-	choice4 = input(" ")
-	if choice4 == ".":
-		urlproxy = " "
+	choice4 = input("Do you want to download a new list of socks? Answer 'y' to do it: ")
+	if choice4 == "y":
+		urlproxy = "https://www.socks-proxy.net/"
 		proxyget(urlproxy)
 	else:
 		proxylist()
