@@ -196,7 +196,7 @@ def choiceproxysocks():
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Answer [y] To Do İt : ")
+	choice4 = input("Answer To Do İt [y] : ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -231,14 +231,14 @@ def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 		out_file.write("")
 		out_file.write(proxies)
 		out_file.close()
-		print ("Proxies downloaded successfully.")
+		print ("Proxy Download Successful")
 	except: # se succede qualche casino
-		print ("\nERROR!\n")
+		print ("\nDownload Failed !\n")
 	proxylist() # se va tutto liscio allora prosegue eseguendo la funzione proxylist()
 
 def proxylist():
 	global proxies
-	out_file = str(input("Do You Want To Download Proxy (proxy.txt) : "))
+	out_file = str(input("Do You Want To Download Proxy (Default=proxy.txt) : "))
 	if out_file == "":
 		out_file = "proxy.txt"
 	proxies = open(out_file).readlines()
@@ -250,6 +250,7 @@ def numthreads():
 		threads = int(input("Threads (Default=400) : "))
 	except ValueError:
 		threads = 400
+		print(" ")
 		print ("400 Threads Selected\n")
 	multiplication()
 
