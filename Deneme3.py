@@ -186,6 +186,14 @@ def proxymode():
 	else:
 		numthreads()
 
+def choiceproxysocks():
+	global choice3
+	choice3 = input("Type '0' to enable proxymode or type '1' to enable socksmode: ")
+	if choice3 == "0":
+		choicedownproxy()
+	else:
+		print ("You mistyped, try again.")
+		choiceproxysocks()
 
 def choicedownproxy():
 	choice4 = input("Do you want to download a new list of proxy? Answer 'y' to do it: ")
