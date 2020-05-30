@@ -180,7 +180,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 def proxymode():
 	global choice2
-	choice2 = input("Do You Want Proxy [y] : ")
+	choice2 = input("Do you want proxy/socks mode? Answer 'y' to enable it: ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
@@ -188,15 +188,17 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = input("To Enable Proxy Mode [y] : ")
-	if choice3 == "y":
+	choice3 = input("Type '0' to enable proxymode or type '1' to enable socksmode: ")
+	if choice3 == "0":
 		choicedownproxy()
+	elif choice3 == "1":
+		choicedownsocks()
 	else:
-		print ("Try again.")
+		print ("You mistyped, try again.")
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = input("Answer To Do It [y] : ")
+	choice4 = input("Do you want to download a new list of proxy? Answer 'y' to do it: ")
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -213,10 +215,10 @@ def choicedownsocks():
 
 def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 	try:
-		req = urllib.request.Request(("%s") % (urlproxy))       # .
+		req = urllib.request.Request(("%s") % (urlproxy))       # qua impostiamo il sito da dove scaricare.
 		req.add_header("User-Agent", random.choice(useragents)) # siccome il format del sito e' identico sia
-		sourcecode = urllib.request.urlopen(req)                
-		part = str(sourcecode.read())                           
+		sourcecode = urllib.request.urlopen(req)                # per free-proxy-list.net che per socks-proxy.net,
+		part = str(sourcecode.read())                           # imposto la variabile urlproxy in base a cosa si sceglie.
 		part = part.split("<tbody>")
 		part = part[1].split("</tbody>")
 		part = part[0].split("<tr><td>")
@@ -231,14 +233,14 @@ def proxyget(urlproxy): # lo dice il nome, questa funzione scarica i proxies
 		out_file.write("")
 		out_file.write(proxies)
 		out_file.close()
-		print ("Proxy Download Successful")
+		print ("Proxies downloaded successfully.")
 	except: # se succede qualche casino
-		print ("\nDownload Failed !\n")
+		print ("\nERROR!\n")
 	proxylist() # se va tutto liscio allora prosegue eseguendo la funzione proxylist()
 
 def proxylist():
 	global proxies
-	out_file = str(input("Do You Want To Download Proxy (Default=proxy.txt) : "))
+	out_file = str(input("Enter the proxylist filename/path (proxy.txt): "))
 	if out_file == "":
 		out_file = "proxy.txt"
 	proxies = open(out_file).readlines()
@@ -247,19 +249,18 @@ def proxylist():
 def numthreads():
 	global threads
 	try:
-		threads = int(input("Threads (Default=400) : "))
+		threads = int(input("Insert number of threads (800): "))
 	except ValueError:
-		threads = 400
-		print(" ")
-		print ("400 Threads Selected\n")
+		threads = 800
+		print ("800 threads selected.\n")
 	multiplication()
 
 def multiplication():
 	global multiple
 	try:
-		multiple = int(input("Power (1-100) : "))
+		multiple = int(input("Insert a number of multiplication for the attack [(1-5=normal)(50=powerful)(100 or more=bomb)]: "))
 	except ValueError:
-		print("Try Again\n")
+		print("You mistyped, try again.\n")
 		multiplication()
 	begin()
 
