@@ -175,7 +175,7 @@ strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
 def clone():
     f = open("socks4.txt", 'wb')
     try:
-        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=500")
+        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
         f.write(r.content)
     except:
         pass
