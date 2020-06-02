@@ -296,7 +296,7 @@ def proxies_list():
         pass
     else:
         for file in glob("*.txt"):
-            print("root@aspartim:~# " + file)
+            print("root@root:~# " + file)
     out_file = str(input("[+] " +str(filenam2)+ " [" +str(filenam1)+ ".txt]: "))
     if out_file == "":
         out_file = str(filenam1)+".txt"
@@ -347,15 +347,15 @@ def start_mode():
         choice_down_proxies()
     elif choice_mode == "3":
         print(" ")
-        print("root@aspartim:~# 1: Method Bypass v1")
-        print("root@aspartim:~# 2: Method Bypass v2")
+        print("root@root:~# 1: Method ByPass v1")
+        print("root@root:~# 2: Method ByPass v2")
         filenam2 = "JS-Bypass"
         method_pass_cf = input("[?] Method [1/2] : ")
         if (method_pass_cf == "") or (method_pass_cf == "1"):
-            print("[!] Selected Method Bypass JS v1")
+            print("[!] Selected Method ByPass JS v1")
             method_pass_cf = "1"
         else:
-            print("[!] Selected Method Bypass JS v2")
+            print("[!] Selected Method ByPass JS v2")
             method_pass_cf = "2"
         logo()
         pass_cf()
@@ -402,8 +402,8 @@ def pass_cf():
 def choice_method_attack():
     global method_attack, name_method_attack
     print(" ")
-    print("root@aspartim:~# 1: Request [ Normal ]")
-    print("root@aspartim:~# 2: Request [  Spam  ]")
+    print("root@root:~# 1: Request [ Normal ]")
+    print("root@root:~# 2: Request [  Spam  ]")
     method_attack = input("[*] Choice Request [1/2] : ")
     if (method_attack == "1") or (method_attack == ""):
         name_method_attack = "Normal"
@@ -423,8 +423,8 @@ def choice_down_proxies():
     choice4 = input("[?] Get New List " +str(filenam2)+ " [Y/N]: ")
     if (choice4 == "y") or (choice4 == "Y"):
         print(" ")
-        print("root@aspartim:~# 1: Server X")
-        print("root@aspartim:~# 2: Server Z")
+        print("root@root:~# 1: Server X")
+        print("root@root:~# 2: Server Z")
         sel_pr = input("[?] Server Get [1/2]: ")
         if choice_mode == "proxy":
             if sel_pr == "1":
