@@ -711,7 +711,6 @@ def loop():
 	global threads
 	global acceptall
 	global connection
-        global cfscrape
 	global go
 	global x
 	
