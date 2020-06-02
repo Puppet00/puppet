@@ -156,7 +156,7 @@ def opth():
 		print('[✓] Threads ' + str(g+1) + " Created ")
 
 def clone(): 
-	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=all&timeout=2800')
+	r = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=5000&country=all&ssl=yes&anonymity=all')
 	with open('socks5.txt','wb') as f:
 		f.write(r.content)
 		print('[✓] Sucess Get List !')
