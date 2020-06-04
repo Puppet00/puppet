@@ -186,7 +186,7 @@ strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
 def clone():
     f = open("socks5.txt", 'wb')
     try:
-        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=5000&country=all&ssl=yes&anonymity=all")
+        r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&timeout=5000")
         f.write(r.content)
     except:
         pass
@@ -215,7 +215,7 @@ def main():
         print("[✓] GET Mode Selected")
     elif mode == "post" or mode == "POST":
         print("[✓] POST Mode Selected")
-    ip = str(input("Address/Host:"))
+    ip = str(input("[+] URL / IP : "))
     if ip == "":
         print("[!] Please Try Again")
         return main()
@@ -352,7 +352,7 @@ def check_socks():
 		sys.stdout.flush()
 	for th in list(thread_list):
 		th.join()
-		sys.stdout.write("Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("[?] Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
 	print("\r\n[✓] Checked All Socks5 --> Total Worked : "+str(len(proxies)))
 	with open("socks5.txt", 'wb') as fp:
