@@ -646,7 +646,7 @@ def main():
 		return
 	if mode == "slow":	
 		thread_num = str(input("[+] Connections ( Default = 800 ) : "))
-	else
+	else:
 		thread_num = str(input("[+] Threads ( Default = 800) : "))
 	if thread_num == "":
 		thread_num = int(800)
