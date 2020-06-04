@@ -32,7 +32,7 @@ print('''\r\n
 +---------------------------+
 | [+] Port Default [80]     |
 | [+] Method Default [GET]  |
-| [+] Thread Default [2000] |
+| [+] Thread Default [800]  |
 +---------------------------+ ''')
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
@@ -230,9 +230,9 @@ def main():
         port = int(port)
     if port == 443:
         print("[✓] Port 443 Has Been Selected")        
-    th_num = str(input("[+] Threads ( Default = 2000 ) : "))
+    th_num = str(input("[+] Threads ( Default = 800 ) : "))
     if th_num == "":
-        th_num = int(2000)
+        th_num = int(800)
     else:
         th_num = int(th_num)
     #if mode == "get" or mode == "GET":
