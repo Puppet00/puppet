@@ -193,15 +193,12 @@ func flood() {
 }
 
 func main() {
-	fmt.Println("\r\n'||  ||`   ||      ||                '||''''| '||`                   ||` ")
-	fmt.Println("       .---.        .-----------  ")
-	fmt.Println("      /     \  __  /    ------    ")
-	fmt.Println("     / /     \(..)/    -----      ")
-	fmt.Println("    //////   ' \/ `   ---        ")
-	fmt.Println("   //// / // :    : ---         ")
-	fmt.Println("  // /   /  /`    '--           ")
-	fmt.Println(" //          //..\\")
-	fmt.Println("        ====UU====UU====        ")
+	fmt.Println("\r\n ")
+	fmt.Println(" ")
+	fmt.Println(" ╔═╗╔═╗╔═╗╔═╗╦═╗╔╦╗╦╔╦╗")
+	fmt.Println(" ╠═╣╚═╗╠═╝╠═╣╠╦╝ ║ ║║║║")
+	fmt.Println(" ╩ ╩╚═╝╩  ╩ ╩╩╚═ ╩ ╩╩ ╩")
+	fmt.Println(" ")
 	if len(os.Args) != 8 {
 		fmt.Println("Post Mode Will Use Header.txt As Data")
 		fmt.Println("Usage :", os.Args[0],"<ip> <port> <threads> <page> <get/post> <seconds> <header.txt>")
