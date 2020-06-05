@@ -194,17 +194,16 @@ func flood() {
 
 func main() {
 	fmt.Println("\r\n'||  ||`   ||      ||                '||''''| '||`                   ||` ")
-	fmt.Println(" ||  ||    ||      ||                 ||  .    ||                    ||  ")
-	fmt.Println(" ||''||  ''||''  ''||''  '||''|, ---  ||''|    ||  .|''|, .|''|, .|''||  ")
-	fmt.Println(" ||  ||    ||      ||     ||  ||      ||       ||  ||  || ||  || ||  ||  ")
-	fmt.Println(".||  ||.   `|..'   `|..'  ||..|'     .||.     .||. `|..|' `|..|' `|..||. ")
-	fmt.Println("                          ||                                             ")
-	fmt.Println("                         .||                     Golang version 1.8      ")
-	fmt.Println("                                                        C0d3d By L330n123")
-	fmt.Println("==========================================================================")
+	fmt.Println("       .---.        .-----------  ")
+	fmt.Println("      /     \  __  /    ------    ")
+	fmt.Println("     / /     \(..)/    -----      ")
+	fmt.Println("    //////   ' \/ `   ---        ")
+	fmt.Println("   //// / // :    : ---         ")
+	fmt.Println("  // /   /  /`    '--           ")
+	fmt.Println(" //          //..\\")
+	fmt.Println("        ====UU====UU====        ")
 	if len(os.Args) != 8 {
 		fmt.Println("Post Mode Will Use Header.txt As Data")
-		fmt.Println(" ")
 		fmt.Println("Usage :", os.Args[0],"<ip> <port> <threads> <page> <get/post> <seconds> <header.txt>")
 		os.Exit(1)
 	}
