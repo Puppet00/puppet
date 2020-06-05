@@ -193,7 +193,7 @@ func flood() {
 }
 
 func main() {
-	fmt.Println("\r\n ")
+	fmt.Println("--------------------------------")
 	fmt.Println("      .---.        .----------- ")
 	fmt.Println("     /     \  __  /    ------   ")
 	fmt.Println("    / /     \(..)/    -----     ")
