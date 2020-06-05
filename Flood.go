@@ -203,9 +203,9 @@ func main() {
 	fmt.Println("                                                        C0d3d By L330n123")
 	fmt.Println("==========================================================================")
 	if len(os.Args) != 8 {
-		fmt.Println("Post Mode will use header.txt as data")
-		fmt.Println("If you are using linux please run 'ulimit -n 999999' first!!!")
-		fmt.Println("Usage: ", os.Args[0], "<ip> <port> <threads> <page> <get/post> <seconds> <header.txt/nil>")
+		fmt.Println("Post Mode Will Use Header.txt As Data")
+		fmt.Println(" ")
+		fmt.Println("Usage :", os.Args[0],"<ip> <port> <threads> <page> <get/post> <seconds> <header.txt/nil>")
 		os.Exit(1)
 	}
 	threads, err := strconv.Atoi(os.Args[3])
