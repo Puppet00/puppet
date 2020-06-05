@@ -1,5 +1,5 @@
 /*
-
+ulimit -n 999999
 */
 package main
 
