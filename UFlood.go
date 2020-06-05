@@ -194,10 +194,9 @@ func flood() {
 
 func main() {
 	fmt.Println("\r\n ")
-	fmt.Println(" ")
-	fmt.Println(" ╔═╗╔═╗╔═╗╔═╗╦═╗╔╦╗╦╔╦╗")
-	fmt.Println(" ╠═╣╚═╗╠═╝╠═╣╠╦╝ ║ ║║║║")
-	fmt.Println(" ╩ ╩╚═╝╩  ╩ ╩╩╚═ ╩ ╩╩ ╩")
+	fmt.Println("           ╔═╗╔═╗╔═╗╔═╗╦═╗╔╦╗╦╔╦╗")
+	fmt.Println("           ╠═╣╚═╗╠═╝╠═╣╠╦╝ ║ ║║║║")
+	fmt.Println("           ╩ ╩╚═╝╩  ╩ ╩╩╚═ ╩ ╩╩ ╩")
 	fmt.Println(" ")
 	if len(os.Args) != 8 {
 		fmt.Println("Post Mode Will Use Header.txt As Data")
