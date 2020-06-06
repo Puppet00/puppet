@@ -368,7 +368,7 @@ while True:
             if n>=4:
                 n = 0
             time.sleep(0.1)
-            sys.stdout.write("["+str(key[n])+"] Attack Sent Successfully ~~> "+ip+page+":"+str(port)+"\r")
+            sys.stdout.write("["+str(key[n])+"] Attack Sent Successfully ~~> ["+ip+page+":"+str(port)+"]\r")
             sys.stdout.flush()
             n +=1
         except KeyboardInterrupt:
