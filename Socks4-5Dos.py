@@ -495,7 +495,7 @@ def downloadsocks(choice):
 	if choice == "4":
 		f = open("socks4.txt",'wb')
 		try:
-			r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all")
+			r = requests.get("https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=800&country=all&ssl=all&anonymity=all")
 			f.write(r.content)
 		except:
 			pass
