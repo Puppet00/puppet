@@ -6,6 +6,19 @@ import random
 import string
 from lxml import html
 
+print('''
+      .---.        .-----------
+     /     \  __  /    ------
+    / /     \(..)/    -----
+   //////   ' \/ `   ---
+  //// / // :    : ---
+ // /   /  /`    '--
+//          //..\\
+       ====UU====UU====
+           '//||\\`
+             ''``
+''')
+print(" ")
 print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
 time.sleep(5)
 os.system("pkg update && pkg install python libxml2 libxslt && pip install beautifulsoup4 && pip install html5lib && pip install --upgrade pip && pip install requests && pip install lxml")
