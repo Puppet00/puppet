@@ -1,18 +1,25 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import time
 import random
 import string
 from lxml import html
 
+print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
+time.sleep(5)
 os.system("pkg update && pkg install python libxml2 libxslt && pip install beautifulsoup4 && pip install html5lib && pip install --upgrade pip && pip install requests && pip install lxml")
+os.system("clear")
+print(" ")
 phone_number = input("[+] Numaranızı Basında 0 Olmadan Giriniz : ")
+print(" ")
 
 while True:
     def id_generator(size=4, chars=string.ascii_uppercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
     text = ("AG2X" + id_generator())
-    headers = { 'User-Agent' : 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B137 Safari/601.1'},{ 'User-Agent' : 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0) Opera 12.14'}
+    headers = { 'User-Agent' : 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B137 Safari/601.1'}
+    headers = { 'User-Agent' : 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0) Opera 12.14'}
     login_data = {'__VIEWSTATE':'',
                   '__VIEWSTATEGENERATOR':'',
                   '__EVENTVALIDATION':'',
