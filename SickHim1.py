@@ -10,7 +10,7 @@ ip = None
 
 # Exit and print code
 def exit(code):
-    print("[+] Exiting With Code %d...") % (code)
+    print("[+] Exiting With Code %d...") % (code
     sys.exit(code)
 
 # Get parameters
@@ -222,7 +222,7 @@ if(numThreads > 1):
         time.sleep(1)
 else:
     print("[+] Host Has 2 CPU Cores Or Less , Launching Attack İn Main Thread")
-    worker(host, ip, po rt, 0)
+    worker(host, ip, port, 0)
 
 # If we get here, the attack has finished or script has exited
 print("[+] Attack Finished")
