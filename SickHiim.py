@@ -10,7 +10,7 @@ ip = None
 
 # Exit and print code
 def exit(code):
-    print "[+] Exiting with code %d..." % (code)
+    print "+ Exiting with code %d..." % (code)
     sys.exit(code)
 
 # Get parameters
