@@ -87,7 +87,7 @@ def addIpTables(iptables):
 
 # Remove target from iptables
 def removeIpTables(iptables):
-    print "+ Removing iptables for the target..."
+    print "+ Removing Iptables For The Target..."
     for i in iptables:
         os.system("iptables -t raw -D %s 2>/dev/null" % (i))
 
