@@ -10,7 +10,7 @@ ip = None
 
 # Exit and print code
 def exit(code):
-    print "[+] Exiting With Code %d..." % (code)
+    print("[+] Exiting With Code %d...") % (code)
     sys.exit(code)
 
 # Get parameters
@@ -18,38 +18,38 @@ try:
     host = sys.argv[1]
     port = int(sys.argv[2])
 except:
-    print "! Error: Invalid arguments"
-    print "         Usage: nuke-starvation.py <ip/host> <port>"
+    print("[+] ! Error : Invalid Arguments")
+    print "         Usage : SickHim.py <IP / Host> <Port>"
     exit(3)
 
-print "[+] Running SickHim.py..."
+print("[+] Running SickHim.py...")
 
 # Detect platform and do not run on other than Linux
 try:
     import platform
     currentPlatform = platform.system()
     if currentPlatform != "Linux":
-        print "[+] ! Error : Your Detected Platform İs %s , But This Script Will Only Work Under Linux" % (currentPlatform)
+        print("[+] ! Error : Your Detected Platform İs %s , But This Script Will Only Work Under Linux") % (currentPlatform)
         exit(3)
 except:
-    print "[+] ! Error : You Dont Have 'Platform' Module İnstalled , So We Cant Detect İf You Are Running Linux"
-    print "         [+] This Script Will Try To Continue , But Will Only Work Under Linux"
+    print("[+] ! Error : You Dont Have 'Platform' Module İnstalled , So We Cant Detect İf You Are Running Linux")
+    print "         This Script Will Try To Continue , But Will Only Work Under Linux"
     pass
 
 # Check root
 if os.geteuid() != 0:
-    print "[+] ! Error : This Script Requires Running As Root To Manipulate İptables And Kernel Flags"
+    print("[+] ! Error : This Script Requires Running As Root To Manipulate İptables And Kernel Flags")
     exit(3)
 
 # Resolve host
 try:
-    print "[+] Resolving ip of host %s..." % (host)
+    print("[+] Resolving ip of host %s...") % (host)
     ip = socket.gethostbyname(host)
 except Exception as e:
-    print "[+] ! Error: Could Not Resolve '%s': %s %s" % (host, type(e).__name__, e.message)
+    print("[+] ! Error: Could Not Resolve '%s': %s %s") % (host, type(e).__name__, e.message)
     exit(3)
 
-print "[+] Target IP Is : %s" % (ip)
+print("[+] Target IP Is : %s") % (ip)
 
 # Helper variables
 savedFlags = {}
