@@ -53,8 +53,8 @@ print "+ Target IP is %s" % (ip)
 
 # Helper variables
 savedFlags = {}
-connectionsPerWorker = 5000
-threads = 2000
+connectionsPerWorker = 50000
+threads = []
 finish = False
 
 kernelFlags = {
