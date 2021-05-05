@@ -19,7 +19,7 @@ try:
     port = int(sys.argv[2])
 except:
     print("[+] ! Error : Invalid Arguments")
-    print "         Usage : SickHim.py <IP / Host> <Port>"
+    print("[+]         Usage : SickHim.py <IP / Host> <Port>")
     exit(3)
 
 print("[+] Running SickHim.py...")
