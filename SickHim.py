@@ -80,7 +80,7 @@ print "+ Target IP Is %s" % (ip)
 
 # Helper variables
 savedFlags = {}
-connectionsPerWorker = 10000
+connectionsPerWorker = 1000000
 threads = []
 finish = False
 
