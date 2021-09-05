@@ -3,14 +3,13 @@ import requests
 import threading
 from time import sleep
 import os
+########################################
 print(" ")
+os.system("pip install cloudscraper")
 print(" ")
-os.system(" pip3 install cloudscraper ")
+os.system("pip install requests")
 print(" ")
-os.system(" pip3 install requests ")
-print(" ")
-print(" ")
-
+########################################
 # check the target url
 def check_url(url):
     try:
