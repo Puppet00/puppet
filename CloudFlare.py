@@ -1,17 +1,16 @@
-import os
 import cloudscraper
 import requests
 import threading
+import os
 from time import sleep
-###################################################################
-print(" ")                                                        #
-print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")  #
-print(" ")                                                        #
-os.system("pip3 install cloudscraper")                            #
-print(" ")                                                        #
-os.system("pip3 install requests")                                #
-print(" ")                                                        #
-###################################################################
+
+print(" ")
+print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
+print(" ")
+os.system(" pip3 install cloudscraper ")
+os.system(" pip3 install requests ")
+print(" ")
+
 # check the target url
 def check_url(url):
     try:
