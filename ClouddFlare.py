@@ -2,7 +2,10 @@ import cloudscraper
 import requests
 import threading
 from time import sleep
+import os
 
+os.system("pip install cloudscraper")
+os.system("pip install requests")
 
 # check the target url
 def check_url(url):
