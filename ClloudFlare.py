@@ -4,11 +4,6 @@ import cloudscraper
 import requests
 import threading
 from time import sleep
-print(" ")
-os.system("pip install cloudscraper")
-os.system("pip install requests")
-os.system("clear")
-print(" ")
 
 def check_url(url):
     try:
