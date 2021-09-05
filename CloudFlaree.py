@@ -4,6 +4,18 @@ import threading
 from time import sleep
 import os, sys
 
+print('''
+      .---.        .-----------
+     /     \  __  /    ------
+    / /     \(..)/    -----
+   //////   ' \/ `   ---
+  //// / // :    : ---
+ // /   /  /`    '--
+//          //..\\
+       ====UU====UU====
+           '//||\\`
+             ''``
+''')
 print(" ")
 print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
 time.sleep(3)
