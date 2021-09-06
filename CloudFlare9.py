@@ -67,6 +67,6 @@ print(" ")
 url = input("\033[92m root@hurryup:~# Enter The Target Url : \033[0m")
 check_url(url)
 sleep(1)
-start = time.time()
+
 threads = input("\033[92m root@hurryup:~# Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
