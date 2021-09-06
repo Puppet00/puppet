@@ -70,7 +70,6 @@ print(
 print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
 print(" ")
 os.system("pip install cloudscraper")
-os.system("pip install requests")
 os.system("clear")
 print(" ")
 
