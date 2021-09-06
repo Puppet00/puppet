@@ -33,10 +33,10 @@ def bypass(url, threads):
             response = r.get(url)
             count +=1
 
-            print("\033[90m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
+            print("\033[91m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
 
             response = bypass2.get(url)
-            print("\033[90m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
+            print("\033[92m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
 
     list_of_threads = []
 
