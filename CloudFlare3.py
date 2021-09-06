@@ -8,16 +8,16 @@ def check_url(url):
         cloudfare_check_url = requests.Session()
         response = cloudfare_check_url.get(url)
         if response.status_code == 200:
-            print("[INFO] The Url İs Valid")
+            print("\033[92m [INFO] The Url İs Valid \033[0m")
         elif response.status_code == 404:
-            print("[INFO] The Url İs İnvalid")
+            print("\033[91m [INFO] The Url İs İnvalid \033[0m")
     except:
         bypass = cloudscraper.create_scraper()
         response2 = bypass.get(url)
         if response2.status_code == 200:
-            print("[INFO] The Url İs Valid")
+            print("\033[92m [INFO] The Url İs Valid \033[0m")
         elif response2.status_code == 404:
-            print("[INFO] The Url İs İnvalid")
+            print("\033[91m [INFO] The Url İs İnvalid \033[0m")
 
 count = 0
 
@@ -54,16 +54,14 @@ def bypass(url, threads):
         #joining the threads
         list_of_threads[i].join()
 
-print(
-    """
-   ________                __________                ____  ____       _____
-  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/
- / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \ 
-/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ / 
-\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/  
-                                                                           
-    """
-)
+print(" ")
+print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
+print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
+print("\033[93m / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \  \033[0m")
+print("\033[94m/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ /  \033[0m")
+print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/   \033[0m")
+print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print(" ")
 
 url = input("\033[92m [INFO] Enter The Target Url : \033[0m")
 check_url(url)
