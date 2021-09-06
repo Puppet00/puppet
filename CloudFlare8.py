@@ -33,10 +33,10 @@ def bypass(url, threads):
             response = r.get(url)
             count +=1
 
-            print("\033[93m",time.ctime(time.time()),"\033[0m \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
+            print("\033[93m",time.ctime(time.time()),"\033[0m , \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
 
             response = bypass2.get(url)
-            print("\033[93m",time.ctime(time.time()),"\033[0m \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
+            print("\033[93m",time.ctime(time.time()),"\033[0m , \033[92m\n" + f"root@hurryup:~# Status Code : {response.status_code} Request Number : {count}" + "\n\033[0m")
 
     list_of_threads = []
 
@@ -67,6 +67,6 @@ print(" ")
 url = input("\033[92m root@hurryup:~# Enter The Target Url : \033[0m")
 check_url(url)
 sleep(1)
-
+start = time.time()
 threads = input("\033[92m root@hurryup:~# Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
