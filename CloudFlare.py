@@ -74,9 +74,9 @@ os.system("pip install requests")
 os.system("clear")
 print(" ")
 
-url = input("[INFO] Enter The Target Url : ")
+url = input("\033[92m [INFO] Enter The Target Url : \033[0m")
 check_url(url)
 sleep(1)
 
-threads = input("[INFO] Enter The Number Of Threads : ")
+threads = input("\033[92m [INFO] Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
