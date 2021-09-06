@@ -1,6 +1,3 @@
-import os
-import sys
-import time
 import cloudscraper
 import requests
 import threading
@@ -67,11 +64,6 @@ print(
                                                                            
     """
 )
-print("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
-print(" ")
-os.system("pip install cloudscraper")
-os.system("clear")
-print(" ")
 
 url = input("[INFO] Enter The Target Url : ")
 check_url(url)
