@@ -2,33 +2,7 @@ import cloudscraper
 import requests
 import threading
 from time import sleep
-import os
-import time
 
-os.system("apt install figlet")
-os.system("clear")
-os.system("figlet OTO IP")
-print("""
-Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
-""")
-
-sure = input("IP Değişim Süre(saniye) : ")
-
-os.system("anonsurf start")
-os.system("clear")
-print("Yeni IP Adres :")
-print("-----------------------------")
-os.system("curl icanhazip.com")
-print("-----------------------------")
-
-while True:
-	time.sleep(sure)
-	os.system("anonsurf restart")
-	os.system("clear")
-	print("Yeni IP Adres :")
-	print("-----------------------------")
-	os.system("curl icanhazip.com")
-	print("-----------------------------")
 # check the target url
 def check_url(url):
     try:
@@ -97,3 +71,8 @@ sleep(1)
 
 threads = input("\033[92m root@hurryup:~# Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
+
+import os
+import time
+
+os.system("pip install cloudscraper")
