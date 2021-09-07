@@ -5,7 +5,9 @@ import time
 import threading
 from time import sleep
 
-os.system("Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .")
+print("""
+Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .
+""")
 os.system("pip install cloudscraper")
 os.system("clear")
 print("""
