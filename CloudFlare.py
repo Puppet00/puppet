@@ -3,7 +3,10 @@ import os
 import requests
 import threading
 from time import sleep
-
+# Kurulum
+os.system("pip install cloudscraper")
+os.system("clear")
+#
 def check_url(url):
     try:
         cloudfare_check_url = requests.Session()
