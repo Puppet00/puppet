@@ -1,20 +1,14 @@
 import cloudscraper
-os.system("pip install cloudscraper")
 import requests
-os.system("pip install cloudscraper")
 import os
-os.system("pip install cloudscraper")
 import time
-os.system("pip install cloudscraper")
 import threading
-os.system("pip install cloudscraper")
 from time import sleep
 
-print(" Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . . ")
-time.sleep(3)
-os.system("pip install cloudscraper")
-os.system("clear")
-print(" ")
+print(""" Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . . """)
+os.system("""pip install cloudscraper && pip2 install cloudscraper && pip3 install cloudscraper""")
+os.system("""clear""")
+print(""" """)
 
 # check the target url
 def check_url(url):
