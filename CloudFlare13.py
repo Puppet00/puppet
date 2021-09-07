@@ -1,6 +1,7 @@
+#!/usr/bin/env python
+
 import cloudscraper
-import os
-import requests
+import requests,os
 import threading
 from time import sleep
 # Kurulum
