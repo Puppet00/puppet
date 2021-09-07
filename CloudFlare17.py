@@ -3,6 +3,8 @@ import requests
 import threading
 from time import sleep
 
+
+# check the target url
 def check_url(url):
     try:
         cloudfare_check_url = requests.Session()
