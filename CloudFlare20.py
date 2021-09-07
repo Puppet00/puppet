@@ -1,9 +1,16 @@
 import cloudscraper
 import requests
 import os
+import time
 import threading
 from time import sleep
 
+os.system("apt install figlet")
+os.system("clear")
+os.system("figlet OTO IP")
+print("""
+Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
+""")
 
 # check the target url
 def check_url(url):
@@ -58,7 +65,6 @@ def bypass(url, threads):
         list_of_threads[i].join()
 
 print(" ")
-os.system("pip install cloudscraper")
 print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
 print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
