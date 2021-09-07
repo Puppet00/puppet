@@ -8,6 +8,7 @@ from time import sleep
 print("""
 Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . .
 """)
+time.sleep(5)
 os.system("pip install cloudscraper")
 os.system("clear")
 print("""
