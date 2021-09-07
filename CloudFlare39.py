@@ -2,6 +2,12 @@ import cloudscraper
 import requests
 import os
 import time
+os.system("apt install figlet")
+os.system("clear")
+os.system("pip install cloudscraper")
+print("""
+Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
+""")
 import threading
 from time import sleep
 
