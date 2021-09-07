@@ -5,10 +5,12 @@ import time
 import threading
 from time import sleep
 
-print(""" Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . . """)
-os.system("""pip install cloudscraper && pip2 install cloudscraper && pip3 install cloudscraper""")
-os.system("""clear""")
-print(""" """)
+os.system("apt install figlet")
+os.system("clear")
+os.system("figlet OTO IP")
+print("""
+Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
+""")
 
 # check the target url
 def check_url(url):
