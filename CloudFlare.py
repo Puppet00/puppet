@@ -1,4 +1,5 @@
 import cloudscraper
+import os
 import requests
 import threading
 from time import sleep
@@ -63,6 +64,8 @@ print("\033[94m/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /
 print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/   \033[0m")
 print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print(" ")
+os.system("pip install cloudscraper")
+os.system("clear")
 
 url = input("\033[92m root@hurryup:~# Enter The Target Url : \033[0m")
 check_url(url)
