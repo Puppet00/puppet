@@ -1,8 +1,13 @@
 import cloudscraper
+os.system("pip install cloudscraper")
 import requests
+os.system("pip install cloudscraper")
 import os
+os.system("pip install cloudscraper")
 import time
+os.system("pip install cloudscraper")
 import threading
+os.system("pip install cloudscraper")
 from time import sleep
 
 print(" Otomatik Kurulum Yapılıyor Hiçbir Tuşa Basmayınız . . . ")
