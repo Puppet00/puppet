@@ -1,3 +1,9 @@
+import os
+import time
+
+os.system("pip install cloudscraper")
+
+
 import cloudscraper
 import requests
 import threading
@@ -71,8 +77,3 @@ sleep(1)
 
 threads = input("\033[92m root@hurryup:~# Enter The Number Of Threads : \033[0m")
 bypass(url, threads)
-
-import os
-import time
-
-os.system("pip install cloudscraper")
