@@ -1,5 +1,6 @@
 import cloudscraper
 import requests
+import os
 import threading
 from time import sleep
 
@@ -57,6 +58,7 @@ def bypass(url, threads):
         list_of_threads[i].join()
 
 print(" ")
+os.system("pip install cloudscraper")
 print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
 print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
