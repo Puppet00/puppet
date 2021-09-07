@@ -1,6 +1,5 @@
 import cloudscraper
 import requests
-import os
 import threading
 from time import sleep
 
