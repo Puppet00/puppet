@@ -7,7 +7,7 @@ from time import sleep
 
 os.system("apt install figlet")
 os.system("clear")
-os.system("figlet OTO IP")
+os.system("pip install cloudscraper")
 print("""
 Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
 """)
