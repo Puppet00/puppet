@@ -1,9 +1,6 @@
 import os
 import time
-
 os.system("pip install cloudscraper")
-
-
 import cloudscraper
 import requests
 import threading
