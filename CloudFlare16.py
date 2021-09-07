@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import cloudscraper
 import requests
 import os
