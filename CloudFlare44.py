@@ -12,6 +12,23 @@ print("""
 Bu araçla otomatik olarak IP Adres değiştirebilirsiniz, değeri saniye olarak girin.
 """)
 
+sure = input("IP Değişim Süre(saniye) : ")
+
+os.system("anonsurf start")
+os.system("clear")
+print("Yeni IP Adres :")
+print("-----------------------------")
+os.system("curl icanhazip.com")
+print("-----------------------------")
+
+while True:
+	time.sleep(sure)
+	os.system("anonsurf restart")
+	os.system("clear")
+	print("Yeni IP Adres :")
+	print("-----------------------------")
+	os.system("curl icanhazip.com")
+	print("-----------------------------")
 # check the target url
 def check_url(url):
     try:
