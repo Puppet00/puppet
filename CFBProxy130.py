@@ -1,7 +1,18 @@
 import urllib.request, os, threading, time, random, sys, requests
 import cfscrape
 from colorama import Fore, Style
-
+#######
+#PRİNT#
+#######
+print(" ")
+print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print("\033[91m   ________________  ____  ____  ____ _  ___  __                            \033[0m")
+print("\033[92m  / ____/ ____/ __ )/ __ \/ __ \/ __ | |/ \ \/ /                            \033[0m")
+print("\033[93m / /   / /_  / __  / /_/ / /_/ / / / |   / \  /                             \033[0m")
+print("\033[94m/ /___/ __/ / /_/ / ____/ _, _/ /_/ /   |  / /                              \033[0m")
+print("\033[95m\____/_/   /_____/_/   /_/ |_|\____/_/|_| /_/                               \033[0m")
+print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print(" ")                                          
 if len(sys.argv)==1:
     sys.exit(Fore.GREEN+'Usage : '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [ULR] [THREAD]'+Style.RESET_ALL+Fore.RESET)
 
