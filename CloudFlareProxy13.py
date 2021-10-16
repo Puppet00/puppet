@@ -1,14 +1,6 @@
 import urllib.request, os, threading, time, random, sys, requests
 import cfscrape
 from colorama import Fore, Style
-#Code Time
-from datetime import datetime
-now = datetime.now()
-hour = now.hour
-minute = now.minute
-day = now.day
-month = now.month
-year = now.year
 
 if len(sys.argv)==1:
     sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [url] [thread]'+Style.RESET_ALL+Fore.RESET)
