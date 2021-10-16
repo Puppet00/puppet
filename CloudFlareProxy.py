@@ -83,7 +83,6 @@ class sender(threading.Thread):
 
         sys.exit(0)
 
-
 class MainLoop:
 
     def home(self):
