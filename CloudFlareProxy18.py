@@ -95,10 +95,10 @@ class MainLoop:
             url = sys.argv[1]
         else:
             try:
-                file_proxy = str('proxy.txt')
+                file_proxy = str('http.txt')
                 in_file = open(file_proxy, 'r')
             except:
-                file_proxy = str('proxy.txt')
+                file_proxy = str('http.txt')
                 in_file = open(file_proxy, 'r')
             else:
                 num_threads = sys.argv[2]
