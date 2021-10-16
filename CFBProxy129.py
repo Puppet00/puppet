@@ -3,7 +3,7 @@ import cfscrape
 from colorama import Fore, Style
 
 if len(sys.argv)==1:
-    sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [url] [thread]'+Style.RESET_ALL+Fore.RESET)
+    sys.exit(Fore.GREEN+'Usage : '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [ULR] [THREAD]'+Style.RESET_ALL+Fore.RESET)
 
 def getproxy():
     list = str('proxy.txt')
