@@ -77,7 +77,7 @@ class sender(threading.Thread):
         urllib.request.install_opener(opener)
         req = urllib.request.Request(self.url, data, self.headers, self.accept)
         urllib.request.urlopen(req) 
-        print(Fore.GREEN+'root@hurryup:~# Connected : '+Fore.CYAN+'%s\r' % self.url) 
+        print(Fore.GREEN+'Connected : '+Fore.CYAN+'%s\r' % self.url) 
         
              
         
@@ -88,7 +88,7 @@ class sender(threading.Thread):
             try:
                 self.request()               
             except:
-                sys.stdout.write(Fore.RED+'root@hurryup:~# Connect : '+Fore.BLUE+'Fail!\n')
+                sys.stdout.write(Fore.RED+'Connect : '+Fore.BLUE+'Fail !\n')
                 sys.exit(0)
 
         sys.exit(0)
