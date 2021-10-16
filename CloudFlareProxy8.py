@@ -3,11 +3,11 @@ import cfscrape
 from colorama import Fore, Style
 
 if len(sys.argv)==1:
-    sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [URL] [THREAD]'+Style.RESET_ALL+Fore.RESET)
+    sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [url] [thread]'+Style.RESET_ALL+Fore.RESET)
 
 def getproxy():
     list = str('proxy.txt')
-    rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&country=all')
+    rsp = requests.get('https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all')
     with open(str(list),'wb') as fp:
         fp.write(rsp.content)    
     pprr = open(list).readlines()
