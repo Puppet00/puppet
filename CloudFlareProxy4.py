@@ -4,11 +4,6 @@ from colorama import Fore, Style
 
 print(" ")
 print(" ")
-os.system("pip install cloudscraper")
-os.system("pip install colorama")
-os.system("clear")
-print(" ")
-print(" ")
 print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
 print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
@@ -18,6 +13,10 @@ print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\__
 print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print(" ")
 print(" ")
+os.system("pip install cloudscraper")
+os.system("pip install colorama")
+os.system("clear")
+
 if len(sys.argv)==1:
     sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [URL] [THREAD]'+Style.RESET_ALL+Fore.RESET)
 
