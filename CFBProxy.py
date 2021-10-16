@@ -487,7 +487,7 @@ class sender(threading.Thread):
         urllib.request.install_opener(opener)
         req = urllib.request.Request(self.url, data, self.headers, self.accept)
         urllib.request.urlopen(req) 
-        print(Fore.GREEN+'Connected : '+Fore.CYAN+'%s\r' % self.url) 
+        print(Fore.GREEN+'Connected: '+Fore.CYAN+'%s\r' % self.url) 
         
              
         
@@ -498,7 +498,7 @@ class sender(threading.Thread):
             try:
                 self.request()               
             except:
-                sys.stdout.write(Fore.RED+'Connect : '+Fore.BLUE+'Fail!\n')
+                sys.stdout.write(Fore.RED+'Connect: '+Fore.BLUE+'fail!\n')
                 sys.exit(0)
 
         sys.exit(0)
@@ -523,7 +523,7 @@ class MainLoop:
             else:
                 num_threads = sys.argv[2]
                 if num_threads == '':
-                    num_threads = int(10000)
+                    num_threads = int(8000)
                 else:
                     num_threads = int(num_threads)
                 for i in range(num_threads):
