@@ -1,8 +1,6 @@
 import urllib.request, os, threading, time, random, sys, requests
 import cfscrape
 from colorama import Fore, Style
-
-print(" ")
 os.system("pip install cloudscraper")
 os.system("pip install colorama")
 os.system("clear")
