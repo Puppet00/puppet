@@ -82,7 +82,7 @@ class sender(threading.Thread):
         urllib.request.install_opener(opener)
         req = urllib.request.Request(self.url, data, self.headers, self.accept)
         urllib.request.urlopen(req) 
-        print(Fore.GREEN+'Connected: '+Fore.CYAN+'%s\r' % self.url) 
+        print(Fore.GREEN+'root@hurryup:~# Connected : '+Fore.CYAN+'%s\r' % self.url) 
         
              
         
@@ -93,7 +93,7 @@ class sender(threading.Thread):
             try:
                 self.request()               
             except:
-                sys.stdout.write(Fore.RED+'Connect: '+Fore.BLUE+'fail!\n')
+                sys.stdout.write(Fore.RED+'root@hurryup:~# Connect : '+Fore.BLUE+'Fail!\n')
                 sys.exit(0)
 
         sys.exit(0)
@@ -110,10 +110,10 @@ class MainLoop:
             url = sys.argv[1]
         else:
             try:
-                file_proxy = str('proxy.txt')
+                file_proxy = str('http.txt')
                 in_file = open(file_proxy, 'r')
             except:
-                file_proxy = str('proxy.txt')
+                file_proxy = str('http.txt')
                 in_file = open(file_proxy, 'r')
             else:
                 num_threads = sys.argv[2]
