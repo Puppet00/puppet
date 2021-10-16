@@ -3,7 +3,7 @@ import cfscrape
 from colorama import Fore, Style
 
 if len(sys.argv)==1:
-    sys.exit(Fore.GREEN+'Usage : '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [URL] [THREAD]'+Style.RESET_ALL+Fore.RESET)
+    sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [url] [thread]'+Style.RESET_ALL+Fore.RESET)
 
 def getproxy():
     list = str('proxy.txt')
@@ -49,6 +49,7 @@ acceptall = [
 		"Accept-Language: en-US,en;q=0.5\r\n",
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
 		"Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",]
+
 class sender(threading.Thread):
 
     def __init__(self, url, number, proxy):
