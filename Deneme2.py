@@ -1,9 +1,9 @@
 import requests
 from threading import Thread
 global url, time, file
-url     =     input("URL (ex: http://domain.com): ")
-time    = int(input("Number Of Packets(0-inf): "   ))
-threads = int(input("Number Of Threads(0-inf): "   ))
+url     =     input("URL (ex: http://domain.com) : ")
+time    = int(input("Number Of Packets(0-inf) : "   ))
+threads = int(input("Number Of Threads(0-inf) : "   ))
 
 global breakFlag
 breakFlag = False
