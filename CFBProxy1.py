@@ -4,6 +4,8 @@ from colorama import Fore, Style
 #######
 #PRİNT#
 #######
+os.system("pip install cloudscraper && pip install colorama")
+os.system("pip3 install cloudscraper && pip3 install colorama")
 print(" ")
 print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
 print("\033[91m   ________________  ____  ____  ____ _  ___  __                            \033[0m")
