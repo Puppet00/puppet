@@ -18,7 +18,7 @@ if len(sys.argv)==1:
 
 def getproxy():
     list = str('proxy.txt')
-    rsp = requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all')
+    rsp = requests.get('https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=tr&ssl=all&anonymity=all')
     with open(str(list),'wb') as fp:
         fp.write(rsp.content)    
     pprr = open(list).readlines()
