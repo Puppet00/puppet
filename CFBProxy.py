@@ -114,7 +114,7 @@ class MainLoop:
             else:
                 num_threads = sys.argv[2]
                 if num_threads == '':
-                    num_threads = int(8000)
+                    num_threads = int(5600)
                 else:
                     num_threads = int(num_threads)
                 for i in range(num_threads):
