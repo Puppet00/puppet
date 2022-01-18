@@ -24,7 +24,7 @@ class LowkeyTWO_FactorAUTH:
 [INFO]
 Automatic Renewing This Screen in 10 seconds...
 """)
-        time.sleep(10)
+        time.sleep(120)
         subprocess.run("clear", shell=True, stderr=subprocess.DEVNULL)
         subprocess.run("cls", shell=True, stderr=subprocess.DEVNULL)
         twofa.twofactor_code()
