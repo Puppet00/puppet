@@ -1,21 +1,7 @@
 import pyotp
-import os
 import time
 import subprocess
-#######
-#PRİNT#
-#######
-os.system("pip install pyotp")
-os.system("pip3 install pyotp")
-print(" ")
-print("\033[90m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
-print("\033[91m   ________________  ____  ____  ____ _  ___  __                            \033[0m")
-print("\033[92m  / ____/ ____/ __ )/ __ \/ __ \/ __ | |/ \ \/ /                            \033[0m")
-print("\033[93m / /   / /_  / __  / /_/ / /_/ / / / |   / \  /                             \033[0m")
-print("\033[94m/ /___/ __/ / /_/ / ____/ _, _/ /_/ /   |  / /                              \033[0m")
-print("\033[95m\____/_/   /_____/_/   /_/ |_|\____/_/|_| /_/                               \033[0m")
-print("\033[96m----------------------------CloudFlareDDoS--------------------------------- \033[0m")
-print(" ")
+
 class LowkeyTWO_FactorAUTH:
     def __init__(self, sleutel, programma):
         self.key_pyotp = sleutel
