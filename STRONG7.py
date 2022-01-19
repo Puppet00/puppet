@@ -43,6 +43,7 @@ def attack():
       pass
 print(" ")
 print("\033[96mWelcome To STRONG DDoS\033[0m")
+print(" ")
 print("\033[91m  ,---. ,--------.,------.  ,-----. ,--.  ,--. ,----.    \033[0m")
 print("\033[92m '   .-''--.  .--'|  .--. ''  .-.  '|  ,'.|  |'  .-./    \033[0m")
 print("\033[93m `.  `-.   |  |   |  '--'.'|  | |  ||  |' '  ||  | .---. \033[0m")
@@ -52,7 +53,9 @@ print(" ")
 ip = input("IP/Domain : ")
 port = int(input("Port : "))
 url = f"http://{str(ip)}"
-print("\033[92m Starting The Attack \033[0m")
+print(" ")
+print("\033[92mStarting The Attack\033[0m")
+print(" ")
 sleep(1)
 
 def send2attack():
