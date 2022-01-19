@@ -5,18 +5,18 @@ import multiprocessing
 import random
 import platform
 
-print("Detecting System...")
+print("\033[91mDetecting System...\033[0m")
 sysOS = platform.system()
-print("System Detected: ", sysOS)
+print("System Detected : ",sysOS)
 
 if sysOS == "Linux":
   try:
     os.system("ulimit -n 1030000")
   except Exception as e:
     print(e)
-    print("Could Not Start The Script")
+    print("\033[93mCould Not Start The Script\033[0m")
 else:
-  print("Your System is Not Linux, You May Not Be Able To Run This Script in Some Systems")
+  print("\033[94mYour System is Not Linux, You May Not Be Able To Run This Script in Some Systems\033[0m")
 
 
 def randomip():
