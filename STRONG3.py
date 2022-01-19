@@ -41,9 +41,8 @@ def attack():
       sleep(0)
     except:
       pass
-
+print("                                                       ")
 print("Welcome To STRONG DDoS\n")
-print(" ")
 print("  ██████ ▄▄▄█████▓ ██▀███   ▒█████   ███▄    █   ▄████ ")
 print("▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒ ██ ▀█   █  ██▒ ▀█▒")
 print("░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒▓██  ▀█ ██▒▒██░▄▄▄░")
@@ -58,6 +57,16 @@ ip = input("IP/Domain : ")
 port = int(input("Port : "))
 url = f"http://{str(ip)}"
 print("[>>] Starting The Attack [<<]")
+print "[                    ] 0% "
+time.sleep(1)
+print "[=====               ] 25%"
+time.sleep(1)
+print "[==========          ] 50%"
+time.sleep(1)
+print "[===============     ] 75%"
+time.sleep(1)
+print "[====================] 100%"
+time.sleep(2)
 sleep(1)
 
 def send2attack():
