@@ -6,6 +6,7 @@ import random
 import platform
 
 print("\033[91mDetecting System...\033[0m")
+print(" ")
 sysOS = platform.system()
 print("System Detected : ",sysOS)
 
