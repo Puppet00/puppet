@@ -1,8 +1,13 @@
 import os, sys, time, socket, random, threading
 #import ssl, socks, scapy
 
-os.system("pip install colorama")
-os.system("pip install fake-useragent")
+with open("requirements.txt", 'w') as file:
+	file.write("colorama\nfake-useragent")
+try:
+	import colorama, fake_useragent
+except ModuleNotFoundError:
+	sys.exit("\n> pip3 install -r requirements.txt\n")
+	
 os.system("clear")
 ua = fake_useragent.UserAgent()
 choice = random.choice
