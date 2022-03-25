@@ -322,15 +322,15 @@ def clear():
 
 def title():
     print("                                                                                          ")
-    print("                          "+Fore.LIGHTMAGENTA_EX+"╦╔═╔═╗╦═╗╔╦╗╔═╗                 ")
-    print("                          "+Fore.LIGHTRED_EX    +"╠╩╗╠═╣╠╦╝║║║╠═╣                 ")
-    print("                          "+Fore.RED            +"╩ ╩╩ ╩╩╚═╩ ╩╩ ╩                 ")
+    print("                          "+Fore.LIGHTMAGENTA_EX+"╔═╗╔═╗╔═╗╔╦╗╔╗╔                 ")
+    print("                          "+Fore.LIGHTRED_EX    +"║ ║╔═╝║   ║ ║║║                 ")
+    print("                          "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                 ")
     print("                                                                                          ")
     print("                           "+Fore.LIGHTWHITE_EX+"* dev.Hyuk *")
     print("                                                                                          ")
 
 def command():
-    print(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"KarmaSH"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE, end='')
+    print(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"0zctn"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE, end='')
     command = input()
     if command == "cls":
         clear()
