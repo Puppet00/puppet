@@ -326,7 +326,7 @@ def title():
     print("                          "+Fore.LIGHTRED_EX    +"║ ║╔═╝║   ║ ║║║                 ")
     print("                          "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                 ")
     print("                                                                                          ")
-    print("                           "+Fore.LIGHTWHITE_EX+"* dev.Hyuk *")
+    print("                           "+Fore.LIGHTWHITE_EX+"* @0zctn *")
     print("                                                                                          ")
 
 def command():
