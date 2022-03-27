@@ -11,6 +11,9 @@ from sys import stdout
 from colorama import Fore, init
 init(convert=True)
 
+#OS
+os.system("pip install cloudscraper && pip install undetected-chromedriver && pip install PyVirtualDisplay && pip install xvfbwrapper && pip install colorama")
+#OS
 def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     while (until - datetime.datetime.now()).total_seconds() > 0:
