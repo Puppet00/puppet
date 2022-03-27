@@ -422,7 +422,7 @@ def funcc():
 
 def hello():
 	global namee
-	dir = "C:/KARMA/"
+	dir = "C:/0ZCTN/"
 	if os.path.exists(dir):
 		namee = open(dir+"User.txt").readline()
 		pass
@@ -431,7 +431,7 @@ def hello():
 			os.makedirs(dir)
 		stdout.write(Fore.YELLOW+">>> "+Fore.WHITE+"Input User name: " + Fore.LIGHTGREEN_EX, end='')
 		put = input()
-		f = open("C:/KARMA/User.txt", 'w').write(put)
+		f = open("C:/0ZCTN/User.txt", 'w').write(put)
 		namee = open(dir+"User.txt").readline()
 	stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"Welcome Back, "+namee+"!\n")
 
