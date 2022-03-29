@@ -13,7 +13,7 @@ process=10
 
 #change the system limit
 ulimit -n 999999
-print(" ")
+echo 
 echo Attack Started
 for ((i=1;i<=$process;i++))
 do
