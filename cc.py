@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-#Coded by L330n123
-#########################################
-#         Just a little change          #
-#                           -- L330n123 #
-#########################################
 import requests
 import socket
 import socks
