@@ -1,3 +1,4 @@
+requirements.txt
 cloudscraper
 socks
 pysocks
