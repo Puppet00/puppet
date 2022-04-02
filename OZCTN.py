@@ -602,14 +602,14 @@ def clear():
 def title():
     #sys.stdout.write("\x1b]2;OZCTN | User: root\x07")
     stdout.write("                                                                                          \n")
-    stdout.write("                                 "+Fore.LIGHTMAGENTA_EX+"╦╔═╔═╗╦═╗╔╦╗╔═╗                 \n")
-    stdout.write("                                 "+Fore.LIGHTRED_EX    +"╠╩╗╠═╣╠╦╝║║║╠═╣                 \n")
-    stdout.write("                                 "+Fore.RED            +"╩ ╩╩ ╩╩╚═╩ ╩╩ ╩                \n")
+    stdout.write("                                 "+Fore.LIGHTMAGENTA_EX+"╔═╗╔═╗╔═╗╔╦╗╔╗╔                 \n")
+    stdout.write("                                 "+Fore.LIGHTRED_EX    +"║ ║╔═╝║   ║ ║║║                 \n")
+    stdout.write("                                 "+Fore.RED            +"╚═╝╚═╝╚═╝ ╩ ╝╚╝                \n")
     stdout.write("             "+Fore.RED            +"        ══╦═════════════════════════════════╦══\n")
     stdout.write("             \x1b[38;2;255;0;0m╔═════════╩═════════════════════════════════╩═════════╗\n")
     stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m        Welcome To The Main Screen Of OZCTN\x1b[38;2;255;0;0m         ║\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m          Type [help,?] to see the Commands    \x1b[38;2;255;0;0m       ║\n")
-    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Contact Dev - Instagram : OZCTN   \x1b[38;2;255;0;0m       ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m          Type [help,?] To See The Commands    \x1b[38;2;255;0;0m     ║\n")
+    stdout.write("             \x1b[38;2;255;0;0m║ \x1b[38;2;0;255;189m         Contact Dev - Instagram : OZCTN     \x1b[38;2;255;0;0m       ║\n")
     stdout.write("             \x1b[38;2;255;0;0m╚═════════════════════════════════════════════════════╝\n")
     stdout.write("\n")
 
@@ -630,9 +630,9 @@ def command():
     elif command == "exit":
         exit()
     elif command == "credit":
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Developer          "+Fore.RED+": \x1b[38;2;0;255;189mHyuk\n")
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"UI Design          "+Fore.RED+": \x1b[38;2;0;255;189mYone\n")
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Methods And Tools  "+Fore.RED+": \x1b[38;2;0;255;189mSkyWtkh\n")
+        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Developer          "+Fore.RED+": \x1b[38;2;0;255;189mOZCTN\n")
+        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"UI Design          "+Fore.RED+": \x1b[38;2;0;255;189mOZCTN\n")
+        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Methods And Tools  "+Fore.RED+": \x1b[38;2;0;255;189mOZCTN\n")
     elif command == "cfb":
         stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"URL     "+Fore.RED+": "+Fore.LIGHTGREEN_EX)
         target = input()
