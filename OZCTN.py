@@ -518,6 +518,12 @@ def command():
         timer.start()
         LaunchRAW(target, thread, t)
         timer.join()
+    elif command == "get":
+        target, thread, t = get_info()
+        timer = threading.Thread(target=countdown, args=(t,))
+        timer.start()
+        LaunchRAW(target, thread, t)
+        timer.join()
     elif command == "post":
         target, thread, t = get_info()
         timer = threading.Thread(target=countdown, args=(t,))
