@@ -69,7 +69,7 @@ url = ""
 proxy_ver = "5"
 brute = False
 out_file = "proxy.txt"
-thread_num = 10000
+thread_num = 999
 data = ""
 cookies = ""
 ###############################
@@ -564,7 +564,7 @@ def PrintHelp():
              | (Example : -data data.json)
    -cookies  | Set Cookies (Example : 'id:xxx;ua:xxx')
    -v        | Set Proxy Type (4/5/http, default:5)
-   -t        | Set Threads Number (default : 10000)
+   -t        | Set Threads Number (default : 999)
    -f        | set proxies file (Default : socks.txt)
    -b        | Enable/Disable Brute Mode
              | Enable=1 Disable=0  (Default : 0)
